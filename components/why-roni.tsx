@@ -54,7 +54,7 @@ export function WhyRoni() {
               >
                 {/* Number */}
                 <span
-                  className="font-heading text-6xl font-black leading-none opacity-15 transition-opacity duration-500 group-hover:opacity-30"
+                  className="font-heading text-6xl font-black leading-none opacity-40 transition-opacity duration-500 group-hover:opacity-60"
                   style={{ color: "#D4521A" }}
                 >
                   {p.num}
