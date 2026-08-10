@@ -42,7 +42,7 @@ export function Contact() {
 
           {/* Bottom — contact cards */}
           <Reveal delay={150}>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-5xl mx-auto w-full">
               {[
                 { icon: Phone, label: "טלפון", value: "050-777-0071", href: "tel:+972507770071" },
                 { icon: WhatsAppIcon, label: "WhatsApp", value: "שלחי הודעה עכשיו", href: "https://wa.me/972507770071" },
@@ -53,7 +53,7 @@ export function Contact() {
                   href={c.href}
                   target={c.href.startsWith("http") ? "_blank" : undefined}
                   rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group flex items-center gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5"
+                  className="group flex items-center gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5 overflow-hidden"
                   style={{
                     backgroundColor: "rgba(245,240,232,0.05)",
                     border: "1px solid rgba(245,240,232,0.1)",
@@ -75,7 +75,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "rgba(245,240,232,0.4)" }}>{c.label}</p>
-                    <p className="mt-0.5 font-heading text-sm font-semibold whitespace-nowrap" style={{ color: "#F5F0E8" }}>{c.value}</p>
+                    <p className="mt-0.5 font-heading text-sm font-semibold truncate" style={{ color: "#F5F0E8" }}>{c.value}</p>
                   </div>
                   <div className="mr-auto opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ color: "#D4521A" }}>←</div>
                 </a>
