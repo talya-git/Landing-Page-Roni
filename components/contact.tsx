@@ -16,16 +16,17 @@ export function Contact() {
     <section id="contact" className="relative overflow-hidden" style={{ backgroundColor: "#1B4D3E" }}>
       <div className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #D4521A, transparent)" }} />
 
-      <div className="relative mx-auto max-w-7xl px-5 py-16 md:px-16 md:py-36">
-        <div className="grid gap-12 md:grid-cols-2 md:gap-24 items-center">
+      <div className="relative mx-auto max-w-4xl px-5 py-16 md:px-16 md:py-36">
+        <div className="flex flex-col gap-12">
 
-          {/* Left — headline */}
-          <Reveal>
-            <div className="flex items-center gap-4 mb-6">
+          {/* Top — headline */}
+          <Reveal className="text-center">
+            <div className="flex items-center justify-center gap-4 mb-6">
               <div className="h-px w-12" style={{ backgroundColor: "#D4521A" }} />
               <span className="text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "#D4521A" }}>
                 בואו ניצור יחד
               </span>
+              <div className="h-px w-12" style={{ backgroundColor: "#D4521A" }} />
             </div>
             <h2
               className="font-heading font-bold leading-[1.05] tracking-[-0.03em]"
@@ -34,35 +35,14 @@ export function Contact() {
               לכל שיחה יש כוח{" "}
               <span style={{ color: "#D4521A" }}>להשפיע.</span>
             </h2>
-            <p className="mt-6 text-base leading-relaxed max-w-md" style={{ color: "rgba(245,240,232,0.6)" }}>
+            <p className="mt-6 text-base leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(245,240,232,0.6)" }}>
               אם אתם מחפשים מנחה לכנס, מראיינת לפודקאסט, מנחת פאנל, יוצרת תוכן או שותפה לפרויקט משמעותי — אשמח להכיר.
             </p>
-
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href="tel:+972507770071"
-                className="group inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105"
-                style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 8px 40px rgba(212,82,26,0.4)" }}
-              >
-                <Phone className="h-5 w-5" />
-                לתיאום שיחה
-              </a>
-              <a
-                href="https://wa.me/972507770071"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-medium transition-all duration-300 hover:bg-white/10"
-                style={{ border: "1px solid rgba(245,240,232,0.25)", color: "#F5F0E8" }}
-              >
-                <WhatsAppIcon className="h-5 w-5" />
-                WhatsApp
-              </a>
-            </div>
           </Reveal>
 
-          {/* Right — contact cards */}
+          {/* Bottom — contact cards */}
           <Reveal delay={150}>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 max-w-lg mx-auto w-full">
               {[
                 { icon: Phone, label: "טלפון", value: "050-777-0071", href: "tel:+972507770071" },
                 { icon: WhatsAppIcon, label: "WhatsApp", value: "שלחי הודעה עכשיו", href: "https://wa.me/972507770071" },
