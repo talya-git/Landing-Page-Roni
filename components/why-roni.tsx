@@ -45,11 +45,11 @@ export function WhyRoni() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-px md:grid-cols-3" style={{ backgroundColor: "rgba(245,240,232,0.08)" }}>
+        <div className="mt-16 grid gap-px sm:grid-cols-2 md:grid-cols-3" style={{ backgroundColor: "rgba(245,240,232,0.08)" }}>
           {points.map((p, i) => (
             <Reveal key={p.num} delay={i * 100}>
               <div
-                className="group relative flex flex-col p-10 transition-all duration-500 hover:bg-white/5"
+                className="group relative flex flex-col p-7 md:p-10 transition-all duration-500 hover:bg-white/5"
                 style={{ backgroundColor: "rgba(27,77,62,0.01)" }}
               >
                 {/* Number */}

@@ -15,8 +15,8 @@ export function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden" style={{ backgroundColor: "#1B4D3E" }}>
 
-      <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-16 md:py-36">
-        <div className="grid gap-16 md:grid-cols-2 md:gap-24 items-center">
+      <div className="relative mx-auto max-w-7xl px-5 py-16 md:px-16 md:py-36">
+        <div className="grid gap-12 md:grid-cols-2 md:gap-24 items-center">
 
           {/* Left — headline */}
           <Reveal>

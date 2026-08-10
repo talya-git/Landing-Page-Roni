@@ -69,14 +69,14 @@ export function Gallery() {
             <button
               key={c.id}
               onClick={() => setActive(c.id)}
-              className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium transition-all"
+              className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-medium transition-all sm:px-5 sm:text-sm"
               style={{
                 backgroundColor: active === c.id ? "#D4521A" : "rgba(245,240,232,0.08)",
                 color: active === c.id ? "#FFFFFF" : "rgba(245,240,232,0.7)",
                 border: `1px solid ${active === c.id ? "#D4521A" : "rgba(245,240,232,0.15)"}`,
               }}
             >
-              <c.Icon className="h-4 w-4" strokeWidth={1.5} />
+              <c.Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.5} />
               {c.label}
             </button>
           ))}

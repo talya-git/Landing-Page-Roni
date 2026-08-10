@@ -106,7 +106,7 @@ export function Hero() {
 
         {/* Stats strip */}
         <div
-          className="mt-16 flex flex-wrap justify-center gap-8 border-t pt-8"
+          className="mt-12 grid grid-cols-3 gap-4 border-t pt-8"
           style={{ borderColor: "rgba(245,240,232,0.1)", animation: "fade-up 0.9s ease 0.55s both" }}
         >
           {[
@@ -115,8 +115,8 @@ export function Hero() {
             { num: "100+", label: "כנסים ופאנלים" },
           ].map((s) => (
             <div key={s.label} className="flex flex-col items-center">
-              <span className="font-heading text-3xl font-bold" style={{ color: "#D4521A" }}>{s.num}</span>
-              <span className="text-xs mt-1" style={{ color: "rgba(245,240,232,0.5)" }}>{s.label}</span>
+              <span className="font-heading text-2xl font-bold sm:text-3xl" style={{ color: "#D4521A" }}>{s.num}</span>
+              <span className="text-xs mt-1 text-center" style={{ color: "rgba(245,240,232,0.5)" }}>{s.label}</span>
             </div>
           ))}
         </div>
