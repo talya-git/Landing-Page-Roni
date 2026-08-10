@@ -32,8 +32,7 @@ export function Contact() {
               className="font-heading font-bold leading-[1.05] tracking-[-0.03em]"
               style={{ fontSize: "clamp(2.5rem, 5vw, 5rem)", color: "#F5F0E8" }}
             >
-              לכל שיחה יש כוח{" "}
-              <span style={{ color: "#D4521A" }}>להשפיע.</span>
+              לכל שיחה יש כוח להשפיע.
             </h2>
             <p className="mt-6 text-base leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(245,240,232,0.6)" }}>
               אם אתם מחפשים מנחה לכנס, מראיינת לפודקאסט, מנחת פאנל, יוצרת תוכן או שותפה לפרויקט משמעותי — אשמח להכיר.
