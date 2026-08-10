@@ -23,6 +23,8 @@ const points = [
 export function WhyRoni() {
   return (
     <section id="why" className="relative overflow-hidden py-24 md:py-36" style={{ backgroundColor: "#1B4D3E" }}>
+      {/* Outline circle */}
+      <div className="pointer-events-none absolute -right-48 top-1/2 -translate-y-1/2 h-[700px] w-[700px] rounded-full opacity-[0.05]" style={{ border: "1px solid #F5F0E8" }} />
 
       <div className="relative mx-auto max-w-7xl px-6 md:px-16">
 

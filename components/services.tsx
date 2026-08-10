@@ -59,6 +59,9 @@ export function Services() {
                   className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl opacity-0 transition-opacity duration-400 group-hover:opacity-100"
                   style={{ background: "linear-gradient(to left, transparent, #D4521A, transparent)" }}
                 />
+                {/* Corner brackets */}
+                <div className="pointer-events-none absolute top-3 right-3 h-5 w-5 opacity-20" style={{ borderTop: "1.5px solid #D4521A", borderRight: "1.5px solid #D4521A" }} />
+                <div className="pointer-events-none absolute bottom-3 left-3 h-5 w-5 opacity-20" style={{ borderBottom: "1.5px solid #D4521A", borderLeft: "1.5px solid #D4521A" }} />
 
                 {/* Icon */}
                 <div

@@ -37,6 +37,9 @@ export function Testimonials() {
       <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full opacity-20" style={{ background: "radial-gradient(circle, #D4521A, transparent)" }} />
       <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full opacity-15" style={{ background: "radial-gradient(circle, #D4521A, transparent)" }} />
       <div className="pointer-events-none absolute -bottom-32 -right-32 h-96 w-96 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #1B4D3E, transparent)" }} />
+      {/* Outline circle */}
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full opacity-[0.06]" style={{ border: "1px solid #D4521A" }} />
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full opacity-[0.04]" style={{ border: "1px solid #1B4D3E" }} />
 
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="text-center mb-14">
@@ -74,6 +77,17 @@ export function Testimonials() {
                   className="absolute inset-x-0 top-0 h-1 rounded-t-3xl transition-all duration-500"
                   style={{ background: "linear-gradient(to left, #1B4D3E, #D4521A)" }}
                 />
+
+                {/* Giant background quote */}
+                <div
+                  className="pointer-events-none absolute -top-4 right-4 font-heading text-[10rem] font-black leading-none select-none opacity-[0.04]"
+                  style={{ color: "#D4521A" }}
+                >
+                  &#8220;
+                </div>
+
+                {/* Corner bracket — bottom left */}
+                <div className="pointer-events-none absolute bottom-4 left-4 h-6 w-6 opacity-20" style={{ borderBottom: "2px solid #D4521A", borderLeft: "2px solid #D4521A" }} />
 
                 {/* Quote icon */}
                 <div
