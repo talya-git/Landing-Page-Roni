@@ -68,14 +68,14 @@ export function Services() {
                 </div>
 
                 <h3
-                  className="mt-6 font-heading text-xl font-bold"
+                  className="mt-6 font-heading text-2xl font-bold"
                   style={{ color: "#F5F0E8" }}
                 >
                   {s.title}
                 </h3>
 
                 <p
-                  className="mt-3 flex-1 text-sm leading-relaxed"
+                  className="mt-3 flex-1 text-base leading-relaxed"
                   style={{ color: "rgba(245,240,232,0.6)" }}
                 >
                   {s.body}
