@@ -72,6 +72,13 @@ export function Hero() {
           זו השליחות שלי.
         </p>
 
+        <p
+          className="mt-4 max-w-xl text-base leading-relaxed"
+          style={{ color: "rgba(245,240,232,0.65)", animation: "fade-up 0.9s ease 0.4s both" }}
+        >
+          ליצור שיחות שמחברות בין אנשים, מייצרות ערך ונשארות הרבה אחרי שהאירוע מסתיים.
+        </p>
+
         {/* CTA buttons */}
         <div
           className="mt-10 flex flex-wrap justify-center gap-4"

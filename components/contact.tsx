@@ -37,6 +37,9 @@ export function Contact() {
             <p className="mt-6 text-base leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(245,240,232,0.6)" }}>
               אם אתם מחפשים מנחה לכנס, מראיינת לפודקאסט, מנחת פאנל, יוצרת תוכן או שותפה לפרויקט משמעותי — אשמח להכיר.
             </p>
+            <p className="mt-3 text-base leading-relaxed max-w-xl mx-auto font-medium" style={{ color: "rgba(245,240,232,0.85)" }}>
+              בוא ניצור יחד את הרגע הבא שלכם.
+            </p>
           </Reveal>
 
           {/* Bottom — contact cards */}

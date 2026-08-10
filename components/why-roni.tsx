@@ -39,7 +39,7 @@ export function WhyRoni() {
             className="font-heading font-bold leading-[1.1] tracking-[-0.03em] max-w-2xl"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "#F5F0E8" }}
           >
-            כל אירוע. כל פאנל. כל ריאיון.
+            כל אירוע. כל פאנל. כל ריאיון. כל שיתוף פעולה.
           </h2>
           <p className="mt-4 text-base max-w-xl" style={{ color: "rgba(245,240,232,0.55)" }}>
             מקבלים ממני את אותה מחויבות: לייצר ערך ולהשאיר חותם.
