@@ -79,7 +79,7 @@ export function Hero() {
         >
           <a
             href="#contact"
-            className="group inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105"
+            className="group hidden lg:inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105"
             style={{
               backgroundColor: "#D4521A",
               color: "#FFFFFF",
