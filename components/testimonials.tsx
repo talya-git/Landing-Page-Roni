@@ -74,10 +74,10 @@ export function Testimonials() {
                   style={{ background: "linear-gradient(to left, #1B4D3E, #D4521A)" }}
                 />
 
-                {/* Giant background quote */}
+                {/* Giant quote mark — top */}
                 <div
-                  className="pointer-events-none absolute bottom-6 right-4 font-heading text-[10rem] font-black leading-none select-none opacity-[0.06]"
-                  style={{ color: "#D4521A" }}
+                  className="font-heading text-[6rem] font-black leading-none select-none opacity-20 -mb-6"
+                  style={{ color: "#D4521A", lineHeight: 1 }}
                 >
                   &#8220;
                 </div>
