@@ -76,10 +76,10 @@ export function Testimonials() {
 
                 {/* Giant quote mark — top */}
                 <div
-                  className="font-heading text-[5rem] font-black select-none opacity-20 mb-2"
-                  style={{ color: "#D4521A", lineHeight: 0.4 }}
+                  className="font-heading text-[4rem] font-black select-none opacity-25 leading-none mb-3"
+                  style={{ color: "#D4521A" }}
                 >
-                  &#8220;
+                  &ldquo;
                 </div>
 
                 {/* Corner bracket — bottom left */}
