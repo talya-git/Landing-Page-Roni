@@ -34,14 +34,9 @@ export function Testimonials() {
   return (
     <section id="testimonials" className="relative py-20 md:py-28 overflow-hidden" style={{ backgroundColor: "#F5F0E8" }}>
       {/* Background decoration */}
-      <div
-        className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full opacity-20"
-        style={{ background: "radial-gradient(circle, #D4521A, transparent)" }}
-      />
-      <div
-        className="pointer-events-none absolute -bottom-32 -right-32 h-96 w-96 rounded-full opacity-10"
-        style={{ background: "radial-gradient(circle, #1B4D3E, transparent)" }}
-      />
+      <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full opacity-20" style={{ background: "radial-gradient(circle, #D4521A, transparent)" }} />
+      <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full opacity-15" style={{ background: "radial-gradient(circle, #D4521A, transparent)" }} />
+      <div className="pointer-events-none absolute -bottom-32 -right-32 h-96 w-96 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #1B4D3E, transparent)" }} />
 
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="text-center mb-14">

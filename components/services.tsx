@@ -14,7 +14,8 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="relative py-24 md:py-36" style={{ backgroundColor: "#1B4D3E" }}>
+    <section id="services" className="relative py-24 md:py-36 overflow-hidden" style={{ backgroundColor: "#1B4D3E" }}>
+      <div className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #D4521A, transparent)" }} />
       <div className="mx-auto max-w-7xl px-6 md:px-16">
 
         <Reveal className="text-center mb-16">

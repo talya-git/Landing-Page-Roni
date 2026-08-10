@@ -3,6 +3,7 @@ import { Reveal } from "@/components/reveal"
 export function About() {
   return (
     <section id="about" className="relative overflow-hidden py-24 md:py-36" style={{ backgroundColor: "#F5F0E8" }}>
+      <div className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full opacity-15" style={{ background: "radial-gradient(circle, #D4521A, transparent)" }} />
 
       <div className="relative mx-auto max-w-7xl px-6 md:px-16">
 

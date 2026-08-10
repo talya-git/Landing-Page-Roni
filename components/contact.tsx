@@ -14,6 +14,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 export function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden" style={{ backgroundColor: "#1B4D3E" }}>
+      <div className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #D4521A, transparent)" }} />
 
       <div className="relative mx-auto max-w-7xl px-5 py-16 md:px-16 md:py-36">
         <div className="grid gap-12 md:grid-cols-2 md:gap-24 items-center">
