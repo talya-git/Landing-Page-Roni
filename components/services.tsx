@@ -20,14 +20,14 @@ export function Services() {
         <Reveal className="text-center mb-16">
           <div className="mb-6 flex items-center justify-center gap-4">
             <div className="h-px w-12" style={{ backgroundColor: "#D4521A" }} />
-            <span className="text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "#D4521A" }}>
+            <span className="text-sm font-semibold uppercase tracking-[0.4em]" style={{ color: "#D4521A" }}>
               תחומי הפעילות
             </span>
             <div className="h-px w-12" style={{ backgroundColor: "#D4521A" }} />
           </div>
           <h2
             className="font-heading font-bold leading-[1.1] tracking-[-0.03em]"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "#F5F0E8" }}
+            style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", color: "#F5F0E8" }}
           >
             מה אני עושה
           </h2>
