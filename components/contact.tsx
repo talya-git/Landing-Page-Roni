@@ -40,7 +40,7 @@ export function Contact() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href="tel:+972528962040"
+                href="tel:+972507770071"
                 className="group inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105"
                 style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 8px 40px rgba(212,82,26,0.4)" }}
               >
@@ -48,7 +48,7 @@ export function Contact() {
                 לתיאום שיחה
               </a>
               <a
-                href="https://wa.me/972528962040"
+                href="https://wa.me/972507770071"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-medium transition-all duration-300 hover:bg-white/10"
@@ -64,8 +64,8 @@ export function Contact() {
           <Reveal delay={150}>
             <div className="flex flex-col gap-4">
               {[
-                { icon: Phone, label: "טלפון", value: "052-896-2040", href: "tel:+972528962040" },
-                { icon: WhatsAppIcon, label: "WhatsApp", value: "שלחי הודעה עכשיו", href: "https://wa.me/972528962040" },
+                { icon: Phone, label: "טלפון", value: "050-777-0071", href: "tel:+972507770071" },
+                { icon: WhatsAppIcon, label: "WhatsApp", value: "שלחי הודעה עכשיו", href: "https://wa.me/972507770071" },
                 { icon: Mail, label: "אימייל", value: "roni@orencohengroup.com", href: "mailto:roni@orencohengroup.com" },
               ].map((c) => (
                 <a

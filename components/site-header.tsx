@@ -66,7 +66,7 @@ export function SiteHeader() {
           <div className="flex items-center gap-3">
             <a
               href="#contact"
-              className="hidden sm:inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all hover:scale-105 md:px-5"
+              className="hidden lg:inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all hover:scale-105 md:px-5"
               style={{
                 backgroundColor: "#D4521A",
                 color: "#FFFFFF",

@@ -90,7 +90,7 @@ export function Hero() {
             <span className="transition-transform duration-300 group-hover:translate-x-[-4px]">←</span>
           </a>
           <a
-            href="https://wa.me/972528962040"
+            href="https://wa.me/972507770071"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-medium transition-all duration-300 hover:bg-white/10"
