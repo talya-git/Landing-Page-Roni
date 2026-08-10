@@ -112,15 +112,6 @@ export function SiteHeader() {
               </a>
             ))}
           </nav>
-          <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-            className="mt-8 flex items-center justify-center gap-2 rounded-full py-4 text-base font-semibold"
-            style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 8px 32px rgba(212,82,26,0.35)" }}
-          >
-            <Phone className="h-5 w-5" />
-            לתיאום שיחה
-          </a>
         </div>
       )}
     </>
