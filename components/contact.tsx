@@ -53,7 +53,7 @@ export function Contact() {
                   href={c.href}
                   target={c.href.startsWith("http") ? "_blank" : undefined}
                   rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group flex items-center gap-4 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-0.5 overflow-hidden"
+                  className="group flex flex-col items-center justify-center gap-3 rounded-2xl p-7 text-center transition-all duration-300 hover:-translate-y-0.5"
                   style={{
                     backgroundColor: "rgba(245,240,232,0.05)",
                     border: "1px solid rgba(245,240,232,0.1)",
@@ -75,9 +75,8 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "rgba(245,240,232,0.4)" }}>{c.label}</p>
-                    <p className="mt-0.5 font-heading text-base font-semibold truncate" style={{ color: "#F5F0E8" }}>{c.value}</p>
+                    <p className="mt-0.5 font-heading text-base font-semibold break-all" style={{ color: "#F5F0E8" }}>{c.value}</p>
                   </div>
-                  <div className="mr-auto opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ color: "#D4521A" }}>←</div>
                 </a>
               ))}
             </div>
