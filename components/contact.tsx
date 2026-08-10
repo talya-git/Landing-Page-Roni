@@ -42,7 +42,7 @@ export function Contact() {
 
           {/* Bottom — contact cards */}
           <Reveal delay={150}>
-            <div className="flex flex-col gap-4 max-w-lg mx-auto w-full">
+            <div className="flex flex-col sm:flex-row gap-4 max-w-4xl mx-auto w-full">
               {[
                 { icon: Phone, label: "טלפון", value: "050-777-0071", href: "tel:+972507770071" },
                 { icon: WhatsAppIcon, label: "WhatsApp", value: "שלחי הודעה עכשיו", href: "https://wa.me/972507770071" },
