@@ -75,7 +75,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "rgba(245,240,232,0.4)" }}>{c.label}</p>
-                    <p className="mt-0.5 font-heading text-base font-semibold break-all" style={{ color: "#F5F0E8" }}>{c.value}</p>
+                    <p className="mt-0.5 font-heading text-sm font-semibold break-all" style={{ color: "#F5F0E8" }}>{c.value}</p>
                   </div>
                 </a>
               ))}
