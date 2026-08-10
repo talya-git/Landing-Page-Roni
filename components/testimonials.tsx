@@ -1,7 +1,6 @@
 "use client"
 
 import { Reveal } from "@/components/reveal"
-import { Quote } from "lucide-react"
 
 const testimonials = [
   {
@@ -80,7 +79,7 @@ export function Testimonials() {
 
                 {/* Giant background quote */}
                 <div
-                  className="pointer-events-none absolute -top-4 right-4 font-heading text-[10rem] font-black leading-none select-none opacity-[0.04]"
+                  className="pointer-events-none absolute top-4 right-4 font-heading text-[10rem] font-black leading-none select-none opacity-[0.06]"
                   style={{ color: "#D4521A" }}
                 >
                   &#8220;
@@ -88,14 +87,6 @@ export function Testimonials() {
 
                 {/* Corner bracket — bottom left */}
                 <div className="pointer-events-none absolute bottom-4 left-4 h-6 w-6 opacity-20" style={{ borderBottom: "2px solid #D4521A", borderLeft: "2px solid #D4521A" }} />
-
-                {/* Quote icon */}
-                <div
-                  className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl"
-                  style={{ backgroundColor: "rgba(212,82,26,0.08)" }}
-                >
-                  <Quote className="h-5 w-5" style={{ color: "#D4521A" }} strokeWidth={1.5} />
-                </div>
 
                 {/* Text */}
                 <p className="flex-1 text-pretty text-base leading-relaxed" style={{ color: "#4A4035" }}>
