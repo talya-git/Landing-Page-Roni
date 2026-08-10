@@ -76,8 +76,8 @@ export function Testimonials() {
 
                 {/* Giant quote mark — top */}
                 <div
-                  className="font-heading text-[6rem] font-black leading-none select-none opacity-20 -mb-6"
-                  style={{ color: "#D4521A", lineHeight: 1 }}
+                  className="font-heading text-[5rem] font-black leading-none select-none opacity-20 mb-2"
+                  style={{ color: "#D4521A", lineHeight: 0.8 }}
                 >
                   &#8220;
                 </div>
