@@ -16,35 +16,28 @@ export function Contact() {
     <section id="contact" className="relative overflow-hidden" style={{ backgroundColor: "#1B4D3E" }}>
       <div className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #D4521A, transparent)" }} />
 
-      <div className="relative mx-auto max-w-4xl px-5 py-16 md:px-16 md:py-36">
-        <div className="flex flex-col gap-12">
+      <div className="relative mx-auto max-w-4xl px-5 py-14 md:py-24 lg:py-36 md:px-16">
+        <div className="flex flex-col gap-8 md:gap-12">
 
-          {/* Top — headline */}
           <Reveal className="text-center">
-            <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="flex items-center justify-center gap-4 mb-4">
               <div className="h-px w-12" style={{ backgroundColor: "#D4521A" }} />
-              <span className="text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "#D4521A" }}>
-                בואו ניצור יחד
-              </span>
+              <span className="text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "#D4521A" }}>בואו ניצור יחד</span>
               <div className="h-px w-12" style={{ backgroundColor: "#D4521A" }} />
             </div>
-            <h2
-              className="font-heading font-bold leading-[1.05] tracking-[-0.03em]"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 5rem)", color: "#F5F0E8" }}
-            >
+            <h2 className="font-heading font-bold leading-[1.05] tracking-[-0.03em] text-3xl md:text-5xl lg:text-6xl" style={{ color: "#F5F0E8" }}>
               לכל שיחה יש כוח להשפיע.
             </h2>
-            <p className="mt-6 text-base leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(245,240,232,0.6)" }}>
+            <p className="mt-4 text-sm md:text-base leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(245,240,232,0.6)" }}>
               אם אתם מחפשים מנחה לכנס, מראיינת לפודקאסט, מנחת פאנל, יוצרת תוכן או שותפה לפרויקט משמעותי — אשמח להכיר.
             </p>
-            <p className="mt-3 text-base leading-relaxed max-w-xl mx-auto font-medium" style={{ color: "rgba(245,240,232,0.85)" }}>
+            <p className="mt-2 text-sm md:text-base leading-relaxed max-w-xl mx-auto font-medium" style={{ color: "rgba(245,240,232,0.85)" }}>
               בוא ניצור יחד את הרגע הבא שלכם.
             </p>
           </Reveal>
 
-          {/* Bottom — contact cards */}
           <Reveal delay={150}>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-5xl mx-auto w-full">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4 max-w-5xl mx-auto w-full">
               {[
                 { icon: Phone, label: "טלפון", value: "050-777-0071", href: "tel:+972507770071" },
                 { icon: WhatsAppIcon, label: "WhatsApp", value: "שלחי הודעה עכשיו", href: "https://wa.me/972507770071" },
@@ -55,11 +48,8 @@ export function Contact() {
                   href={c.href}
                   target={c.href.startsWith("http") ? "_blank" : undefined}
                   rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group flex flex-col items-center justify-center gap-3 rounded-2xl p-7 text-center transition-all duration-300 hover:-translate-y-0.5"
-                  style={{
-                    backgroundColor: "rgba(245,240,232,0.05)",
-                    border: "1px solid rgba(245,240,232,0.1)",
-                  }}
+                  className="group flex flex-col items-center justify-center gap-3 rounded-2xl p-6 md:p-7 text-center transition-all duration-300 hover:-translate-y-0.5"
+                  style={{ backgroundColor: "rgba(245,240,232,0.05)", border: "1px solid rgba(245,240,232,0.1)" }}
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(212,82,26,0.12)"
                     ;(e.currentTarget as HTMLElement).style.borderColor = "rgba(212,82,26,0.4)"
@@ -69,10 +59,7 @@ export function Contact() {
                     ;(e.currentTarget as HTMLElement).style.borderColor = "rgba(245,240,232,0.1)"
                   }}
                 >
-                  <div
-                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110"
-                    style={{ backgroundColor: "rgba(212,82,26,0.15)", color: "#D4521A" }}
-                  >
+                  <div className="flex h-11 w-11 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110" style={{ backgroundColor: "rgba(212,82,26,0.15)", color: "#D4521A" }}>
                     <c.icon className="h-5 w-5" />
                   </div>
                   <div>
