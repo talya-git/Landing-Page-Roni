@@ -30,7 +30,7 @@ export function Hero() {
         <div style={{ animation: "fade-up 0.7s ease 0.1s both" }} className="mb-6 flex items-center justify-center gap-4">
           <div className="h-px w-12" style={{ backgroundColor: "#D4521A" }} />
           <span className="text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(245,240,232,0.6)" }}>
-            אשת תקשורת · מנחת כנסים · מראיינת · יוצרת תוכן
+            אשת תקשורת · מנחת כנסים · מראיינת · מגישת רדיו ופודקאסטים · יוצרת תוכן
           </span>
         </div>
 
