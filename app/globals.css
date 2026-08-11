@@ -1,11 +1,40 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+@font-face {
+  font-family: 'Ploni';
+  src: url('/fonts/Ploni-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ploni';
+  src: url('/fonts/Ploni-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ploni';
+  src: url('/fonts/Ploni-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ploni';
+  src: url('/fonts/Ploni-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-heading: var(--font-heebo), 'Heebo Fallback', sans-serif;
-  --font-sans: var(--font-heebo), 'Heebo Fallback', sans-serif;
+  --font-heading: 'Ploni', var(--font-heebo), sans-serif;
+  --font-sans: 'Ploni', var(--font-heebo), sans-serif;
   --font-display: var(--font-playfair), 'Georgia', serif;
   --color-rose: var(--rose);
   --color-rose-soft: var(--rose-soft);
