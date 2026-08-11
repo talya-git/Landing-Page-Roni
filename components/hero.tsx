@@ -46,13 +46,13 @@ export function Hero() {
             className="block font-heading font-bold leading-[1.05] tracking-[-0.03em]"
             style={{ fontSize: "clamp(2.8rem, 7vw, 6.5rem)", color: "#D4521A" }}
           >
-            בין אנשים.
+            בין אנשים
           </span>
           <span
             className="block font-heading font-light leading-[1.05] tracking-[-0.02em] mt-2"
             style={{ fontSize: "clamp(1.8rem, 4vw, 3.5rem)", color: "rgba(245,240,232,0.55)" }}
           >
-            במות שמייצרות השפעה.
+            במות שמייצרות השפעה
           </span>
         </h1>
 

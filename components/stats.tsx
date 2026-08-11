@@ -38,18 +38,15 @@ function StatCard({ value, suffix, label, Icon, run, delay }: { value: number; s
     <div
       className="flex flex-col items-center rounded-2xl p-8 text-center transition-all duration-300 hover:-translate-y-1"
       style={{
-        border: "1px solid rgba(212,82,26,0.15)",
-        backgroundColor: "#FFFFFF",
-        boxShadow: "0 2px 16px rgba(27,77,62,0.06)",
         animation: run ? `count-in 0.6s ease ${delay}ms both` : undefined,
         opacity: run ? undefined : 0,
       }}
     >
       <div
-        className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl"
-        style={{ backgroundColor: "rgba(212,82,26,0.08)", color: "#D4521A" }}
+        className="mb-5 flex h-20 w-20 items-center justify-center rounded-2xl"
+        style={{ backgroundColor: "rgba(212,82,26,0.15)", color: "#D4521A" }}
       >
-        <Icon className="h-7 w-7" strokeWidth={1.5} />
+        <Icon className="h-10 w-10" strokeWidth={1.5} />
       </div>
       <p className="font-heading text-4xl font-bold tracking-tight tabular-nums sm:text-5xl" style={{ color: "#D4521A" }}>
         {display}{suffix}

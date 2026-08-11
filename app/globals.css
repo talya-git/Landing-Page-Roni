@@ -5,7 +5,7 @@
 
 @theme inline {
   --font-heading: var(--font-heebo), 'Heebo Fallback', sans-serif;
-  --font-sans: var(--font-assistant), 'Assistant Fallback', sans-serif;
+  --font-sans: var(--font-heebo), 'Heebo Fallback', sans-serif;
   --font-display: var(--font-playfair), 'Georgia', serif;
   --color-rose: var(--rose);
   --color-rose-soft: var(--rose-soft);
@@ -61,6 +61,12 @@
   }
   html {
     font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+  }
+  p + p {
+    margin-top: 0.75rem;
   }
 }
 

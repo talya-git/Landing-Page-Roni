@@ -41,14 +41,18 @@ export function SiteHeader() {
         }
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3.5 md:px-8">
-          <a href="#top" className="flex items-center" onClick={() => setMenuOpen(false)}>
-            <img
-              src="/media/logo-horizontal.png"
-              alt="רוני לוגסי"
-              className="h-10 w-auto"
-              style={{ filter: scrolled || menuOpen ? "none" : "brightness(0) invert(1)" }}
-            />
-          </a>
+          {/* Hamburger — right side on mobile */}
+          <button
+            className="flex h-10 w-10 items-center justify-center rounded-full lg:hidden"
+            style={{ backgroundColor: menuOpen ? "rgba(212,82,26,0.1)" : "rgba(245,240,232,0.15)" }}
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="תפריט"
+          >
+            {menuOpen
+              ? <X className="h-5 w-5" style={{ color: "#1B4D3E" }} />
+              : <Menu className="h-5 w-5" style={{ color: scrolled ? "#1B4D3E" : "#F5F0E8" }} />
+            }
+          </button>
 
           <nav className="hidden items-center gap-1 lg:flex">
             {links.map((l) => (
@@ -76,19 +80,21 @@ export function SiteHeader() {
               <Phone className="h-4 w-4" />
               <span>לתיאום שיחה</span>
             </a>
-
-            {/* Hamburger */}
-            <button
-              className="flex h-10 w-10 items-center justify-center rounded-full lg:hidden"
-              style={{ backgroundColor: menuOpen ? "rgba(212,82,26,0.1)" : "rgba(245,240,232,0.15)" }}
-              onClick={() => setMenuOpen((v) => !v)}
-              aria-label="תפריט"
-            >
-              {menuOpen
-                ? <X className="h-5 w-5" style={{ color: "#1B4D3E" }} />
-                : <Menu className="h-5 w-5" style={{ color: scrolled ? "#1B4D3E" : "#F5F0E8" }} />
-              }
-            </button>
+            {/* Logo — icon only on mobile */}
+            <a href="#top" className="flex items-center" onClick={() => setMenuOpen(false)}>
+              <img
+                src="/media/logo-main.png"
+                alt="רוני לוגסי"
+                className="h-10 w-auto lg:hidden"
+                style={{ filter: scrolled || menuOpen ? "none" : "brightness(0) invert(1)" }}
+              />
+              <img
+                src="/media/logo-horizontal.png"
+                alt="רוני לוגסי"
+                className="hidden h-10 w-auto lg:block"
+                style={{ filter: scrolled ? "none" : "brightness(0) invert(1)" }}
+              />
+            </a>
           </div>
         </div>
       </header>

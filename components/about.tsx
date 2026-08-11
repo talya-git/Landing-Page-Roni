@@ -60,7 +60,7 @@ export function About() {
               className="font-heading font-bold leading-[1.1] tracking-[-0.03em]"
               style={{ fontSize: "clamp(2.2rem, 4vw, 3.8rem)", color: "#1B4D3E" }}
             >
-              אנשים תמיד היו הסיפור שלי.
+              אנשים תמיד היו הסיפור שלי
             </h2>
 
             <div
