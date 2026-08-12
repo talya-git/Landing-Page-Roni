@@ -44,7 +44,7 @@ export function SiteHeader() {
           {/* Logo — right side */}
           <a href="#top" className="flex items-center" onClick={() => setMenuOpen(false)}>
             <img src="/media/logo-main.png" alt="רוני לוגסי" className="h-10 w-auto lg:hidden" style={{ filter: scrolled || menuOpen ? "none" : "brightness(0) invert(1)" }} />
-            <img src="/media/logo-horizontal.png" alt="רוני לוגסי" className="hidden h-10 w-auto lg:block" style={{ filter: scrolled ? "none" : "brightness(0) invert(1)" }} />
+            <img src="/media/logo-main.png" alt="רוני לוגסי" className="hidden h-10 w-auto lg:block" style={{ filter: scrolled ? "none" : "brightness(0) invert(1)" }} />
           </a>
 
           <nav className="hidden items-center gap-1 lg:flex">
@@ -56,19 +56,18 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <a href="#contact" className="hidden lg:inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all hover:scale-105 md:px-5" style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 4px 16px rgba(212,82,26,0.3)" }}>
-              <Phone className="h-4 w-4" />
-              <span>לתיאום שיחה</span>
-            </a>
-            {/* Hamburger — left side on mobile (= visually right in RTL) */}
+            {/* Hamburger — right side on mobile */}
             <button
-              className="flex h-10 w-10 items-center justify-center rounded-full lg:hidden"
-              style={{ backgroundColor: menuOpen ? "rgba(212,82,26,0.1)" : "rgba(245,240,232,0.15)" }}
+              className="flex h-10 w-10 items-center justify-center lg:hidden"
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="תפריט"
             >
               {menuOpen ? <X className="h-5 w-5" style={{ color: "#1B4D3E" }} /> : <Menu className="h-5 w-5" style={{ color: scrolled ? "#1B4D3E" : "#F5F0E8" }} />}
             </button>
+            <a href="#contact" className="hidden lg:inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all hover:scale-105 md:px-5" style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 4px 16px rgba(212,82,26,0.3)" }}>
+              <Phone className="h-4 w-4" />
+              <span>לתיאום שיחה</span>
+            </a>
           </div>
         </div>
       </header>
