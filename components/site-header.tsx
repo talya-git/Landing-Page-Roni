@@ -65,7 +65,8 @@ export function SiteHeader() {
             </a>
             {/* Logo — left side */}
             <a href="#top" className="flex items-center" onClick={() => setMenuOpen(false)}>
-              <img src="/media/logo-main.png" alt="רוני לוגסי" className="h-10 w-auto" style={{ filter: scrolled || menuOpen ? "none" : "brightness(0) invert(1)" }} />
+              <img src="/media/logo-main.png" alt="רוני לוגסי" className="h-10 w-auto lg:hidden" style={{ filter: scrolled || menuOpen ? "none" : "brightness(0) invert(1)" }} />
+              <img src="/media/logo-icon-only.png" alt="רוני לוגסי" className="hidden h-10 w-auto lg:block" style={{ filter: scrolled ? "none" : "brightness(0) invert(1)" }} />
             </a>
           </div>
         </div>
