@@ -41,14 +41,11 @@ export function SiteHeader() {
         }
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3.5 md:px-8">
-          {/* Hamburger — right side on mobile (first in DOM = right in RTL) */}
-          <button
-            className="flex h-10 w-10 items-center justify-center lg:hidden"
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label="תפריט"
-          >
-            {menuOpen ? <X className="h-5 w-5" style={{ color: "#1B4D3E" }} /> : <Menu className="h-5 w-5" style={{ color: scrolled ? "#1B4D3E" : "#F5F0E8" }} />}
-          </button>
+          {/* Logo — right side (first in DOM = right in RTL) */}
+          <a href="#top" className="flex items-center" onClick={() => setMenuOpen(false)}>
+            <img src="/media/logo-main.png" alt="רוני לוגסי" className="h-10 w-auto lg:hidden" style={{ filter: scrolled || menuOpen ? "none" : "brightness(0) invert(1)" }} />
+            <img src="/media/logo-icon-only.png" alt="רוני לוגסי" className="hidden h-10 w-auto lg:block" style={{ filter: scrolled ? "none" : "brightness(0) invert(1)" }} />
+          </a>
 
           <nav className="hidden items-center gap-1 lg:flex">
             {links.map((l) => (
@@ -63,11 +60,14 @@ export function SiteHeader() {
               <Phone className="h-4 w-4" />
               <span>לתיאום שיחה</span>
             </a>
-            {/* Logo — left side */}
-            <a href="#top" className="flex items-center" onClick={() => setMenuOpen(false)}>
-              <img src="/media/logo-main.png" alt="רוני לוגסי" className="h-10 w-auto lg:hidden" style={{ filter: scrolled || menuOpen ? "none" : "brightness(0) invert(1)" }} />
-              <img src="/media/logo-icon-only.png" alt="רוני לוגסי" className="hidden h-10 w-auto lg:block" style={{ filter: scrolled ? "none" : "brightness(0) invert(1)" }} />
-            </a>
+            {/* Hamburger — left side on mobile */}
+            <button
+              className="flex h-10 w-10 items-center justify-center lg:hidden"
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label="תפריט"
+            >
+              {menuOpen ? <X className="h-5 w-5" style={{ color: "#1B4D3E" }} /> : <Menu className="h-5 w-5" style={{ color: scrolled ? "#1B4D3E" : "#F5F0E8" }} />}
+            </button>
           </div>
         </div>
       </header>
