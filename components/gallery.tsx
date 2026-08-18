@@ -56,6 +56,10 @@ const images: Record<string, { src: string; alt: string }[]> = {
     { src: "/media/gallery/pod-8.jpg", alt: "פודקאסט 8" },
     { src: "/media/gallery/pod-9.jpg", alt: "פודקאסט 9" },
     { src: "/media/gallery/pod-10.jpg", alt: "פודקאסט 10" },
+    { src: "/media/gallery/pod-11.jpg", alt: "פודקאסט 11" },
+    { src: "/media/gallery/pod-12.jpg", alt: "פודקאסט 12" },
+    { src: "/media/gallery/pod-13.jpg", alt: "פודקאסט 13" },
+    { src: "/media/gallery/pod-14.jpg", alt: "פודקאסט 14" },
   ],
   panels: [
     { src: "/media/gallery/panel-1.jpg", alt: "פאנל 1" },
