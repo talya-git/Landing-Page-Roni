@@ -41,6 +41,9 @@ const images: Record<string, { src: string; alt: string }[]> = {
     { src: "/media/gallery/conf-2.jpg", alt: "כנס 2" },
     { src: "/media/gallery/conf-3.jpg", alt: "כנס 3" },
     { src: "/media/gallery/conf-4.jpg", alt: "כנס 4" },
+    { src: "/media/gallery/conf-5.jpg", alt: "כנס 5" },
+    { src: "/media/gallery/conf-6.jpg", alt: "כנס 6" },
+    { src: "/media/gallery/conf-7.jpg", alt: "כנס 7" },
   ],
   podcasts: [
     { src: "/media/gallery/pod-1.jpg", alt: "פודקאסט 1" },
