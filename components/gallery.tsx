@@ -30,6 +30,11 @@ const images: Record<string, { src: string; alt: string }[]> = {
   tv: [
     { src: "/media/gallery/tv-1.jpg", alt: "טלוויזיה 1" },
     { src: "/media/gallery/tv-2.jpg", alt: "טלוויזיה 2" },
+    { src: "/media/gallery/tv-3.jpg", alt: "טלוויזיה 3" },
+    { src: "/media/gallery/tv-4.jpg", alt: "טלוויזיה 4" },
+    { src: "/media/gallery/tv-5.jpg", alt: "טלוויזיה 5" },
+    { src: "/media/gallery/tv-6.jpg", alt: "טלוויזיה 6" },
+    { src: "/media/gallery/tv-7.jpg", alt: "טלוויזיה 7" },
   ],
   conferences: [
     { src: "/media/gallery/conf-1.jpg", alt: "כנס 1" },
