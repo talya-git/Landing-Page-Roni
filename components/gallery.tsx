@@ -38,6 +38,11 @@ const images: Record<string, { src: string; alt: string }[]> = {
     { src: "/media/gallery/panel-1.jpg", alt: "פאנל 1" },
     { src: "/media/gallery/panel-2.jpg", alt: "פאנל 2" },
     { src: "/media/gallery/panel-3.jpg", alt: "פאנל 3" },
+    { src: "/media/gallery/panel-4.jpg", alt: "פאנל 4" },
+    { src: "/media/gallery/panel-5.jpg", alt: "פאנל 5" },
+    { src: "/media/gallery/panel-6.jpg", alt: "פאנל 6" },
+    { src: "/media/gallery/panel-7.jpg", alt: "פאנל 7" },
+    { src: "/media/gallery/panel-8.jpg", alt: "פאנל 8" },
   ],
   behind: [
     { src: "/media/gallery/behind-1.jpg", alt: "מאחורי הקלעים 1" },
