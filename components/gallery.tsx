@@ -2,8 +2,7 @@
 
 import { useState } from "react"
 import { Reveal } from "@/components/reveal"
-
-import { Radio, Tv, Mic2, Headphones, Users, Camera } from "lucide-react"
+import { Radio, Tv, Mic2, Headphones, Users, Camera, X, ChevronLeft, ChevronRight } from "lucide-react"
 
 const categories = [
   { id: "radio", label: "רדיו", Icon: Radio },
@@ -19,6 +18,14 @@ const images: Record<string, { src: string; alt: string }[]> = {
     { src: "/media/gallery/radio-1.jpg", alt: "רדיו 1" },
     { src: "/media/gallery/radio-2.jpg", alt: "רדיו 2" },
     { src: "/media/gallery/radio-3.jpg", alt: "רדיו 3" },
+    { src: "/media/gallery/radio-4.jpg", alt: "רדיו 4" },
+    { src: "/media/gallery/radio-5.jpg", alt: "רדיו 5" },
+    { src: "/media/gallery/radio-6.jpg", alt: "רדיו 6" },
+    { src: "/media/gallery/radio-7.jpg", alt: "רדיו 7" },
+    { src: "/media/gallery/radio-8.jpg", alt: "רדיו 8" },
+    { src: "/media/gallery/radio-9.jpg", alt: "רדיו 9" },
+    { src: "/media/gallery/radio-10.jpg", alt: "רדיו 10" },
+    { src: "/media/gallery/radio-11.jpg", alt: "רדיו 11" },
   ],
   tv: [
     { src: "/media/gallery/tv-1.jpg", alt: "טלוויזיה 1" },
@@ -52,7 +59,11 @@ const images: Record<string, { src: string; alt: string }[]> = {
 
 export function Gallery() {
   const [active, setActive] = useState("conferences")
+  const [lightbox, setLightbox] = useState<number | null>(null)
   const current = images[active] ?? []
+
+  const prev = () => setLightbox((i) => (i! - 1 + current.length) % current.length)
+  const next = () => setLightbox((i) => (i! + 1) % current.length)
 
   return (
     <section id="gallery" className="relative py-20 md:py-28" style={{ borderBottom: "1px solid #DDD8CE", backgroundColor: "#1B4D3E" }}>
@@ -92,7 +103,8 @@ export function Gallery() {
           {current.map((img, i) => (
             <div
               key={img.src}
-              className="group relative overflow-hidden rounded-xl"
+              onClick={() => setLightbox(i)}
+              className="group relative overflow-hidden rounded-xl cursor-pointer"
               style={{
                 aspectRatio: "4/3",
                 animation: `fade-up 0.5s ease ${i * 60}ms both`,
@@ -112,6 +124,50 @@ export function Gallery() {
           ))}
         </div>
       </div>
+
+      {/* Lightbox */}
+      {lightbox !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ backgroundColor: "rgba(0,0,0,0.92)" }}
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            onClick={(e) => { e.stopPropagation(); prev() }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full p-2 transition-colors hover:bg-white/10"
+            style={{ color: "#F5F0E8" }}
+          >
+            <ChevronRight className="h-8 w-8" />
+          </button>
+
+          <img
+            src={current[lightbox].src}
+            alt={current[lightbox].alt}
+            className="max-h-[85vh] max-w-[90vw] rounded-xl object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+
+          <button
+            onClick={(e) => { e.stopPropagation(); next() }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full p-2 transition-colors hover:bg-white/10"
+            style={{ color: "#F5F0E8" }}
+          >
+            <ChevronLeft className="h-8 w-8" />
+          </button>
+
+          <button
+            onClick={() => setLightbox(null)}
+            className="absolute top-4 left-4 rounded-full p-2 transition-colors hover:bg-white/10"
+            style={{ color: "#F5F0E8" }}
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          <span className="absolute bottom-4 text-sm" style={{ color: "rgba(245,240,232,0.5)" }}>
+            {lightbox + 1} / {current.length}
+          </span>
+        </div>
+      )}
     </section>
   )
 }
