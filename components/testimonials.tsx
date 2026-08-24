@@ -71,8 +71,8 @@ export function Testimonials() {
         </div>
 
         <Reveal delay={200}>
-          <div className="mt-6 grid gap-4 grid-cols-1 md:grid-cols-2">
-            {[1, 2].map((n) => (
+          <div className="mt-6 grid gap-4 grid-cols-1">
+            {[2].map((n) => (
               <div key={n} className="overflow-hidden rounded-2xl" style={{ boxShadow: "0 4px 24px rgba(27,77,62,0.1)", border: "1px solid rgba(212,82,26,0.15)", backgroundColor: "#EDE8DF" }}>
                 <video className="w-full" controls playsInline style={{ display: "block" }}>
                   <source src={`/media/testimonial-${n}.mp4`} type="video/mp4" />
