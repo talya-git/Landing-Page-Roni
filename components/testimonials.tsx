@@ -73,15 +73,10 @@ export function Testimonials() {
         <Reveal delay={200}>
           <div className="mt-6 grid gap-4 grid-cols-1 md:grid-cols-2">
             {[1, 2].map((n) => (
-              <div key={n} className="group relative overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9", boxShadow: "0 4px 24px rgba(27,77,62,0.1)", border: "1px solid rgba(212,82,26,0.15)", backgroundColor: "#EDE8DF" }}>
-                <video className="absolute inset-0 h-full w-full object-cover" controls poster={`/media/testimonial-${n}-poster.jpg`} playsInline>
+              <div key={n} className="overflow-hidden rounded-2xl" style={{ boxShadow: "0 4px 24px rgba(27,77,62,0.1)", border: "1px solid rgba(212,82,26,0.15)", backgroundColor: "#EDE8DF" }}>
+                <video className="w-full" controls playsInline style={{ display: "block" }}>
                   <source src={`/media/testimonial-${n}.mp4`} type="video/mp4" />
                 </video>
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-full shadow-lg" style={{ background: "linear-gradient(135deg, #D4521A, rgba(212,82,26,0.7))", border: "2px solid rgba(255,255,255,0.3)" }}>
-                    <svg className="h-5 w-5 md:h-6 md:w-6 mr-[-3px]" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z" /></svg>
-                  </div>
-                </div>
               </div>
             ))}
           </div>
