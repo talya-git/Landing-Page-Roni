@@ -10,7 +10,6 @@ const categories = [
   { id: "conferences", label: "כנסים", Icon: Mic2 },
   { id: "podcasts", label: "פודקאסטים", Icon: Headphones },
   { id: "panels", label: "פאנלים", Icon: Users },
-  { id: "behind", label: "מאחורי הקלעים", Icon: Camera },
 ]
 
 const images: Record<string, { src: string; alt: string }[]> = {
