@@ -73,6 +73,7 @@ const videos: { youtubeId: string; title: string }[] = [
   { youtubeId: "vBwvYnmsUZw", title: "הפינה של רוני" },
   { youtubeId: "dNalqIGV3E8", title: "ריל 4" },
   { youtubeId: "bAjC2O4GyMU", title: "סרטון ללינקדאין" },
+  { youtubeId: "RvASn1YO2V8", title: "" },
 ]
 
 export function Gallery() {
