@@ -70,8 +70,9 @@ const images: Record<string, { src: string; alt: string }[]> = {
 }
 
 const videos: { youtubeId: string; title: string }[] = [
-  { youtubeId: "dNalqIGV3E8", title: "הפינה של רוני" },
-  { youtubeId: "bAjC2O4GyMU", title: "ריל 4" },
+  { youtubeId: "vBwvYnmsUZw", title: "הפינה של רוני" },
+  { youtubeId: "dNalqIGV3E8", title: "ריל 4" },
+  { youtubeId: "bAjC2O4GyMU", title: "סרטון ללינקדאין" },
 ]
 
 export function Gallery() {
