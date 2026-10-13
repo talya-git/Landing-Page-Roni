@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Reveal } from "@/components/reveal"
-import { Radio, Tv, Mic2, Headphones, Users, Camera, X, ChevronLeft, ChevronRight } from "lucide-react"
+import { Radio, Tv, Mic2, Headphones, Users, Video, X, ChevronLeft, ChevronRight, Play } from "lucide-react"
 
 const categories = [
   { id: "radio", label: "רדיו", Icon: Radio },
@@ -10,6 +10,7 @@ const categories = [
   { id: "conferences", label: "כנסים", Icon: Mic2 },
   { id: "podcasts", label: "פודקאסטים", Icon: Headphones },
   { id: "panels", label: "פאנלים", Icon: Users },
+  { id: "videos", label: "סרטונים", Icon: Video },
 ]
 
 const images: Record<string, { src: string; alt: string }[]> = {
@@ -68,10 +69,17 @@ const images: Record<string, { src: string; alt: string }[]> = {
   ],
 }
 
+const videos: { src: string; title: string }[] = [
+  { src: "/media/videos/pina-shel-roni.mp4", title: "הפינה של רוני" },
+  { src: "/media/videos/reel-4.mp4", title: "ריל 4" },
+  { src: "/media/videos/linkedin-video.mp4", title: "סרטון ללינקדאין" },
+]
+
 export function Gallery() {
   const [active, setActive] = useState("conferences")
   const [lightbox, setLightbox] = useState<number | null>(null)
   const current = images[active] ?? []
+  const isVideos = active === "videos"
 
   const prev = () => setLightbox((i) => (i! - 1 + current.length) % current.length)
   const next = () => setLightbox((i) => (i! + 1) % current.length)
@@ -110,34 +118,63 @@ export function Gallery() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
-          {current.map((img, i) => (
-            <div
-              key={img.src}
-              onClick={() => setLightbox(i)}
-              className="group relative overflow-hidden rounded-xl cursor-pointer"
-              style={{
-                aspectRatio: "4/3",
-                animation: `fade-up 0.5s ease ${i * 60}ms both`,
-                backgroundColor: "rgba(245,240,232,0.08)",
-              }}
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+        {isVideos ? (
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {videos.length === 0 ? (
+              <p className="col-span-full text-center py-16 text-sm" style={{ color: "rgba(245,240,232,0.4)" }}>סרטונים יתווספו בקרוב</p>
+            ) : (
+              videos.map((v, i) => (
+                <div
+                  key={v.src}
+                  className="group relative overflow-hidden rounded-xl"
+                  style={{ aspectRatio: "16/9", animation: `fade-up 0.5s ease ${i * 60}ms both`, backgroundColor: "rgba(245,240,232,0.08)" }}
+                >
+                  <video
+                    src={v.src}
+                    className="h-full w-full object-cover"
+                    controls
+                    preload="metadata"
+                    playsInline
+                  />
+                  {v.title && (
+                    <div className="absolute bottom-0 inset-x-0 px-3 py-2" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)" }}>
+                      <p className="text-xs font-medium" style={{ color: "#F5F0E8" }}>{v.title}</p>
+                    </div>
+                  )}
+                </div>
+              ))
+            )}
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
+            {current.map((img, i) => (
               <div
-                className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                style={{ background: "linear-gradient(to top, rgba(212,82,26,0.5), transparent)" }}
-              />
-            </div>
-          ))}
-        </div>
+                key={img.src}
+                onClick={() => setLightbox(i)}
+                className="group relative overflow-hidden rounded-xl cursor-pointer"
+                style={{
+                  aspectRatio: "4/3",
+                  animation: `fade-up 0.5s ease ${i * 60}ms both`,
+                  backgroundColor: "rgba(245,240,232,0.08)",
+                }}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div
+                  className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{ background: "linear-gradient(to top, rgba(212,82,26,0.5), transparent)" }}
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
-      {/* Lightbox */}
-      {lightbox !== null && (
+      {/* Lightbox — only for images */}
+      {!isVideos && lightbox !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center"
           style={{ backgroundColor: "rgba(0,0,0,0.92)" }}
