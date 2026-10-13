@@ -69,10 +69,9 @@ const images: Record<string, { src: string; alt: string }[]> = {
   ],
 }
 
-const videos: { src: string; title: string }[] = [
-  { src: "/media/videos/pina-shel-roni.mp4", title: "הפינה של רוני" },
-  { src: "/media/videos/reel-4.mp4", title: "ריל 4" },
-  { src: "/media/videos/linkedin-video.mp4", title: "סרטון ללינקדאין" },
+const videos: { youtubeId: string; title: string }[] = [
+  { youtubeId: "dNalqIGV3E8", title: "הפינה של רוני" },
+  { youtubeId: "bAjC2O4GyMU", title: "ריל 4" },
 ]
 
 export function Gallery() {
@@ -125,22 +124,17 @@ export function Gallery() {
             ) : (
               videos.map((v, i) => (
                 <div
-                  key={v.src}
-                  className="group relative overflow-hidden rounded-xl"
-                  style={{ aspectRatio: "16/9", animation: `fade-up 0.5s ease ${i * 60}ms both`, backgroundColor: "rgba(245,240,232,0.08)" }}
+                  key={v.youtubeId}
+                  className="overflow-hidden rounded-xl"
+                  style={{ aspectRatio: "9/16", animation: `fade-up 0.5s ease ${i * 60}ms both`, backgroundColor: "rgba(245,240,232,0.08)" }}
                 >
-                  <video
-                    src={v.src}
-                    className="h-full w-full object-cover"
-                    controls
-                    preload="metadata"
-                    playsInline
+                  <iframe
+                    src={`https://www.youtube.com/embed/${v.youtubeId}`}
+                    title={v.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="h-full w-full"
                   />
-                  {v.title && (
-                    <div className="absolute bottom-0 inset-x-0 px-3 py-2" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)" }}>
-                      <p className="text-xs font-medium" style={{ color: "#F5F0E8" }}>{v.title}</p>
-                    </div>
-                  )}
                 </div>
               ))
             )}
