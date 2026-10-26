@@ -99,8 +99,9 @@ export function Hero() {
           </div>
         </div>
 
+        {/* הגדלנו כאן את רוחב ותצוגת התמונה לגודל התואם את גובה הטקסט */}
         <div className="hidden lg:flex flex-shrink-0 items-end justify-center self-end" style={{ animation: "fade-up 0.8s ease 0.2s both" }}>
-          <img src="/media/roni-hero.png" alt="רוני לוגסי כהן" className="w-80 xl:w-96 object-contain drop-shadow-2xl rounded-3xl" style={{ maxHeight: "75vh" }} />
+          <img src="/media/roni-hero.png" alt="רוני לוגסי כהן" className="w-[420px] xl:w-[480px] object-contain drop-shadow-2xl rounded-3xl" style={{ maxHeight: "82vh" }} />
         </div>
       </div>
 
