@@ -1,0 +1,217 @@
+"use client"
+
+import { useState } from "react"
+import { Reveal } from "@/components/reveal"
+import { Radio, Tv, Mic2, Headphones, Users, Video, X, ChevronLeft, ChevronRight, Play } from "lucide-react"
+
+const categories = [
+  { id: "radio", label: "רדיו", Icon: Radio },
+  { id: "tv", label: "טלוויזיה", Icon: Tv },
+  { id: "conferences", label: "כנסים", Icon: Mic2 },
+  { id: "podcasts", label: "פודקאסטים", Icon: Headphones },
+  { id: "panels", label: "פאנלים", Icon: Users },
+  { id: "videos", label: "סרטונים", Icon: Video },
+]
+
+const images: Record<string, { src: string; alt: string }[]> = {
+  radio: [
+    { src: "/media/gallery/radio-1.jpg", alt: "רדיו 1" },
+    { src: "/media/gallery/radio-2.jpg", alt: "רדיו 2" },
+    { src: "/media/gallery/radio-3.jpg", alt: "רדיו 3" },
+    { src: "/media/gallery/radio-4.jpg", alt: "רדיו 4" },
+    { src: "/media/gallery/radio-5.jpg", alt: "רדיו 5" },
+    { src: "/media/gallery/radio-6.jpg", alt: "רדיו 6" },
+    { src: "/media/gallery/radio-7.jpg", alt: "רדיו 7" },
+    { src: "/media/gallery/radio-8.jpg", alt: "רדיו 8" },
+    { src: "/media/gallery/radio-9.jpg", alt: "רדיו 9" },
+    { src: "/media/gallery/radio-10.jpg", alt: "רדיו 10" },
+    { src: "/media/gallery/radio-11.jpg", alt: "רדיו 11" },
+  ],
+  tv: [
+    { src: "/media/gallery/tv-1.jpg", alt: "טלוויזיה 1" },
+    { src: "/media/gallery/tv-2.jpg", alt: "טלוויזיה 2" },
+    { src: "/media/gallery/tv-3.jpg", alt: "טלוויזיה 3" },
+    { src: "/media/gallery/tv-4.jpg", alt: "טלוויזיה 4" },
+    { src: "/media/gallery/tv-5.jpg", alt: "טלוויזיה 5" },
+    { src: "/media/gallery/tv-6.jpg", alt: "טלוויזיה 6" },
+    { src: "/media/gallery/tv-7.jpg", alt: "טלוויזיה 7" },
+  ],
+  conferences: [
+    { src: "/media/gallery/conf-1.jpg", alt: "כנס 1" },
+    { src: "/media/gallery/conf-2.jpg", alt: "כנס 2" },
+    { src: "/media/gallery/conf-3.jpg", alt: "כנס 3" },
+    { src: "/media/gallery/conf-4.jpg", alt: "כנס 4" },
+    { src: "/media/gallery/conf-5.jpg", alt: "כנס 5" },
+    { src: "/media/gallery/conf-6.jpg", alt: "כנס 6" },
+    { src: "/media/gallery/conf-7.jpg", alt: "כנס 7" },
+  ],
+  podcasts: [
+    { src: "/media/gallery/pod-1.jpg", alt: "פודקאסט 1" },
+    { src: "/media/gallery/pod-2.jpg", alt: "פודקאסט 2" },
+    { src: "/media/gallery/pod-3.jpg", alt: "פודקאסט 3" },
+    { src: "/media/gallery/pod-4.jpg", alt: "פודקאסט 4" },
+    { src: "/media/gallery/pod-5.jpg", alt: "פודקאסט 5" },
+    { src: "/media/gallery/pod-6.jpg", alt: "פודקאסט 6" },
+  ],
+  panels: [
+    { src: "/media/gallery/panel-1.jpg", alt: "פאנל 1" },
+    { src: "/media/gallery/panel-2.jpg", alt: "פאנל 2" },
+    { src: "/media/gallery/panel-3.jpg", alt: "פאנל 3" },
+    { src: "/media/gallery/panel-4.jpg", alt: "פאנל 4" },
+    { src: "/media/gallery/panel-5.jpg", alt: "פאנל 5" },
+    { src: "/media/gallery/panel-6.jpg", alt: "פאנל 6" },
+    { src: "/media/gallery/panel-7.jpg", alt: "פאנל 7" },
+    { src: "/media/gallery/panel-8.jpg", alt: "פאנל 8" },
+  ],
+  behind: [
+    { src: "/media/gallery/behind-1.jpg", alt: "מאחורי הקלעים 1" },
+    { src: "/media/gallery/behind-2.jpg", alt: "מאחורי הקלעים 2" },
+  ],
+}
+
+const videos: { youtubeId: string; title: string }[] = [
+  { youtubeId: "vBwvYnmsUZw", title: "הפינה של רוני" },
+  { youtubeId: "dNalqIGV3E8", title: "ריל 4" },
+  { youtubeId: "bAjC2O4GyMU", title: "סרטון ללינקדאין" },
+  { youtubeId: "RvASn1YO2V8", title: "" },
+]
+
+export function Gallery() {
+  const [active, setActive] = useState("conferences")
+  const [lightbox, setLightbox] = useState<number | null>(null)
+  const current = images[active] ?? []
+  const isVideos = active === "videos"
+
+  const prev = () => setLightbox((i) => (i! - 1 + current.length) % current.length)
+  const next = () => setLightbox((i) => (i! + 1) % current.length)
+
+  return (
+    <section id="gallery" className="relative py-20 md:py-28" style={{ borderBottom: "1px solid #DDD8CE", backgroundColor: "#1B4D3E" }}>
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <Reveal className="text-center mb-12">
+          <span className="inline-flex items-center justify-center gap-3 text-sm font-semibold uppercase tracking-[0.3em]" style={{ color: "#D4521A" }}>
+            <span className="h-px w-6" style={{ backgroundColor: "#D4521A" }} />
+            גלריה
+            <span className="h-px w-6" style={{ backgroundColor: "#D4521A" }} />
+          </span>
+          <h2 className="mt-4 font-heading text-3xl font-bold leading-tight tracking-[-0.03em] sm:text-4xl" style={{ color: "#F5F0E8" }}>
+            עשייה, נוכחות ואנרגיה
+          </h2>
+        </Reveal>
+
+        {/* Category tabs */}
+        <div className="mb-10 flex flex-wrap justify-center gap-2">
+          {categories.map((c) => (
+            <button
+              key={c.id}
+              onClick={() => setActive(c.id)}
+              className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-medium transition-all sm:px-5 sm:text-sm"
+              style={{
+                backgroundColor: active === c.id ? "#D4521A" : "rgba(245,240,232,0.08)",
+                color: active === c.id ? "#FFFFFF" : "rgba(245,240,232,0.7)",
+                border: `1px solid ${active === c.id ? "#D4521A" : "rgba(245,240,232,0.15)"}`,
+              }}
+            >
+              <c.Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.5} />
+              {c.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid */}
+        {isVideos ? (
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {videos.length === 0 ? (
+              <p className="col-span-full text-center py-16 text-sm" style={{ color: "rgba(245,240,232,0.4)" }}>סרטונים יתווספו בקרוב</p>
+            ) : (
+              videos.map((v, i) => (
+                <div
+                  key={v.youtubeId}
+                  className="overflow-hidden rounded-xl"
+                  style={{ aspectRatio: "9/16", animation: `fade-up 0.5s ease ${i * 60}ms both`, backgroundColor: "rgba(245,240,232,0.08)" }}
+                >
+                  <iframe
+                    src={`https://www.youtube.com/embed/${v.youtubeId}`}
+                    title={v.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="h-full w-full"
+                  />
+                </div>
+              ))
+            )}
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
+            {current.map((img, i) => (
+              <div
+                key={img.src}
+                onClick={() => setLightbox(i)}
+                className="group relative overflow-hidden rounded-xl cursor-pointer"
+                style={{
+                  aspectRatio: "4/3",
+                  animation: `fade-up 0.5s ease ${i * 60}ms both`,
+                  backgroundColor: "rgba(245,240,232,0.08)",
+                }}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div
+                  className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{ background: "linear-gradient(to top, rgba(212,82,26,0.5), transparent)" }}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Lightbox — only for images */}
+      {!isVideos && lightbox !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ backgroundColor: "rgba(0,0,0,0.92)" }}
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            onClick={(e) => { e.stopPropagation(); prev() }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full p-2 transition-colors hover:bg-white/10"
+            style={{ color: "#F5F0E8" }}
+          >
+            <ChevronRight className="h-8 w-8" />
+          </button>
+
+          <img
+            src={current[lightbox].src}
+            alt={current[lightbox].alt}
+            className="max-h-[85vh] max-w-[90vw] rounded-xl object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+
+          <button
+            onClick={(e) => { e.stopPropagation(); next() }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full p-2 transition-colors hover:bg-white/10"
+            style={{ color: "#F5F0E8" }}
+          >
+            <ChevronLeft className="h-8 w-8" />
+          </button>
+
+          <button
+            onClick={() => setLightbox(null)}
+            className="absolute top-4 left-4 rounded-full p-2 transition-colors hover:bg-white/10"
+            style={{ color: "#F5F0E8" }}
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          <span className="absolute bottom-4 text-sm" style={{ color: "rgba(245,240,232,0.5)" }}>
+            {lightbox + 1} / {current.length}
+          </span>
+        </div>
+      )}
+    </section>
+  )
+}

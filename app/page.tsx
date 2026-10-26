@@ -1,0 +1,73 @@
+"use client"
+
+import { SiteHeader } from "@/components/site-header"
+import { ScrollProgress } from "@/components/scroll-progress"
+import { Hero } from "@/components/hero"
+import { VideoSection } from "@/components/video-section"
+import { Stats } from "@/components/stats"
+import { About } from "@/components/about"
+import { WhyRoni } from "@/components/why-roni"
+import { Services } from "@/components/services"
+import { Logos } from "@/components/logos"
+import { Gallery } from "@/components/gallery"
+import { Testimonials } from "@/components/testimonials"
+import { Contact } from "@/components/contact"
+import { SiteFooter } from "@/components/site-footer"
+import { LangProvider, useLang } from "@/lib/lang-context"
+import { LangWrapper } from "@/components/lang-wrapper"
+
+function PageContent() {
+  const { lang } = useLang()
+
+  return (
+    <main className="relative overflow-x-hidden">
+      <div className="pointer-events-none fixed inset-0 z-[55] bg-grain opacity-[0.03] mix-blend-soft-light" />
+      <ScrollProgress />
+      <SiteHeader />
+      <Hero />
+      <VideoSection />
+      <Stats />
+      <About />
+      <WhyRoni />
+      <Services />
+      <Logos />
+      <Gallery />
+      <Testimonials />
+      <Contact />
+      <SiteFooter />
+
+      {/* Mobile sticky CTA */}
+      <a
+        href="#contact"
+        className="fixed inset-x-4 bottom-4 z-40 flex items-center justify-center rounded-full py-3.5 text-sm font-semibold shadow-2xl lg:hidden"
+        style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 8px 32px rgba(212,82,26,0.45)" }}
+      >
+        {lang === "he" ? "לתיאום שיחה" : "Book a Call"}
+      </a>
+
+      {/* WhatsApp floating button */}
+      <a
+        href="https://wa.me/972507770071"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-20 left-4 z-40 flex h-14 w-14 items-center justify-center rounded-full shadow-2xl transition-transform duration-300 hover:scale-110 lg:bottom-8 lg:left-8"
+        style={{ backgroundColor: "#25D366", boxShadow: "0 8px 32px rgba(37,211,102,0.45)" }}
+        aria-label="WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" fill="white" className="h-7 w-7">
+          <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+        </svg>
+      </a>
+    </main>
+  )
+}
+
+export default function Page() {
+  return (
+    <LangProvider>
+      <LangWrapper>
+        <PageContent />
+      </LangWrapper>
+    </LangProvider>
+  )
+}
