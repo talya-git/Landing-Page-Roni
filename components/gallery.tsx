@@ -2,16 +2,37 @@
 
 import { useState } from "react"
 import { Reveal } from "@/components/reveal"
-import { Radio, Tv, Mic2, Headphones, Users, Video, X, ChevronLeft, ChevronRight, Play } from "lucide-react"
+import { Radio, Tv, Mic2, Headphones, Users, Video, X, ChevronLeft, ChevronRight } from "lucide-react"
+import { useLang } from "@/lib/lang-context"
 
-const categories = [
-  { id: "radio", label: "רדיו", Icon: Radio },
-  { id: "tv", label: "טלוויזיה", Icon: Tv },
-  { id: "conferences", label: "כנסים", Icon: Mic2 },
-  { id: "podcasts", label: "פודקאסטים", Icon: Headphones },
-  { id: "panels", label: "פאנלים", Icon: Users },
-  { id: "videos", label: "סרטונים", Icon: Video },
-]
+const t = {
+  he: {
+    tag: "גלריה",
+    title: "עשייה, נוכחות ואנרגיה",
+    categories: [
+      { id: "radio", label: "רדיו", Icon: Radio },
+      { id: "tv", label: "טלוויזיה", Icon: Tv },
+      { id: "conferences", label: "כנסים", Icon: Mic2 },
+      { id: "podcasts", label: "פודקאסטים", Icon: Headphones },
+      { id: "panels", label: "פאנלים", Icon: Users },
+      { id: "videos", label: "סרטונים", Icon: Video },
+    ],
+    emptyVideos: "סרטונים יתווספו בקרוב",
+  },
+  en: {
+    tag: "Gallery",
+    title: "Action, Presence & Energy",
+    categories: [
+      { id: "radio", label: "Radio", Icon: Radio },
+      { id: "tv", label: "Television", Icon: Tv },
+      { id: "conferences", label: "Conferences", Icon: Mic2 },
+      { id: "podcasts", label: "Podcasts", Icon: Headphones },
+      { id: "panels", label: "Panels", Icon: Users },
+      { id: "videos", label: "Videos", Icon: Video },
+    ],
+    emptyVideos: "Videos will be added soon",
+  },
+}
 
 const images: Record<string, { src: string; alt: string }[]> = {
   radio: [
@@ -77,6 +98,9 @@ const videos: { youtubeId: string; title: string }[] = [
 ]
 
 export function Gallery() {
+  const { lang } = useLang()
+  const tx = t[lang]
+
   const [active, setActive] = useState("conferences")
   const [lightbox, setLightbox] = useState<number | null>(null)
   const current = images[active] ?? []
@@ -91,17 +115,17 @@ export function Gallery() {
         <Reveal className="text-center mb-12">
           <span className="inline-flex items-center justify-center gap-3 text-sm font-semibold uppercase tracking-[0.3em]" style={{ color: "#D4521A" }}>
             <span className="h-px w-6" style={{ backgroundColor: "#D4521A" }} />
-            גלריה
+            {tx.tag}
             <span className="h-px w-6" style={{ backgroundColor: "#D4521A" }} />
           </span>
           <h2 className="mt-4 font-heading text-3xl font-bold leading-tight tracking-[-0.03em] sm:text-4xl" style={{ color: "#F5F0E8" }}>
-            עשייה, נוכחות ואנרגיה
+            {tx.title}
           </h2>
         </Reveal>
 
         {/* Category tabs */}
         <div className="mb-10 flex flex-wrap justify-center gap-2">
-          {categories.map((c) => (
+          {tx.categories.map((c) => (
             <button
               key={c.id}
               onClick={() => setActive(c.id)}
@@ -122,7 +146,7 @@ export function Gallery() {
         {isVideos ? (
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {videos.length === 0 ? (
-              <p className="col-span-full text-center py-16 text-sm" style={{ color: "rgba(245,240,232,0.4)" }}>סרטונים יתווספו בקרוב</p>
+              <p className="col-span-full text-center py-16 text-sm" style={{ color: "rgba(245,240,232,0.4)" }}>{tx.emptyVideos}</p>
             ) : (
               videos.map((v, i) => (
                 <div
