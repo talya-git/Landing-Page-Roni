@@ -48,13 +48,13 @@ export function Hero() {
   const tx = t[lang]
 
   return (
-    <section id="top" className="relative min-h-[100svh] overflow-hidden flex flex-col" style={{ backgroundColor: "#1B4D3E" }}>
+    <section id="top" className="relative min-h-[100svh] overflow-hidden flex flex-col justify-center" style={{ backgroundColor: "#1B4D3E" }}>
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/media/hero.jpg')" }} />
         <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(27,77,62,0.97) 0%, rgba(27,77,62,0.85) 50%, rgba(27,77,62,0.6) 100%)" }} />
       </div>
 
-      <div className="relative z-10 flex flex-1 flex-col lg:flex-row justify-center items-center px-5 pt-24 pb-20 md:px-16 lg:px-24 max-w-7xl mx-auto w-full gap-10 lg:gap-16">
+      <div className="relative z-10 flex flex-1 flex-col lg:flex-row justify-center items-center px-5 pt-28 pb-20 md:px-16 lg:px-24 max-w-7xl mx-auto w-full gap-10 lg:gap-16">
         <div className="flex flex-col items-center lg:items-start lg:flex-1 text-center lg:text-right">
           <div style={{ animation: "fade-up 0.6s ease both" }} className="mb-6 md:mb-10">
             <img src="/media/logo-main.png" alt="רוני לוגסי" className="h-20 w-auto object-contain drop-shadow-2xl md:h-28 mx-auto lg:mx-0" />
@@ -99,9 +99,9 @@ export function Hero() {
           </div>
         </div>
 
-        {/* הגדלנו כאן את רוחב ותצוגת התמונה לגודל התואם את גובה הטקסט */}
-        <div className="hidden lg:flex flex-shrink-0 items-end justify-center self-end" style={{ animation: "fade-up 0.8s ease 0.2s both" }}>
-          <img src="/media/roni-hero.png" alt="רוני לוגסי כהן" className="w-[420px] xl:w-[480px] object-contain drop-shadow-2xl rounded-3xl" style={{ maxHeight: "82vh" }} />
+        {/* התמונה הוגדלה ותואמת כעת במלואה לגובה הטקסט מהחלק העליון ועד התחתון */}
+        <div className="hidden lg:flex flex-shrink-0 items-center justify-center self-center" style={{ animation: "fade-up 0.8s ease 0.2s both" }}>
+          <img src="/media/roni-hero.png" alt="רוני לוגסי כהן" className="w-[450px] xl:w-[520px] object-contain drop-shadow-2xl rounded-3xl" style={{ maxHeight: "88vh" }} />
         </div>
       </div>
 
