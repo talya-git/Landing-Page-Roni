@@ -20,6 +20,8 @@ const t = {
     mission: "זו השליחות שלי.",
     p2: "ליצור שיחות שמחברות בין אנשים, מייצרות ערך ונשארות הרבה אחרי שהאירוע מסתיים.",
     cta: "לתיאום שיחה",
+    name: "רוני לוגסי כהן",
+    role: "אשת תקשורת",
     stats: [
       { num: "25+", label: "שנות ניסיון" },
       { num: "500+", label: "ראיונות" },
@@ -35,6 +37,8 @@ const t = {
     mission: "That is my mission.",
     p2: "To create conversations that connect people, generate value, and stay with them long after the event ends.",
     cta: "Book a Call",
+    name: "Roni Lugasi Cohen",
+    role: "Media Personality",
     stats: [
       { num: "25+", label: "Years of Experience" },
       { num: "500+", label: "Interviews" },
@@ -99,9 +103,20 @@ export function Hero() {
           </div>
         </div>
 
-        {/* התמונה הוגדלה ותואמת כעת במלואה לגובה הטקסט מהחלק העליון ועד התחתון */}
-        <div className="hidden lg:flex flex-shrink-0 items-center justify-center self-center" style={{ animation: "fade-up 0.8s ease 0.2s both" }}>
-          <img src="/media/roni-hero.png" alt="רוני לוגסי כהן" className="w-[450px] xl:w-[520px] object-contain drop-shadow-2xl rounded-3xl" style={{ maxHeight: "88vh" }} />
+        {/* עיצוב התמונה בדיוק כמו ב-About עם מסגרת ומלבן תומך */}
+        <div className="hidden lg:flex flex-shrink-0 items-center justify-center" style={{ animation: "fade-up 0.8s ease 0.2s both" }}>
+          <div className="relative w-80 xl:w-96">
+            <div className="absolute -bottom-4 -right-4 h-full w-full rounded-3xl" style={{ backgroundColor: "#D4521A", opacity: 0.15 }} />
+            <div className="absolute -bottom-8 -right-8 h-full w-full rounded-3xl" style={{ border: "1px solid rgba(212,82,26,0.2)" }} />
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl" style={{ aspectRatio: "4/5" }}>
+              <img src="/media/roni-hero.png" alt={tx.name} className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+              <div className="absolute inset-x-0 bottom-0 h-1/3" style={{ background: "linear-gradient(to top, rgba(27,77,62,0.6), transparent)" }} />
+              <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 rounded-2xl px-4 py-2 md:px-5 md:py-3" style={{ backgroundColor: "rgba(245,240,232,0.95)", backdropFilter: "blur(8px)" }}>
+                <p className="font-heading text-xs md:text-sm font-bold" style={{ color: "#1B4D3E" }}>{tx.name}</p>
+                <p className="text-[10px] md:text-xs mt-0.5" style={{ color: "#D4521A" }}>{tx.role}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
