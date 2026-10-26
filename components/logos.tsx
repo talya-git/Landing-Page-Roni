@@ -1,4 +1,20 @@
+"use client"
+
+import { useLang } from "@/lib/lang-context"
+
+const t = {
+  he: {
+    title: "בין הבמות והארגונים שכבר נתנו בי אמון",
+  },
+  en: {
+    title: "Trusted by stages and organizations",
+  },
+}
+
 export function Logos() {
+  const { lang } = useLang()
+  const tx = t[lang]
+
   const logos = [
     { src: "/media/logo-twist.jpg", alt: "טוויסט בעלילה" },
     { src: "/media/logo-ritmo.png", alt: "ריטמו על הבוקר" },
@@ -17,7 +33,7 @@ export function Logos() {
         style={{ background: "linear-gradient(to left, transparent, rgba(212,82,26,0.4), transparent)" }}
       />
       <p className="mb-10 text-center text-base font-semibold tracking-[0.2em]" style={{ color: "#6B6355" }}>
-        בין הבמות והארגונים שכבר נתנו בי אמון
+        {tx.title}
       </p>
 
       <div className="relative flex overflow-hidden">
