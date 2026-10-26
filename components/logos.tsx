@@ -2,10 +2,9 @@ export function Logos() {
   const logos = [
     { src: "/media/logo-twist.jpg", alt: "טוויסט בעלילה" },
     { src: "/media/logo-ritmo.png", alt: "ריטמו על הבוקר" },
-    { src: "/media/logo-1.png", alt: "לוגו 1" },
-    { src: "/media/logo-2.png", alt: "לוגו 2" },
-    { src: "/media/logo-3.png", alt: "לוגו 3" },
-    { src: "/media/logo-4.png", alt: "לוגו 4" },
+    { src: "/media/logo-main.png", alt: "ראשי" },
+    { src: "/media/logo-horizontal.png", alt: "אופקי" },
+    { src: "/media/logo-icon-only.png", alt: "סמל" },
   ]
 
   return (
