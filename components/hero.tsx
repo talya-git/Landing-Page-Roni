@@ -50,6 +50,7 @@ const t = {
 export function Hero() {
   const { lang } = useLang()
   const tx = t[lang]
+  const isHe = lang === "he"
 
   return (
     <section id="top" className="relative min-h-[100svh] overflow-hidden flex flex-col justify-center" style={{ backgroundColor: "#1B4D3E" }}>
@@ -59,14 +60,14 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 flex flex-1 flex-col lg:flex-row justify-center items-center px-5 pt-28 pb-20 md:px-16 lg:px-24 max-w-7xl mx-auto w-full gap-10 lg:gap-16">
-        <div className="flex flex-col items-center lg:items-start lg:flex-1 text-center lg:text-right">
+        <div className={`flex flex-col items-center ${isHe ? 'lg:items-start lg:text-right' : 'lg:items-start lg:text-left'} lg:flex-1 text-center`}>
           <div style={{ animation: "fade-up 0.6s ease both" }} className="mb-6 md:mb-10">
             <img src="/media/logo-main.png" alt="רוני לוגסי" className="h-20 w-auto object-contain drop-shadow-2xl md:h-28 mx-auto lg:mx-0" />
           </div>
 
-          <div style={{ animation: "fade-up 0.7s ease 0.1s both" }} className="mb-4 md:mb-6 flex items-center justify-center lg:justify-start gap-3">
+          <div style={{ animation: "fade-up 0.7s ease 0.1s both" }} className={`mb-4 md:mb-6 flex items-center justify-center ${isHe ? 'lg:justify-start' : 'lg:justify-start'} gap-3`}>
             <div className="h-px w-8 md:w-12" style={{ backgroundColor: "#D4521A" }} />
-            <span className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] md:tracking-[0.4em]" style={{ color: "rgba(245,240,232,0.6)" }}>
+            <span className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] md:tracking-[0.3em]" style={{ color: "rgba(245,240,232,0.6)" }}>
               {tx.subtitle}
             </span>
             <div className="h-px w-8 md:w-12" style={{ backgroundColor: "#D4521A" }} />
@@ -82,7 +83,7 @@ export function Hero() {
           <p className="mt-2 font-heading text-base md:text-lg font-semibold" style={{ color: "#D4521A", animation: "fade-up 0.9s ease 0.35s both" }}>{tx.mission}</p>
           <p className="mt-2 max-w-xl text-sm md:text-base leading-relaxed" style={{ color: "rgba(245,240,232,0.65)", animation: "fade-up 0.9s ease 0.4s both" }}>{tx.p2}</p>
 
-          <div className="mt-6 md:mt-10 flex flex-wrap justify-center lg:justify-start gap-3" style={{ animation: "fade-up 0.9s ease 0.45s both" }}>
+          <div className={`mt-6 md:mt-10 flex flex-wrap justify-center ${isHe ? 'lg:justify-start' : 'lg:justify-start'} gap-3`} style={{ animation: "fade-up 0.9s ease 0.45s both" }}>
             <a href="#contact" className="group hidden lg:inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105" style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 8px 40px rgba(212,82,26,0.45)" }}>
               {tx.cta}
               <span className="transition-transform duration-300 group-hover:translate-x-[-4px]">←</span>
@@ -93,17 +94,17 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="mt-8 md:mt-12 grid grid-cols-3 gap-4 border-t pt-6 md:pt-8 w-full max-w-sm md:max-w-none" style={{ borderColor: "rgba(245,240,232,0.1)", animation: "fade-up 0.9s ease 0.55s both" }}>
+          <div className={`mt-8 md:mt-12 grid grid-cols-3 gap-4 border-t pt-6 md:pt-8 w-full max-w-sm md:max-w-none ${isHe ? '' : 'text-left'}`} style={{ borderColor: "rgba(245,240,232,0.1)", animation: "fade-up 0.9s ease 0.55s both" }}>
             {tx.stats.map((s) => (
-              <div key={s.label} className="flex flex-col items-center lg:items-start">
+              <div key={s.label} className={`flex flex-col items-center ${isHe ? 'lg:items-start' : 'lg:items-start'}`}>
                 <span className="font-heading text-xl md:text-3xl font-bold" style={{ color: "#D4521A" }}>{s.num}</span>
-                <span className="text-[10px] md:text-xs mt-1 text-center lg:text-right" style={{ color: "rgba(245,240,232,0.5)" }}>{s.label}</span>
+                <span className={`text-[10px] md:text-xs mt-1 text-center ${isHe ? 'lg:text-right' : 'lg:text-left'}`} style={{ color: "rgba(245,240,232,0.5)" }}>{s.label}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* עיצוב התמונה בדיוק כמו ב-About עם מסגרת ומלבן תומך */}
+        {/* תמונת פרופיל בעיצוב מוקפד */}
         <div className="hidden lg:flex flex-shrink-0 items-center justify-center" style={{ animation: "fade-up 0.8s ease 0.2s both" }}>
           <div className="relative w-80 xl:w-96">
             <div className="absolute -bottom-4 -right-4 h-full w-full rounded-3xl" style={{ backgroundColor: "#D4521A", opacity: 0.15 }} />
