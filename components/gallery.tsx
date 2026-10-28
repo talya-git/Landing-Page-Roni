@@ -97,6 +97,11 @@ const videos: { youtubeId: string; title: string }[] = [
   { youtubeId: "RvASn1YO2V8", title: "" },
 ]
 
+// סרטונים אופקיים מקומיים (16:9) — מוצגים ברוחב מלא מעל הגריד
+const featuredVideos: { src: string; title: string }[] = [
+  { src: "/media/roni-corner-ep75.mp4", title: "פינת ההשבחה פרק 75 — הנחה טובה לא הופכת עסקה לטובה" },
+]
+
 export function Gallery() {
   const { lang } = useLang()
   const tx = t[lang]
@@ -145,7 +150,18 @@ export function Gallery() {
         {/* Grid */}
         {isVideos ? (
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {videos.length === 0 ? (
+            {featuredVideos.map((v) => (
+              <div
+                key={v.src}
+                className="col-span-full mx-auto w-full max-w-4xl overflow-hidden rounded-xl"
+                style={{ aspectRatio: "16/9", animation: "fade-up 0.5s ease both", backgroundColor: "rgba(245,240,232,0.08)" }}
+              >
+                <video className="h-full w-full" controls playsInline preload="metadata" title={v.title}>
+                  <source src={`${v.src}#t=0.1`} type="video/mp4" />
+                </video>
+              </div>
+            ))}
+            {videos.length === 0 && featuredVideos.length === 0 ? (
               <p className="col-span-full text-center py-16 text-sm" style={{ color: "rgba(245,240,232,0.4)" }}>{tx.emptyVideos}</p>
             ) : (
               videos.map((v, i) => (
