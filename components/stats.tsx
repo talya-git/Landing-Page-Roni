@@ -23,14 +23,17 @@ const statsData = {
 }
 
 const headings = {
-  he: { tag: "רוני במספרים", title: "25 שנה של עשייה" },
+  he: { tag: "רוני במספרים", title: "25 שנים של עשייה" },
   en: { tag: "Roni by the Numbers", title: "25 Years in Numbers" },
 }
 
 function useCountUp(target: number, run: boolean, duration = 1800) {
-  const [value, setValue] = useState(0)
+  // Start at the real number so the static HTML (Google, Facebook previews) shows it, not 0.
+  // The count-up runs only in the browser, while the card is still hidden.
+  const [value, setValue] = useState(target)
   useEffect(() => {
     if (!run) return
+    setValue(0)
     let raf = 0
     const start = performance.now()
     const tick = (now: number) => {
@@ -63,7 +66,7 @@ function StatCard({ value, suffix, label, Icon, run, delay }: { value: number; s
       <p className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight tabular-nums" style={{ color: "#D4521A" }}>
         {display}{suffix}
       </p>
-      <p className="mt-2 text-xs md:text-sm leading-snug max-w-[12rem]" style={{ color: "#6B6355" }}>{label}</p>
+      <p className="mt-2 text-xs md:text-sm leading-snug max-w-[12rem]" style={{ color: "rgba(245,240,232,0.75)" }}>{label}</p>
     </div>
   )
 }

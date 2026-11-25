@@ -26,14 +26,14 @@ function PageContent() {
       <ScrollProgress />
       <SiteHeader />
       <Hero />
-      <VideoSection />
       <Stats />
+      <Services />
+      <VideoSection />
       <About />
       <WhyRoni />
-      <Services />
+      <Testimonials />
       <Logos />
       <Gallery />
-      <Testimonials />
       <Contact />
       <SiteFooter />
       <ChatBot />

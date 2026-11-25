@@ -8,7 +8,8 @@ import { useLang } from "@/lib/lang-context"
 const t = {
   he: {
     tag: "גלריה",
-    title: "עשייה, נוכחות ואנרגיה",
+    title: "ככה זה נראה כשהתוכן פוגש את הבמה",
+    sub: "רגעים מתוך כנסים, פאנלים, אולפני רדיו, טלוויזיה וראיונות.",
     categories: [
       { id: "radio", label: "רדיו", Icon: Radio },
       { id: "tv", label: "טלוויזיה", Icon: Tv },
@@ -22,6 +23,7 @@ const t = {
   en: {
     tag: "Gallery",
     title: "On Stage, On Air, On Camera",
+    sub: "Moments from conferences, panels, radio studios, TV and interviews.",
     categories: [
       { id: "radio", label: "Radio", Icon: Radio },
       { id: "tv", label: "Television", Icon: Tv },
@@ -68,7 +70,6 @@ const images: Record<string, { src: string; alt: string }[]> = {
   ],
   podcasts: [
     { src: "/media/gallery/pod-1.jpg", alt: "פודקאסט 1" },
-    { src: "/media/gallery/pod-2.jpg", alt: "פודקאסט 2" },
     { src: "/media/gallery/pod-3.jpg", alt: "פודקאסט 3" },
     { src: "/media/gallery/pod-4.jpg", alt: "פודקאסט 4" },
     { src: "/media/gallery/pod-5.jpg", alt: "פודקאסט 5" },
@@ -147,6 +148,7 @@ export function Gallery() {
           <h2 className="mt-4 font-heading text-3xl font-bold leading-tight tracking-[-0.03em] sm:text-4xl" style={{ color: "#F5F0E8" }}>
             {tx.title}
           </h2>
+          <p className="mt-3 text-sm md:text-base" style={{ color: "rgba(245,240,232,0.65)" }}>{tx.sub}</p>
         </Reveal>
 
         {/* Category tabs */}
