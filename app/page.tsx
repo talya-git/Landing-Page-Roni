@@ -13,6 +13,7 @@ import { Gallery } from "@/components/gallery"
 import { Testimonials } from "@/components/testimonials"
 import { Contact } from "@/components/contact"
 import { SiteFooter } from "@/components/site-footer"
+import { ChatBot } from "@/components/chat-bot"
 import { LangProvider, useLang } from "@/lib/lang-context"
 import { LangWrapper } from "@/components/lang-wrapper"
 
@@ -35,6 +36,7 @@ function PageContent() {
       <Testimonials />
       <Contact />
       <SiteFooter />
+      <ChatBot />
 
       {/* Mobile sticky CTA */}
       <a
