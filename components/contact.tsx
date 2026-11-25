@@ -16,14 +16,14 @@ const data = {
   he: {
     tag: "בואו ניצור יחד",
     title: "לכל שיחה יש כוח להשפיע.",
-    p1: "אם אתם מחפשים מנחה לכנס, מראיינת לפודקאסט, מנחת פאנל, יוצרת תוכן או שותפה לפרויקט משמעותי — אשמח להכיר.",
+    p1: "אם אתם מחפשים מנחה לכנס, מראיינת לפודקאסט, מנחת פאנל, יוצרת תוכן או שותפה לפרויקט משמעותי, אשמח להכיר.",
     p2: "בוא ניצור יחד את הרגע הבא שלכם.",
     waLabel: "שלחי הודעה עכשיו",
   },
   en: {
     tag: "Let's Create Together",
     title: "Every conversation has the power to make an impact.",
-    p1: "If you're looking for a conference moderator, podcast interviewer, panel host, content creator or a partner for a meaningful project — I'd love to connect.",
+    p1: "If you're looking for a conference moderator, podcast interviewer, panel host, content creator or a partner for a meaningful project, I'd love to connect.",
     p2: "Let's create your next moment together.",
     waLabel: "Send a message now",
   },

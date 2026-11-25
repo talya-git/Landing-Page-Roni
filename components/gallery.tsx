@@ -97,9 +97,17 @@ const videos: { youtubeId: string; title: string }[] = [
   { youtubeId: "RvASn1YO2V8", title: "" },
 ]
 
-// סרטונים אופקיים מקומיים (16:9) — מוצגים ברוחב מלא מעל הגריד
+// סרטונים אופקיים מקומיים (16:9), מוצגים ברוחב מלא מעל הגריד
 const featuredVideos: { src: string; title: string }[] = [
-  { src: "/media/roni-corner-ep75.mp4", title: "פינת ההשבחה פרק 75 — הנחה טובה לא הופכת עסקה לטובה" },
+  { src: "/media/roni-corner-ep75.mp4", title: "פינת ההשבחה פרק 75: הנחה טובה לא הופכת עסקה לטובה" },
+]
+
+// סרטוני יוטיוב אופקיים (16:9)
+const wideVideos: { youtubeId: string; title: string }[] = [
+  { youtubeId: "qUs5OmCp6v0", title: "סרטון 1" },
+  { youtubeId: "3T-s35uC2-8", title: "סרטון 2" },
+  { youtubeId: "9YGwqwJiaN4", title: "סרטון 3" },
+  { youtubeId: "WseOYmrAzds", title: "סרטון 4" },
 ]
 
 export function Gallery() {
@@ -161,7 +169,25 @@ export function Gallery() {
                 </video>
               </div>
             ))}
-            {videos.length === 0 && featuredVideos.length === 0 ? (
+            <div className="col-span-full grid grid-cols-1 gap-5 md:grid-cols-2">
+              {wideVideos.map((v, i) => (
+                <div
+                  key={v.youtubeId}
+                  className="overflow-hidden rounded-xl"
+                  style={{ aspectRatio: "16/9", animation: `fade-up 0.5s ease ${i * 60}ms both`, backgroundColor: "rgba(245,240,232,0.08)" }}
+                >
+                  <iframe
+                    src={`https://www.youtube.com/embed/${v.youtubeId}`}
+                    title={v.title}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="h-full w-full"
+                  />
+                </div>
+              ))}
+            </div>
+            {videos.length === 0 && featuredVideos.length === 0 && wideVideos.length === 0 ? (
               <p className="col-span-full text-center py-16 text-sm" style={{ color: "rgba(245,240,232,0.4)" }}>{tx.emptyVideos}</p>
             ) : (
               videos.map((v, i) => (
@@ -209,7 +235,7 @@ export function Gallery() {
         )}
       </div>
 
-      {/* Lightbox — only for images */}
+      {/* Lightbox: only for images */}
       {!isVideos && lightbox !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center"

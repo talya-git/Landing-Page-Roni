@@ -11,7 +11,7 @@ const data = {
     points: [
       { num: "01", title: "לא רק מנחה", body: "אני יוצרת חוויה. כל אירוע מקבל ממני נוכחות, אנרגיה ותשומת לב מלאה." },
       { num: "02", title: "לא רק מראיינת", body: "אני יודעת לייצר שיחה שמוציאה מהאדם שמולי את מה שאף אחד אחר לא הצליח להוציא." },
-      { num: "03", title: "שילוב ייחודי", body: "ניסיון ניהולי, עולם התקשורת, הבנה עסקית, רגישות אנושית וסקרנות אמיתית — מאפשרים לי להוביל כל במה בצורה מקצועית, טבעית ומדויקת." },
+      { num: "03", title: "שילוב ייחודי", body: "ניסיון ניהולי, עולם התקשורת, הבנה עסקית, רגישות אנושית וסקרנות אמיתית מאפשרים לי להוביל כל במה בצורה מקצועית, טבעית ומדויקת." },
     ],
   },
   en: {
@@ -21,7 +21,7 @@ const data = {
     points: [
       { num: "01", title: "Not just a moderator", body: "I create an experience. Every event gets my full presence, energy and attention." },
       { num: "02", title: "Not just an interviewer", body: "I know how to create a conversation that draws out what no one else has managed to." },
-      { num: "03", title: "A unique combination", body: "Management experience, media world, business understanding, human sensitivity and genuine curiosity — allow me to lead any stage professionally, naturally and precisely." },
+      { num: "03", title: "A unique combination", body: "Management experience, media world, business understanding, human sensitivity and genuine curiosity allow me to lead any stage professionally, naturally and precisely." },
     ],
   },
 }

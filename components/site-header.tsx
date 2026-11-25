@@ -81,7 +81,7 @@ export function SiteHeader() {
 
           {/* Right side actions */}
           <div className="flex items-center gap-2">
-            {/* Language toggle — visible always */}
+            {/* Language toggle, visible always */}
             <button
               onClick={toggle}
               className="flex items-center gap-1 rounded-full px-2.5 py-1.5 text-xs font-semibold transition-all hover:scale-105"
