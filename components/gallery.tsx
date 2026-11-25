@@ -21,7 +21,7 @@ const t = {
   },
   en: {
     tag: "Gallery",
-    title: "Action, Presence & Energy",
+    title: "On Stage, On Air, On Camera",
     categories: [
       { id: "radio", label: "Radio", Icon: Radio },
       { id: "tv", label: "Television", Icon: Tv },
@@ -90,7 +90,7 @@ const images: Record<string, { src: string; alt: string }[]> = {
   ],
 }
 
-const videos: { youtubeId: string; title: string }[] = [
+const videosHe: { youtubeId: string; title: string }[] = [
   { youtubeId: "vBwvYnmsUZw", title: "הפינה של רוני" },
   { youtubeId: "dNalqIGV3E8", title: "ריל 4" },
   { youtubeId: "bAjC2O4GyMU", title: "סרטון ללינקדאין" },
@@ -98,21 +98,34 @@ const videos: { youtubeId: string; title: string }[] = [
 ]
 
 // סרטונים אופקיים מקומיים (16:9), מוצגים ברוחב מלא מעל הגריד
-const featuredVideos: { src: string; title: string }[] = [
+const featuredVideosHe: { src: string; title: string }[] = [
   { src: "/media/roni-corner-ep75.mp4", title: "פינת ההשבחה פרק 75: הנחה טובה לא הופכת עסקה לטובה" },
 ]
 
-// סרטוני יוטיוב אופקיים (16:9)
-const wideVideos: { youtubeId: string; title: string }[] = [
-  { youtubeId: "qUs5OmCp6v0", title: "סרטון 1" },
-  { youtubeId: "3T-s35uC2-8", title: "סרטון 2" },
-  { youtubeId: "9YGwqwJiaN4", title: "סרטון 3" },
-  { youtubeId: "WseOYmrAzds", title: "סרטון 4" },
-]
+// סרטוני יוטיוב אופקיים (16:9), לפי שפה
+const wideVideosByLang: Record<"he" | "en", { youtubeId: string; title: string }[]> = {
+  he: [
+    { youtubeId: "qUs5OmCp6v0", title: "סרטון 1" },
+    { youtubeId: "3T-s35uC2-8", title: "סרטון 2" },
+    { youtubeId: "9YGwqwJiaN4", title: "סרטון 3" },
+    { youtubeId: "WseOYmrAzds", title: "סרטון 4" },
+  ],
+  en: [
+    { youtubeId: "9kSpou1zx2Q", title: "Video 1" },
+    { youtubeId: "Dp20ukeGy58", title: "Video 2" },
+    { youtubeId: "WBnz6V6d3dA", title: "Video 3" },
+    { youtubeId: "XJ5YH7wOiUs", title: "Video 4" },
+    { youtubeId: "XaVlGmn1IAY", title: "Video 5" },
+  ],
+}
 
 export function Gallery() {
   const { lang } = useLang()
   const tx = t[lang]
+  const wideVideos = wideVideosByLang[lang]
+  // הסרטונים הקיימים בעברית מוצגים רק בגרסה העברית
+  const featuredVideos = lang === "he" ? featuredVideosHe : []
+  const videos = lang === "he" ? videosHe : []
 
   const [active, setActive] = useState("conferences")
   const [lightbox, setLightbox] = useState<number | null>(null)

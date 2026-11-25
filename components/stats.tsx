@@ -24,7 +24,7 @@ const statsData = {
 
 const headings = {
   he: { tag: "רוני במספרים", title: "25 שנה של עשייה" },
-  en: { tag: "Roni by the Numbers", title: "25 Years of Doing" },
+  en: { tag: "Roni by the Numbers", title: "25 Years in Numbers" },
 }
 
 function useCountUp(target: number, run: boolean, duration = 1800) {

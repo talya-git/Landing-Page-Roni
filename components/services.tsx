@@ -21,12 +21,12 @@ const data = {
     tag: "Areas of Activity",
     title: "What I Do",
     services: [
-      { icon: Mic2, title: "Conference & Event Moderation", body: "Moderating business conferences, corporate events, women's events, launches, ceremonies and content events, creating a genuine connection between the audience, the content and the stage." },
-      { icon: Headphones, title: "Podcasts & In-Depth Interviews", body: "Personal interviews, content series and podcasts that allow people and organizations to tell their story authentically and meaningfully." },
-      { icon: Radio, title: "Radio Show", body: "Hosting business leaders, entrepreneurs, public figures, creators and inspiring people on the weekly radio show." },
-      { icon: Users, title: "Panel & Cultural Event Moderation", body: "Managing quality, dynamic and in-depth discussions tailored to the nature of the audience, participants and event." },
-      { icon: Film, title: "Content Productions", body: "Developing and leading content formats, interviews, series and content platforms for companies, organizations and brands." },
-      { icon: Handshake, title: "Collaborations", body: "Creating collaborations with bodies, companies and organizations interested in producing quality and impactful content." },
+      { icon: Mic2, title: "Conference & Event Moderation", body: "Business conferences, corporate events, women's events, launches and ceremonies. I make sure the audience stays connected to what's happening on stage." },
+      { icon: Headphones, title: "Podcasts & In-Depth Interviews", body: "Personal interviews, series and podcasts that help people and organizations tell their story in their own words." },
+      { icon: Radio, title: "Radio Show", body: "A weekly radio show with business leaders, entrepreneurs, public figures and creators." },
+      { icon: Users, title: "Panel & Cultural Event Moderation", body: "Lively, in-depth discussions adapted to each audience, panel and event." },
+      { icon: Film, title: "Content Productions", body: "Developing and hosting interview formats and series for companies, organizations and brands." },
+      { icon: Handshake, title: "Collaborations", body: "Working with companies and organizations that want to produce strong content." },
     ],
   },
 }

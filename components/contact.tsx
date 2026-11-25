@@ -22,9 +22,9 @@ const data = {
   },
   en: {
     tag: "Let's Create Together",
-    title: "Every conversation has the power to make an impact.",
-    p1: "If you're looking for a conference moderator, podcast interviewer, panel host, content creator or a partner for a meaningful project, I'd love to connect.",
-    p2: "Let's create your next moment together.",
+    title: "Let's start with a conversation.",
+    p1: "Looking for a conference moderator, a podcast interviewer, a panel host or a partner for your next project? I'd be happy to hear from you.",
+    p2: "Send me a message and we'll take it from there.",
     waLabel: "Send a message now",
   },
 }

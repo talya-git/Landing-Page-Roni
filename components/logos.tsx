@@ -7,7 +7,7 @@ const t = {
     title: "בין הבמות והארגונים שכבר נתנו בי אמון",
   },
   en: {
-    title: "Trusted by stages and organizations",
+    title: "Organizations I've worked with",
   },
 }
 

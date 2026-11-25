@@ -16,12 +16,12 @@ const data = {
   },
   en: {
     tag: "Why Roni?",
-    title: "Every event. Every panel. Every interview. Every collaboration.",
-    sub: "You get the same commitment from me: to create value and leave a mark.",
+    title: "What you get when you work with me",
+    sub: "Whatever the event, I bring the same level of commitment.",
     points: [
-      { num: "01", title: "Not just a moderator", body: "I create an experience. Every event gets my full presence, energy and attention." },
-      { num: "02", title: "Not just an interviewer", body: "I know how to create a conversation that draws out what no one else has managed to." },
-      { num: "03", title: "A unique combination", body: "Management experience, media world, business understanding, human sensitivity and genuine curiosity allow me to lead any stage professionally, naturally and precisely." },
+      { num: "01", title: "Moderating", body: "I give every event my full attention and energy, from the first minute to the last." },
+      { num: "02", title: "Interviewing", body: "I know how to get people to open up and say things they haven't said in other interviews." },
+      { num: "03", title: "Experience", body: "Years in management, media and business, plus real curiosity about people, help me run any stage with confidence." },
     ],
   },
 }

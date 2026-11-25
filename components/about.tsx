@@ -17,9 +17,9 @@ const data = {
   en: {
     tag: "About Me",
     title: "People Have Always Been My Story",
-    p1: "At first glance my professional path looks diverse. I started in the world of dance. I moved on to management and leading people. Today I am CEO of a real estate group, a media personality, radio host, interviewer and moderator of conferences, panels and content events.",
-    p2: "But if there is one thread connecting all these stations, it is a genuine love for people.",
-    p3: "I believe a good conversation can open a door, create a connection and change a perspective. That is why I choose again and again to step on stage, hold a microphone and create a space where people feel comfortable being who they truly are.",
+    p1: "My career has taken a few turns. I started out as a dancer, moved into management, and today I run a real estate group while working as a radio host, interviewer and moderator of conferences, panels and events.",
+    p2: "What ties it all together is that I love people.",
+    p3: "A good conversation can open doors and change the way people see things. That's why I keep coming back to the stage and the microphone, and why I work hard to make the people I talk with feel comfortable being themselves.",
     cta: "Let's Talk",
     name: "Roni Lugasi Cohen",
     role: "Media Personality",

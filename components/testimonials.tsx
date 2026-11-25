@@ -25,7 +25,7 @@ const t = {
       { name: "Yaniv", role: "Ritmo Guest", text: "Although I usually avoid interviews and early morning hours, this morning in the studio was particularly magical. The small studio filled with powers of inspiration and mission that made me grateful I couldn't escape this meeting... as it is a rare opportunity. Huge thanks to Roni for the invitation.", initials: "Y" },
       { name: "Iris Granot", role: "Ritmo Guest", text: "Thank you very much lovely and beloved Roni, for a program delivered with sensitivity and attentiveness to everyone.", initials: "I" },
       { name: "Meital Azari", role: "Ritmo Guest", text: "Thank you for the warm, expanding hospitality that opens new possibilities. Roni, you are light and high wisdom, phenomenally creative! Continue to be in your cosmic presence and may you be blessed back with abundance and great happiness.", initials: "M" },
-      { name: "Tiferet Kornfeld", role: "Ritmo Guest", text: "It was an experience that left me with a huge smile still smeared across my face. Stunning Roni - you are light, heart, inspiration, and thank you for the privilege of spending the morning in your presence.", initials: "T" },
+      { name: "Tiferet Kornfeld", role: "Ritmo Guest", text: "It was an experience that left me with a huge smile still smeared across my face. Stunning Roni, you are light, heart, inspiration, and thank you for the privilege of spending the morning in your presence.", initials: "T" },
     ],
   },
 }
