@@ -8,7 +8,8 @@ import { useLang } from "@/lib/lang-context"
 const t = {
   he: {
     tag: "גלריה",
-    title: "עשייה, נוכחות ואנרגיה",
+    title: "ככה זה נראה כשהתוכן פוגש את הבמה",
+    sub: "רגעים מתוך כנסים, פאנלים, אולפני רדיו, טלוויזיה וראיונות.",
     categories: [
       { id: "radio", label: "רדיו", Icon: Radio },
       { id: "tv", label: "טלוויזיה", Icon: Tv },
@@ -21,7 +22,8 @@ const t = {
   },
   en: {
     tag: "Gallery",
-    title: "Action, Presence & Energy",
+    title: "On Stage, On Air, On Camera",
+    sub: "Moments from conferences, panels, radio studios, TV and interviews.",
     categories: [
       { id: "radio", label: "Radio", Icon: Radio },
       { id: "tv", label: "Television", Icon: Tv },
@@ -68,7 +70,6 @@ const images: Record<string, { src: string; alt: string }[]> = {
   ],
   podcasts: [
     { src: "/media/gallery/pod-1.jpg", alt: "פודקאסט 1" },
-    { src: "/media/gallery/pod-2.jpg", alt: "פודקאסט 2" },
     { src: "/media/gallery/pod-3.jpg", alt: "פודקאסט 3" },
     { src: "/media/gallery/pod-4.jpg", alt: "פודקאסט 4" },
     { src: "/media/gallery/pod-5.jpg", alt: "פודקאסט 5" },
@@ -90,21 +91,42 @@ const images: Record<string, { src: string; alt: string }[]> = {
   ],
 }
 
-const videos: { youtubeId: string; title: string }[] = [
+const videosHe: { youtubeId: string; title: string }[] = [
   { youtubeId: "vBwvYnmsUZw", title: "הפינה של רוני" },
   { youtubeId: "dNalqIGV3E8", title: "ריל 4" },
   { youtubeId: "bAjC2O4GyMU", title: "סרטון ללינקדאין" },
   { youtubeId: "RvASn1YO2V8", title: "" },
 ]
 
-// סרטונים אופקיים מקומיים (16:9) — מוצגים ברוחב מלא מעל הגריד
-const featuredVideos: { src: string; title: string }[] = [
-  { src: "/media/roni-corner-ep75.mp4", title: "פינת ההשבחה פרק 75 — הנחה טובה לא הופכת עסקה לטובה" },
+// סרטונים אופקיים מקומיים (16:9), מוצגים ברוחב מלא מעל הגריד
+const featuredVideosHe: { src: string; title: string }[] = [
+  { src: "/media/roni-corner-ep75.mp4", title: "פינת ההשבחה פרק 75: הנחה טובה לא הופכת עסקה לטובה" },
 ]
+
+// סרטוני יוטיוב אופקיים (16:9), לפי שפה
+const wideVideosByLang: Record<"he" | "en", { youtubeId: string; title: string }[]> = {
+  he: [
+    { youtubeId: "qUs5OmCp6v0", title: "סרטון 1" },
+    { youtubeId: "3T-s35uC2-8", title: "סרטון 2" },
+    { youtubeId: "9YGwqwJiaN4", title: "סרטון 3" },
+    { youtubeId: "WseOYmrAzds", title: "סרטון 4" },
+  ],
+  en: [
+    { youtubeId: "9kSpou1zx2Q", title: "Video 1" },
+    { youtubeId: "Dp20ukeGy58", title: "Video 2" },
+    { youtubeId: "WBnz6V6d3dA", title: "Video 3" },
+    { youtubeId: "XJ5YH7wOiUs", title: "Video 4" },
+    { youtubeId: "XaVlGmn1IAY", title: "Video 5" },
+  ],
+}
 
 export function Gallery() {
   const { lang } = useLang()
   const tx = t[lang]
+  const wideVideos = wideVideosByLang[lang]
+  // הסרטונים הקיימים בעברית מוצגים רק בגרסה העברית
+  const featuredVideos = lang === "he" ? featuredVideosHe : []
+  const videos = lang === "he" ? videosHe : []
 
   const [active, setActive] = useState("conferences")
   const [lightbox, setLightbox] = useState<number | null>(null)
@@ -126,6 +148,7 @@ export function Gallery() {
           <h2 className="mt-4 font-heading text-3xl font-bold leading-tight tracking-[-0.03em] sm:text-4xl" style={{ color: "#F5F0E8" }}>
             {tx.title}
           </h2>
+          <p className="mt-3 text-sm md:text-base" style={{ color: "rgba(245,240,232,0.65)" }}>{tx.sub}</p>
         </Reveal>
 
         {/* Category tabs */}
@@ -161,7 +184,25 @@ export function Gallery() {
                 </video>
               </div>
             ))}
-            {videos.length === 0 && featuredVideos.length === 0 ? (
+            <div className="col-span-full grid grid-cols-1 gap-5 md:grid-cols-2">
+              {wideVideos.map((v, i) => (
+                <div
+                  key={v.youtubeId}
+                  className="overflow-hidden rounded-xl"
+                  style={{ aspectRatio: "16/9", animation: `fade-up 0.5s ease ${i * 60}ms both`, backgroundColor: "rgba(245,240,232,0.08)" }}
+                >
+                  <iframe
+                    src={`https://www.youtube.com/embed/${v.youtubeId}`}
+                    title={v.title}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="h-full w-full"
+                  />
+                </div>
+              ))}
+            </div>
+            {videos.length === 0 && featuredVideos.length === 0 && wideVideos.length === 0 ? (
               <p className="col-span-full text-center py-16 text-sm" style={{ color: "rgba(245,240,232,0.4)" }}>{tx.emptyVideos}</p>
             ) : (
               videos.map((v, i) => (
@@ -209,7 +250,7 @@ export function Gallery() {
         )}
       </div>
 
-      {/* Lightbox — only for images */}
+      {/* Lightbox: only for images */}
       {!isVideos && lightbox !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center"

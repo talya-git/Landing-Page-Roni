@@ -8,9 +8,9 @@ const t = {
     tag: "המלצות",
     title: "מה אומרים עליי",
     testimonials: [
-      { name: "מאיה משה", role: "אורחת בריטמו", text: "תודה רבה לפאנל הנשים ולחיבורים המרגשים הרגשתי שהגעתי למרחב חם ומחבק ❤️ תודה רבה לרוני המקסימה על ההנחיה המקצועית על החיבוק על הבמה לדבר ולהביא את המסרים והשיטה של לפרונט. תודה רבה לרונה על הקבלת פנים והצילומים ותודה לחברות המדהימות שהכרתי היום. יום מקסים ושנמשיך לעשות הרבה דברים טובים בריטמו שלנו", initials: "מ" },
-      { name: "ורד כהן ברזילי", role: "אורחת בריטמו", text: "תודה על אירוח, היה לי בוקר בהחלט מיוחד ונעים. תודה לרוני המצוינת ששאלה את השאלות הכי מדויקות", initials: "ו" },
-      { name: "יניב", role: "אורח בריטמו", text: "למרות שאני בדרכ נמנע מראיונות ומשעות בוקר מוקדמות, הבוקר הזה באולפן היה קסום במיוחד. האולפן הקטן התמלא בעוצמות של השראה ושליחות שגרמו לי להודות על שלא הצלחתי להתחמק מהמפגש.. שכן מדובר בהזדמנות נדירה. תודה ענקית לרוני על ההזמנה.", initials: "י" },
+      { name: "מאיה משה", role: "אורחת בריטמו", text: "תודה רבה לפאנל הנשים ולחיבורים המרגשים הרגשתי שהגעתי למרחב חם ומחבק ❤️ תודה רבה לרוני המקסימה על ההנחיה המקצועית על החיבוק על הבמה לדבר ולהביא את המסרים והשיטה של לפרונט. תודה רבה לרונה על קבלת הפנים והצילומים ותודה לחברות המדהימות שהכרתי היום. יום מקסים ושנמשיך לעשות הרבה דברים טובים בריטמו שלנו", initials: "מ" },
+      { name: "ורד כהן ברזילי", role: "אורחת בריטמו", text: "תודה על האירוח, היה לי בוקר בהחלט מיוחד ונעים. תודה לרוני המצוינת ששאלה את השאלות הכי מדויקות", initials: "ו" },
+      { name: "יניב", role: "אורח בריטמו", text: "למרות שאני בדרך כלל נמנע מראיונות ומשעות בוקר מוקדמות, הבוקר הזה באולפן היה קסום במיוחד. האולפן הקטן התמלא בעוצמות של השראה ושליחות שגרמו לי להודות על שלא הצלחתי להתחמק מהמפגש... שכן מדובר בהזדמנות נדירה. תודה ענקית לרוני על ההזמנה.", initials: "י" },
       { name: "איריס גרנות", role: "אורחת בריטמו", text: "תודה רבה רוני מקסימה ואהובה, על תוכנית שהועברה ברגישות ובהקשבה לכולם.", initials: "א" },
       { name: "מיטל אזרי", role: "אורחת בריטמו", text: "תודה על האירוח החם המרחיב והפותח אפשרויות חדשות. רוני את אור וחוכמה גבוהה, יצירתית בצורה פנומנלית! תמשיכי להיות בנוכחות הקוסמית שלך ושתבורכי חזרה בשפע ואושר גדול.", initials: "מ" },
       { name: "תפארת קורנפלד", role: "אורחת בריטמו", text: "הייתה חוויה שהותירה אותי עם חיוך ענק שעדיין מרוח על הפנים. רוני מהממת - את אור, לב, השראה ותודה על הזכות לבלות את הבוקר במחיצתך.", initials: "ת" },
@@ -25,7 +25,7 @@ const t = {
       { name: "Yaniv", role: "Ritmo Guest", text: "Although I usually avoid interviews and early morning hours, this morning in the studio was particularly magical. The small studio filled with powers of inspiration and mission that made me grateful I couldn't escape this meeting... as it is a rare opportunity. Huge thanks to Roni for the invitation.", initials: "Y" },
       { name: "Iris Granot", role: "Ritmo Guest", text: "Thank you very much lovely and beloved Roni, for a program delivered with sensitivity and attentiveness to everyone.", initials: "I" },
       { name: "Meital Azari", role: "Ritmo Guest", text: "Thank you for the warm, expanding hospitality that opens new possibilities. Roni, you are light and high wisdom, phenomenally creative! Continue to be in your cosmic presence and may you be blessed back with abundance and great happiness.", initials: "M" },
-      { name: "Tiferet Kornfeld", role: "Ritmo Guest", text: "It was an experience that left me with a huge smile still smeared across my face. Stunning Roni - you are light, heart, inspiration, and thank you for the privilege of spending the morning in your presence.", initials: "T" },
+      { name: "Tiferet Kornfeld", role: "Ritmo Guest", text: "It was an experience that left me with a huge smile still smeared across my face. Stunning Roni, you are light, heart, inspiration, and thank you for the privilege of spending the morning in your presence.", initials: "T" },
     ],
   },
 }

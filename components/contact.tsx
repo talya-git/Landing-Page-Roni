@@ -16,16 +16,16 @@ const data = {
   he: {
     tag: "בואו ניצור יחד",
     title: "לכל שיחה יש כוח להשפיע.",
-    p1: "אם אתם מחפשים מנחה לכנס, מראיינת לפודקאסט, מנחת פאנל, יוצרת תוכן או שותפה לפרויקט משמעותי — אשמח להכיר.",
-    p2: "בוא ניצור יחד את הרגע הבא שלכם.",
-    waLabel: "שלחי הודעה עכשיו",
+    p1: "אם אתם מחפשים מנחה לכנס, מראיינת לפודקאסט, מנחת פאנל, יוצרת תוכן או שותפה לפרויקט משמעותי, אשמח להכיר.",
+    p2: "בואו ניצור יחד את הרגע הבא שלכם.",
+    waLabel: "שליחת הודעה בוואטסאפ",
   },
   en: {
     tag: "Let's Create Together",
-    title: "Every conversation has the power to make an impact.",
-    p1: "If you're looking for a conference moderator, podcast interviewer, panel host, content creator or a partner for a meaningful project — I'd love to connect.",
-    p2: "Let's create your next moment together.",
-    waLabel: "Send a message now",
+    title: "Let's start with a conversation.",
+    p1: "Looking for a conference moderator, a podcast interviewer, a panel host or a partner for your next project? I'd be happy to hear from you.",
+    p2: "Send me a message and we'll take it from there.",
+    waLabel: "Message on WhatsApp",
   },
 }
 
@@ -55,7 +55,7 @@ export function Contact() {
               {[
                 { icon: Phone, label: lang === "he" ? "טלפון" : "Phone", value: "050-777-0071", href: "tel:+972507770071" },
                 { icon: WhatsAppIcon, label: "WhatsApp", value: d.waLabel, href: "https://wa.me/972507770071" },
-                { icon: Mail, label: lang === "he" ? "אימייל" : "Email", value: "roni@orencohengroup.com", href: "mailto:roni@orencohengroup.com" },
+                { icon: Mail, label: lang === "he" ? "דואר אלקטרוני" : "Email", value: "roni@orencohengroup.com", href: "mailto:roni@orencohengroup.com" },
               ].map((c) => (
                 <a
                   key={c.label}

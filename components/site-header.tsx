@@ -6,21 +6,21 @@ import { useLang } from "@/lib/lang-context"
 
 const links = {
   he: [
-    { href: "#about", label: "קצת עליי" },
     { href: "#numbers", label: "במספרים" },
-    { href: "#why", label: "למה רוני?" },
     { href: "#services", label: "תחומי פעילות" },
-    { href: "#gallery", label: "גלריה" },
+    { href: "#about", label: "קצת עליי" },
+    { href: "#why", label: "למה רוני?" },
     { href: "#testimonials", label: "המלצות" },
+    { href: "#gallery", label: "גלריה" },
     { href: "#contact", label: "צרו קשר" },
   ],
   en: [
-    { href: "#about", label: "About" },
     { href: "#numbers", label: "By the Numbers" },
-    { href: "#why", label: "Why Roni?" },
     { href: "#services", label: "Services" },
-    { href: "#gallery", label: "Gallery" },
+    { href: "#about", label: "About" },
+    { href: "#why", label: "Why Roni?" },
     { href: "#testimonials", label: "Testimonials" },
+    { href: "#gallery", label: "Gallery" },
     { href: "#contact", label: "Contact" },
   ],
 }
@@ -81,7 +81,7 @@ export function SiteHeader() {
 
           {/* Right side actions */}
           <div className="flex items-center gap-2">
-            {/* Language toggle — visible always */}
+            {/* Language toggle, visible always */}
             <button
               onClick={toggle}
               className="flex items-center gap-1 rounded-full px-2.5 py-1.5 text-xs font-semibold transition-all hover:scale-105"

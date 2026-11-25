@@ -14,36 +14,28 @@ const t = {
   he: {
     subtitle: "אשת תקשורת · מנחת כנסים · מראיינת · מגישת רדיו ופודקאסטים · יוצרת תוכן",
     h1a: "שיחות שמחברות",
-    h1b: "בין אנשים",
+    h1b: "בין אנשים.",
     h1c: "במות שמייצרות השפעה",
-    p1: "כבר יותר מ־25 שנה אני עומדת מול אנשים — על במות, באולפני רדיו, בטלוויזיה, בפודקאסטים ובכנסים. בכל פעם מחדש אני מגלה שהרגעים המשמעותיים ביותר מתחילים בשיחה אחת טובה.",
+    p1: "כבר יותר מ־25 שנה אני עומדת מול אנשים: על במות, באולפני רדיו, בטלוויזיה, בפודקאסטים ובכנסים. בכל פעם מחדש אני מגלה שהרגעים המשמעותיים ביותר מתחילים בשיחה אחת טובה.",
     mission: "זו השליחות שלי.",
     p2: "ליצור שיחות שמחברות בין אנשים, מייצרות ערך ונשארות הרבה אחרי שהאירוע מסתיים.",
     cta: "לתיאום שיחה",
+    wa: "שליחת הודעה בוואטסאפ",
     name: "רוני לוגסי כהן",
     role: "אשת תקשורת",
-    stats: [
-      { num: "25+", label: "שנות ניסיון" },
-      { num: "500+", label: "ראיונות" },
-      { num: "100+", label: "כנסים ופאנלים" },
-    ],
   },
   en: {
     subtitle: "Media Personality · Conference Moderator · Interviewer · Radio & Podcast Host · Content Creator",
     h1a: "Conversations That",
-    h1b: "Connect People",
-    h1c: "Stages That Create Impact",
-    p1: "For over 25 years I've stood in front of people — on stages, in radio studios, on television, in podcasts and conferences. Every time I discover that the most meaningful moments begin with one good conversation.",
-    mission: "That is my mission.",
-    p2: "To create conversations that connect people, generate value, and stay with them long after the event ends.",
+    h1b: "Connect People.",
+    h1c: "On Stage and On Air",
+    p1: "For more than 25 years I've worked in front of audiences: on stage, in radio studios, on TV, on podcasts and at conferences. Again and again I've seen that the best moments start with a good conversation.",
+    mission: "That's what I do.",
+    p2: "I lead conversations that bring people together and that they keep thinking about after the event is over.",
     cta: "Book a Call",
+    wa: "Message on WhatsApp",
     name: "Roni Lugasi Cohen",
     role: "Media Personality",
-    stats: [
-      { num: "25+", label: "Years of Experience" },
-      { num: "500+", label: "Interviews" },
-      { num: "100+", label: "Conferences & Panels" },
-    ],
   },
 }
 
@@ -90,18 +82,10 @@ export function Hero() {
             </a>
             <a href="https://wa.me/972507770071" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3 md:px-8 md:py-4 text-sm md:text-base font-medium transition-all duration-300 hover:bg-white/10" style={{ border: "1px solid rgba(245,240,232,0.25)", color: "#F5F0E8" }}>
               <WhatsAppIcon className="h-4 w-4 md:h-5 md:w-5" />
-              WhatsApp
+              {tx.wa}
             </a>
           </div>
 
-          <div className={`mt-8 md:mt-12 grid grid-cols-3 gap-4 border-t pt-6 md:pt-8 w-full max-w-sm md:max-w-none ${isHe ? '' : 'text-left'}`} style={{ borderColor: "rgba(245,240,232,0.1)", animation: "fade-up 0.9s ease 0.55s both" }}>
-            {tx.stats.map((s) => (
-              <div key={s.label} className={`flex flex-col items-center ${isHe ? 'lg:items-start' : 'lg:items-start'}`}>
-                <span className="font-heading text-xl md:text-3xl font-bold" style={{ color: "#D4521A" }}>{s.num}</span>
-                <span className={`text-[10px] md:text-xs mt-1 text-center ${isHe ? 'lg:text-right' : 'lg:text-left'}`} style={{ color: "rgba(245,240,232,0.5)" }}>{s.label}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* תמונת פרופיל בעיצוב מוקפד */}

@@ -21,10 +21,31 @@ const playfair = Playfair_Display({
   style: ['normal', 'italic'],
 })
 
+const siteTitle = 'רוני לוגסי כהן | אשת תקשורת, מנחת כנסים ומראיינת'
+const siteDescription =
+  'רוני לוגסי כהן, אשת תקשורת, מנחת כנסים ופאנלים, מראיינת, מגישת רדיו ופודקאסטים ויוצרת תוכן. מעל 25 שנות ניסיון מול קהל.'
+
+// כשיחובר דומיין אישי, להחליף את הכתובת כאן כדי שהתמונה תופיע בשיתופים
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://landing-page-roni.onrender.com'
+
 export const metadata: Metadata = {
-  title: 'רוני לוגסי כהן | אשת תקשורת, מנחת כנסים ומראיינת',
-  description:
-    'רוני לוגסי כהן – אשת תקשורת, מנחת כנסים ופאנלים, מראיינת, מגישת רדיו ופודקאסטים ויוצרת תוכן. מעל 25 שנות ניסיון ביצירת שיחות שמחברות בין אנשים.',
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
+  openGraph: {
+    type: 'website',
+    locale: 'he_IL',
+    siteName: 'רוני לוגסי כהן',
+    title: siteTitle,
+    description: siteDescription,
+    images: [{ url: '/media/og-image.jpg', width: 1200, height: 630, alt: 'רוני לוגסי כהן' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteTitle,
+    description: siteDescription,
+    images: ['/media/og-image.jpg'],
+  },
 }
 
 export const viewport: Viewport = {
