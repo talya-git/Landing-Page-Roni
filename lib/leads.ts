@@ -1,6 +1,7 @@
 // Sends chat-bot inquiries to the Google Sheet (through a Google Apps Script web app).
 // Paste the web-app URL from Apps Script here. While it is empty, inquiries go to WhatsApp only.
-export const LEADS_ENDPOINT = ""
+export const LEADS_ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbzj9bOIZIV39VFhkU06H7vn7OedV3FiP39VTQapBCpezDZVYONZZckBhxUqN4StPO3C/exec"
 
 export type Lead = {
   topic: string
