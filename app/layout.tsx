@@ -52,6 +52,36 @@ export const viewport: Viewport = {
   themeColor: '#F5F0E8',
 }
 
+// Tells Google who Roni is and what she offers (shown in search results)
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#roni`,
+      name: 'רוני לוגסי כהן',
+      alternateName: 'Roni Lugasi Cohen',
+      url: siteUrl,
+      image: `${siteUrl}/media/og-image.jpg`,
+      jobTitle: 'אשת תקשורת, מנחת כנסים ופאנלים, מראיינת ומגישת רדיו',
+      telephone: '+972-50-777-0071',
+      email: 'roni@orencohengroup.com',
+      knowsLanguage: ['he', 'en'],
+    },
+    {
+      '@type': 'ProfessionalService',
+      name: 'רוני לוגסי כהן | הנחיית כנסים, פאנלים וראיונות',
+      url: siteUrl,
+      image: `${siteUrl}/media/og-image.jpg`,
+      telephone: '+972-50-777-0071',
+      email: 'roni@orencohengroup.com',
+      areaServed: { '@type': 'Country', name: 'Israel' },
+      founder: { '@id': `${siteUrl}/#roni` },
+      serviceType: ['הנחיית כנסים ואירועים', 'הנחיית פאנלים', 'ראיונות ופודקאסטים', 'הפקת תוכן לארגונים'],
+    },
+  ],
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -65,6 +95,7 @@ export default function RootLayout({
       style={{ backgroundColor: 'var(--background)' }}
     >
       <body style={{ fontFamily: 'var(--font-sans)', WebkitFontSmoothing: 'antialiased' }}>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
         {children}
       </body>
     </html>

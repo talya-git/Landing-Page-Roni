@@ -59,25 +59,25 @@ export function Hero() {
           </div>
 
           <div style={{ animation: "fade-up 0.7s ease 0.1s both" }} className={`mb-4 md:mb-6 flex items-center justify-center ${isHe ? 'lg:justify-start' : 'lg:justify-start'} gap-3`}>
-            <div className="h-px w-8 md:w-12" style={{ backgroundColor: "#D4521A" }} />
-            <span className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] md:tracking-[0.3em]" style={{ color: "rgba(245,240,232,0.6)" }}>
+            <div className="h-px w-8 md:w-12" style={{ backgroundColor: "#C2461A" }} />
+            <span className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] md:tracking-[0.3em]" style={{ color: "rgba(245,240,232,0.8)" }}>
               {tx.subtitle}
             </span>
-            <div className="h-px w-8 md:w-12" style={{ backgroundColor: "#D4521A" }} />
+            <div className="h-px w-8 md:w-12" style={{ backgroundColor: "#C2461A" }} />
           </div>
 
           <h1 style={{ animation: "fade-up 0.9s ease 0.15s both" }}>
             <span className="block font-heading font-bold leading-[1.05] tracking-[-0.02em] text-4xl md:text-6xl lg:text-7xl" style={{ color: "#F5F0E8" }}>{tx.h1a}</span>
-            <span className="block font-heading font-bold leading-[1.05] tracking-[-0.02em] text-4xl md:text-6xl lg:text-7xl" style={{ color: "#D4521A" }}>{tx.h1b}</span>
-            <span className="block font-heading font-light leading-[1.1] tracking-[-0.01em] mt-1 text-2xl md:text-4xl lg:text-5xl" style={{ color: "rgba(245,240,232,0.55)" }}>{tx.h1c}</span>
+            <span className="block font-heading font-bold leading-[1.05] tracking-[-0.02em] text-4xl md:text-6xl lg:text-7xl" style={{ color: "#F59E6B" }}>{tx.h1b}</span>
+            <span className="block font-heading font-light leading-[1.1] tracking-[-0.01em] mt-1 text-2xl md:text-4xl lg:text-5xl" style={{ color: "rgba(245,240,232,0.8)" }}>{tx.h1c}</span>
           </h1>
 
-          <p className="mt-5 md:mt-8 max-w-xl text-sm md:text-base leading-relaxed" style={{ color: "rgba(245,240,232,0.7)", animation: "fade-up 0.9s ease 0.3s both" }}>{tx.p1}</p>
-          <p className="mt-2 font-heading text-base md:text-lg font-semibold" style={{ color: "#D4521A", animation: "fade-up 0.9s ease 0.35s both" }}>{tx.mission}</p>
-          <p className="mt-2 max-w-xl text-sm md:text-base leading-relaxed" style={{ color: "rgba(245,240,232,0.65)", animation: "fade-up 0.9s ease 0.4s both" }}>{tx.p2}</p>
+          <p className="mt-5 md:mt-8 max-w-xl text-sm md:text-base leading-relaxed" style={{ color: "rgba(245,240,232,0.8)", animation: "fade-up 0.9s ease 0.3s both" }}>{tx.p1}</p>
+          <p className="mt-2 font-heading text-base md:text-lg font-semibold" style={{ color: "#F59E6B", animation: "fade-up 0.9s ease 0.35s both" }}>{tx.mission}</p>
+          <p className="mt-2 max-w-xl text-sm md:text-base leading-relaxed" style={{ color: "rgba(245,240,232,0.8)", animation: "fade-up 0.9s ease 0.4s both" }}>{tx.p2}</p>
 
           <div className={`mt-6 md:mt-10 flex flex-wrap justify-center ${isHe ? 'lg:justify-start' : 'lg:justify-start'} gap-3`} style={{ animation: "fade-up 0.9s ease 0.45s both" }}>
-            <a href="#contact" onClick={openChatBot} className="group hidden lg:inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105" style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 8px 40px rgba(212,82,26,0.45)" }}>
+            <a href="#contact" onClick={openChatBot} className="group hidden lg:inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105" style={{ backgroundColor: "#C2461A", color: "#FFFFFF", boxShadow: "0 8px 40px rgba(212,82,26,0.45)" }}>
               {tx.cta}
               <span className="transition-transform duration-300 group-hover:translate-x-[-4px]">←</span>
             </a>
@@ -92,14 +92,14 @@ export function Hero() {
         {/* תמונת פרופיל בעיצוב מוקפד */}
         <div className="hidden lg:flex flex-shrink-0 items-center justify-center" style={{ animation: "fade-up 0.8s ease 0.2s both" }}>
           <div className="relative w-80 xl:w-96">
-            <div className="absolute -bottom-4 -right-4 h-full w-full rounded-3xl" style={{ backgroundColor: "#D4521A", opacity: 0.15 }} />
+            <div className="absolute -bottom-4 -right-4 h-full w-full rounded-3xl" style={{ backgroundColor: "#C2461A", opacity: 0.15 }} />
             <div className="absolute -bottom-8 -right-8 h-full w-full rounded-3xl" style={{ border: "1px solid rgba(212,82,26,0.2)" }} />
             <div className="relative overflow-hidden rounded-3xl shadow-2xl" style={{ aspectRatio: "4/5" }}>
               <img src="/media/roni-hero.png" alt={tx.name} className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
               <div className="absolute inset-x-0 bottom-0 h-1/3" style={{ background: "linear-gradient(to top, rgba(27,77,62,0.6), transparent)" }} />
               <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 rounded-2xl px-4 py-2 md:px-5 md:py-3" style={{ backgroundColor: "rgba(245,240,232,0.95)", backdropFilter: "blur(8px)" }}>
                 <p className="font-heading text-xs md:text-sm font-bold" style={{ color: "#1B4D3E" }}>{tx.name}</p>
-                <p className="text-[10px] md:text-xs mt-0.5" style={{ color: "#D4521A" }}>{tx.role}</p>
+                <p className="text-[10px] md:text-xs mt-0.5" style={{ color: "#F59E6B" }}>{tx.role}</p>
               </div>
             </div>
           </div>

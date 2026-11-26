@@ -13,6 +13,7 @@ const links = {
     { href: "#why", label: "למה רוני?" },
     { href: "#testimonials", label: "המלצות" },
     { href: "#gallery", label: "גלריה" },
+    { href: "#faq", label: "שאלות נפוצות" },
     { href: "#contact", label: "צרו קשר" },
   ],
   en: [
@@ -22,6 +23,7 @@ const links = {
     { href: "#why", label: "Why Roni?" },
     { href: "#testimonials", label: "Testimonials" },
     { href: "#gallery", label: "Gallery" },
+    { href: "#faq", label: "FAQ" },
     { href: "#contact", label: "Contact" },
   ],
 }
@@ -102,7 +104,7 @@ export function SiteHeader() {
               href="#contact"
               onClick={openChatBot}
               className="hidden lg:inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all hover:scale-105 md:px-5"
-              style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 4px 16px rgba(212,82,26,0.3)" }}
+              style={{ backgroundColor: "#C2461A", color: "#FFFFFF", boxShadow: "0 4px 16px rgba(212,82,26,0.3)" }}
             >
               <MessageCircle className="h-4 w-4" />
               <span>{lang === "he" ? "לפנייה בצ'אט" : "Chat with me"}</span>
@@ -154,7 +156,7 @@ export function SiteHeader() {
                 href="#contact"
                 onClick={(e) => { setMenuOpen(false); openChatBot(e) }}
                 className="flex items-center justify-center gap-2 rounded-full py-4 text-base font-semibold"
-                style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 4px 16px rgba(212,82,26,0.35)" }}
+                style={{ backgroundColor: "#C2461A", color: "#FFFFFF", boxShadow: "0 4px 16px rgba(212,82,26,0.35)" }}
               >
                 <MessageCircle className="h-4 w-4" />
                 {lang === "he" ? "לפנייה בצ'אט" : "Chat with me"}

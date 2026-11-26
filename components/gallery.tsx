@@ -140,15 +140,15 @@ export function Gallery() {
     <section id="gallery" className="relative py-20 md:py-28" style={{ borderBottom: "1px solid #DDD8CE", backgroundColor: "#1B4D3E" }}>
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="text-center mb-12">
-          <span className="inline-flex items-center justify-center gap-3 text-sm font-semibold uppercase tracking-[0.3em]" style={{ color: "#D4521A" }}>
-            <span className="h-px w-6" style={{ backgroundColor: "#D4521A" }} />
+          <span className="inline-flex items-center justify-center gap-3 text-sm font-semibold uppercase tracking-[0.3em]" style={{ color: "#F59E6B" }}>
+            <span className="h-px w-6" style={{ backgroundColor: "#C2461A" }} />
             {tx.tag}
-            <span className="h-px w-6" style={{ backgroundColor: "#D4521A" }} />
+            <span className="h-px w-6" style={{ backgroundColor: "#C2461A" }} />
           </span>
           <h2 className="mt-4 font-heading text-3xl font-bold leading-tight tracking-[-0.03em] sm:text-4xl" style={{ color: "#F5F0E8" }}>
             {tx.title}
           </h2>
-          <p className="mt-3 text-sm md:text-base" style={{ color: "rgba(245,240,232,0.65)" }}>{tx.sub}</p>
+          <p className="mt-3 text-sm md:text-base" style={{ color: "rgba(245,240,232,0.8)" }}>{tx.sub}</p>
         </Reveal>
 
         {/* Category tabs */}
@@ -159,9 +159,9 @@ export function Gallery() {
               onClick={() => setActive(c.id)}
               className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-medium transition-all sm:px-5 sm:text-sm"
               style={{
-                backgroundColor: active === c.id ? "#D4521A" : "rgba(245,240,232,0.08)",
-                color: active === c.id ? "#FFFFFF" : "rgba(245,240,232,0.7)",
-                border: `1px solid ${active === c.id ? "#D4521A" : "rgba(245,240,232,0.15)"}`,
+                backgroundColor: active === c.id ? "#C2461A" : "rgba(245,240,232,0.08)",
+                color: active === c.id ? "#FFFFFF" : "rgba(245,240,232,0.85)",
+                border: `1px solid ${active === c.id ? "#C2461A" : "rgba(245,240,232,0.15)"}`,
               }}
             >
               <c.Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.5} />
@@ -203,7 +203,7 @@ export function Gallery() {
               ))}
             </div>
             {videos.length === 0 && featuredVideos.length === 0 && wideVideos.length === 0 ? (
-              <p className="col-span-full text-center py-16 text-sm" style={{ color: "rgba(245,240,232,0.4)" }}>{tx.emptyVideos}</p>
+              <p className="col-span-full text-center py-16 text-sm" style={{ color: "rgba(245,240,232,0.8)" }}>{tx.emptyVideos}</p>
             ) : (
               videos.map((v, i) => (
                 <div
@@ -288,7 +288,7 @@ export function Gallery() {
             <X className="h-6 w-6" />
           </button>
 
-          <span className="absolute bottom-4 text-sm" style={{ color: "rgba(245,240,232,0.5)" }}>
+          <span className="absolute bottom-4 text-sm" style={{ color: "rgba(245,240,232,0.8)" }}>
             {lightbox + 1} / {current.length}
           </span>
         </div>

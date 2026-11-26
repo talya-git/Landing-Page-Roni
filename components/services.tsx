@@ -41,9 +41,9 @@ export function Services() {
       <div className="mx-auto max-w-7xl px-5 md:px-16">
         <Reveal className="text-center mb-10 md:mb-16">
           <div className="mb-4 flex items-center justify-center gap-4">
-            <div className="h-px w-12" style={{ backgroundColor: "#D4521A" }} />
-            <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.4em]" style={{ color: "#D4521A" }}>{d.tag}</span>
-            <div className="h-px w-12" style={{ backgroundColor: "#D4521A" }} />
+            <div className="h-px w-12" style={{ backgroundColor: "#C2461A" }} />
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.4em]" style={{ color: "#F59E6B" }}>{d.tag}</span>
+            <div className="h-px w-12" style={{ backgroundColor: "#C2461A" }} />
           </div>
           <h2 className="font-heading font-bold leading-[1.1] tracking-[-0.03em] text-3xl md:text-5xl lg:text-6xl" style={{ color: "#F5F0E8" }}>{d.title}</h2>
         </Reveal>
@@ -66,11 +66,11 @@ export function Services() {
                 }}
               >
                 <div className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl opacity-0 transition-opacity duration-400 group-hover:opacity-100" style={{ background: "linear-gradient(to left, transparent, #D4521A, transparent)" }} />
-                <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-2xl" style={{ backgroundColor: "rgba(212,82,26,0.15)", color: "#D4521A" }}>
+                <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-2xl" style={{ backgroundColor: "rgba(212,82,26,0.15)", color: "#F59E6B" }}>
                   <s.icon className="h-5 w-5 md:h-6 md:w-6" strokeWidth={1.5} />
                 </div>
                 <h3 className="mt-4 md:mt-6 font-heading text-lg md:text-2xl font-bold" style={{ color: "#F5F0E8" }}>{s.title}</h3>
-                <p className="mt-2 md:mt-3 flex-1 text-sm md:text-base leading-relaxed" style={{ color: "rgba(245,240,232,0.6)" }}>{s.body}</p>
+                <p className="mt-2 md:mt-3 flex-1 text-sm md:text-base leading-relaxed" style={{ color: "rgba(245,240,232,0.8)" }}>{s.body}</p>
               </article>
             </Reveal>
           ))}

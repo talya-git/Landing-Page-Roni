@@ -48,12 +48,12 @@ export function Contact() {
         <div className="flex flex-col gap-8 md:gap-12">
           <Reveal className="text-center">
             <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="h-px w-12" style={{ backgroundColor: "#D4521A" }} />
-              <span className="text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "#D4521A" }}>{d.tag}</span>
-              <div className="h-px w-12" style={{ backgroundColor: "#D4521A" }} />
+              <div className="h-px w-12" style={{ backgroundColor: "#C2461A" }} />
+              <span className="text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "#F59E6B" }}>{d.tag}</span>
+              <div className="h-px w-12" style={{ backgroundColor: "#C2461A" }} />
             </div>
             <h2 className="font-heading font-bold leading-[1.05] tracking-[-0.03em] text-3xl md:text-5xl lg:text-6xl" style={{ color: "#F5F0E8" }}>{d.title}</h2>
-            <p className="mt-4 text-sm md:text-base leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(245,240,232,0.6)" }}>{d.p1}</p>
+            <p className="mt-4 text-sm md:text-base leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(245,240,232,0.8)" }}>{d.p1}</p>
             <p className="mt-2 text-sm md:text-base leading-relaxed max-w-xl mx-auto font-medium" style={{ color: "rgba(245,240,232,0.85)" }}>{d.p2}</p>
           </Reveal>
 
@@ -62,16 +62,16 @@ export function Contact() {
               <button
                 onClick={() => openChatBot()}
                 className="inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-transform duration-300 hover:scale-105 md:text-lg"
-                style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 8px 32px rgba(212,82,26,0.4)" }}
+                style={{ backgroundColor: "#C2461A", color: "#FFFFFF", boxShadow: "0 8px 32px rgba(212,82,26,0.4)" }}
               >
                 <MessageCircle className="h-5 w-5" />
                 {d.chat}
               </button>
-              <p className="text-xs md:text-sm" style={{ color: "rgba(245,240,232,0.6)" }}>{d.chatSub}</p>
+              <p className="text-xs md:text-sm" style={{ color: "rgba(245,240,232,0.8)" }}>{d.chatSub}</p>
             </div>
           </Reveal>
 
-          <p className="-mb-4 text-center text-xs tracking-[0.2em]" style={{ color: "rgba(245,240,232,0.45)" }}>{d.orLabel}</p>
+          <p className="-mb-4 text-center text-xs tracking-[0.2em]" style={{ color: "rgba(245,240,232,0.8)" }}>{d.orLabel}</p>
 
           <Reveal delay={150}>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4 max-w-5xl mx-auto w-full">
@@ -96,11 +96,11 @@ export function Contact() {
                     ;(e.currentTarget as HTMLElement).style.borderColor = "rgba(245,240,232,0.1)"
                   }}
                 >
-                  <div className="flex h-11 w-11 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-xl" style={{ backgroundColor: "rgba(212,82,26,0.15)", color: "#D4521A" }}>
+                  <div className="flex h-11 w-11 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-xl" style={{ backgroundColor: "rgba(212,82,26,0.15)", color: "#F59E6B" }}>
                     <c.icon className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "rgba(245,240,232,0.4)" }}>{c.label}</p>
+                    <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "rgba(245,240,232,0.8)" }}>{c.label}</p>
                     <p className="mt-0.5 font-heading text-sm font-semibold break-all" style={{ color: "#F5F0E8" }}>{c.value}</p>
                   </div>
                 </a>
