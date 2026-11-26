@@ -14,6 +14,12 @@
 // לאן לשלוח התראה על כל פנייה חדשה (אפשר כמה כתובות, מופרדות בפסיק)
 const NOTIFY_EMAIL = "roni@orencohengroup.com"
 const SHEET_NAME = "פניות מהאתר"
+// The Google Sheet the inquiries go to (the ID from its address)
+const SPREADSHEET_ID = "1Jycauu2DwG8GfpW5DDUzjJZq7WDhpNS-fYyzxS7_O_g"
+
+function getSpreadsheet() {
+  return SpreadsheetApp.openById(SPREADSHEET_ID)
+}
 
 const COLUMNS = [
   ["timestamp", "תאריך ושעה"],
@@ -54,7 +60,7 @@ function doPost(e) {
     return json({ ok: true })
   } catch (err) {
     console.error(err)
-    return json({ ok: false })
+    return json({ ok: false, error: String(err) })
   } finally {
     lock.releaseLock()
   }
@@ -66,7 +72,7 @@ function doGet() {
 }
 
 function getSheet() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet()
+  const ss = getSpreadsheet()
   let sheet = ss.getSheetByName(SHEET_NAME)
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME, 0)
@@ -98,9 +104,20 @@ function notify(data) {
     `מקור: ${source}`,
     "",
     `לחזור בוואטסאפ: https://wa.me/${waNumber}`,
-    `לגיליון: ${SpreadsheetApp.getActiveSpreadsheet().getUrl()}`,
+    `לגיליון: ${getSpreadsheet().getUrl()}`,
   ].join("\n")
   MailApp.sendEmail({ to: NOTIFY_EMAIL, subject: `פנייה חדשה מהאתר: ${data.name} (${data.topic || "ללא נושא"})`, body })
+}
+
+// Run this from the Apps Script editor (choose testLead and press Run) to check
+// that a row is added and the email arrives. Errors show up right in the log.
+function testLead() {
+  const result = doPost({
+    postData: {
+      contents: JSON.stringify({ name: "בדיקה", phone: "050-0000000", topic: "פנייה לבדיקה", date: "-", details: "שורת בדיקה, אפשר למחוק", lang: "he" }),
+    },
+  })
+  console.log(result.getContent ? result.getContent() : result)
 }
 
 // Plain text only; blocks spreadsheet formulas sneaking in through the form
