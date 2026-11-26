@@ -1,8 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Phone, Menu, X } from "lucide-react"
+import { Phone, Menu, X, MessageCircle } from "lucide-react"
 import { useLang } from "@/lib/lang-context"
+import { openChatBot } from "@/lib/chat-bot-events"
 
 const links = {
   he: [
@@ -99,11 +100,12 @@ export function SiteHeader() {
             {/* Desktop CTA */}
             <a
               href="#contact"
+              onClick={openChatBot}
               className="hidden lg:inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all hover:scale-105 md:px-5"
               style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 4px 16px rgba(212,82,26,0.3)" }}
             >
-              <Phone className="h-4 w-4" />
-              <span>{lang === "he" ? "לתיאום שיחה" : "Book a Call"}</span>
+              <MessageCircle className="h-4 w-4" />
+              <span>{lang === "he" ? "לפנייה בצ'אט" : "Chat with me"}</span>
             </a>
 
             {/* Hamburger */}
@@ -150,12 +152,12 @@ export function SiteHeader() {
             <div className="mt-6 flex flex-col gap-3">
               <a
                 href="#contact"
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => { setMenuOpen(false); openChatBot(e) }}
                 className="flex items-center justify-center gap-2 rounded-full py-4 text-base font-semibold"
                 style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 4px 16px rgba(212,82,26,0.35)" }}
               >
-                <Phone className="h-4 w-4" />
-                {lang === "he" ? "לתיאום שיחה" : "Book a Call"}
+                <MessageCircle className="h-4 w-4" />
+                {lang === "he" ? "לפנייה בצ'אט" : "Chat with me"}
               </a>
             </div>
           </div>

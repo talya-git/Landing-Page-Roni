@@ -1,6 +1,7 @@
 "use client"
 
 import { useLang } from "@/lib/lang-context"
+import { openChatBot } from "@/lib/chat-bot-events"
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -19,7 +20,7 @@ const t = {
     p1: "כבר יותר מ־25 שנה אני עומדת מול אנשים: על במות, באולפני רדיו, בטלוויזיה, בפודקאסטים ובכנסים. בכל פעם מחדש אני מגלה שהרגעים המשמעותיים ביותר מתחילים בשיחה אחת טובה.",
     mission: "זו השליחות שלי.",
     p2: "ליצור שיחות שמחברות בין אנשים, מייצרות ערך ונשארות הרבה אחרי שהאירוע מסתיים.",
-    cta: "לתיאום שיחה",
+    cta: "לפנייה בצ'אט",
     wa: "שליחת הודעה בוואטסאפ",
     name: "רוני לוגסי כהן",
     role: "אשת תקשורת",
@@ -32,7 +33,7 @@ const t = {
     p1: "For more than 25 years I've worked in front of audiences: on stage, in radio studios, on TV, on podcasts and at conferences. Again and again I've seen that the best moments start with a good conversation.",
     mission: "That's what I do.",
     p2: "I lead conversations that bring people together and that they keep thinking about after the event is over.",
-    cta: "Book a Call",
+    cta: "Chat with me",
     wa: "Message on WhatsApp",
     name: "Roni Lugasi Cohen",
     role: "Media Personality",
@@ -76,7 +77,7 @@ export function Hero() {
           <p className="mt-2 max-w-xl text-sm md:text-base leading-relaxed" style={{ color: "rgba(245,240,232,0.65)", animation: "fade-up 0.9s ease 0.4s both" }}>{tx.p2}</p>
 
           <div className={`mt-6 md:mt-10 flex flex-wrap justify-center ${isHe ? 'lg:justify-start' : 'lg:justify-start'} gap-3`} style={{ animation: "fade-up 0.9s ease 0.45s both" }}>
-            <a href="#contact" className="group hidden lg:inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105" style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 8px 40px rgba(212,82,26,0.45)" }}>
+            <a href="#contact" onClick={openChatBot} className="group hidden lg:inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105" style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 8px 40px rgba(212,82,26,0.45)" }}>
               {tx.cta}
               <span className="transition-transform duration-300 group-hover:translate-x-[-4px]">←</span>
             </a>
