@@ -58,6 +58,13 @@ const images: Record<string, { src: string; alt: string }[]> = {
     { src: "/media/gallery/tv-5.jpg", alt: "טלוויזיה 5" },
     { src: "/media/gallery/tv-6.jpg", alt: "טלוויזיה 6" },
     { src: "/media/gallery/tv-7.jpg", alt: "טלוויזיה 7" },
+    { src: "/media/gallery/tv-8.jpg", alt: "רוני לוגסי כהן באולפן הטלוויזיה" },
+    { src: "/media/gallery/tv-9.jpg", alt: "רוני לוגסי כהן באולפן הטלוויזיה" },
+    { src: "/media/gallery/tv-10.jpg", alt: "רוני לוגסי כהן באולפן הטלוויזיה" },
+    { src: "/media/gallery/tv-11.jpg", alt: "רוני לוגסי כהן באולפן הטלוויזיה" },
+    { src: "/media/gallery/tv-12.jpg", alt: "רוני לוגסי כהן באולפן הטלוויזיה" },
+    { src: "/media/gallery/tv-13.jpg", alt: "רוני לוגסי כהן באולפן הטלוויזיה" },
+    { src: "/media/gallery/tv-14.jpg", alt: "רוני לוגסי כהן באולפן הטלוויזיה" },
   ],
   conferences: [
     { src: "/media/gallery/conf-1.jpg", alt: "כנס 1" },
