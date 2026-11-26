@@ -16,9 +16,9 @@ function WhatsAppIcon({ className }: { className?: string }) {
 const data = {
   he: {
     tag: "בואו ניצור יחד",
-    title: "לכל שיחה יש כוח להשפיע.",
-    p1: "אם אתם מחפשים מנחה לכנס, מראיינת לפודקאסט, מנחת פאנל, יוצרת תוכן או שותפה לפרויקט משמעותי, אשמח להכיר.",
-    p2: "בואו ניצור יחד את הרגע הבא שלכם.",
+    title: "האירוע הבא שלכם מתחיל בשיחה אחת טובה.",
+    p1: "מתכננים כנס, אירוע עסקי, הרצאה או מפגש לארגון? אשמח לשמוע עליכם ולהתאים את התוכן והפורמט למטרות שלכם.",
+    p2: "",
     waLabel: "שליחת הודעה בוואטסאפ",
     chat: "התחילו שיחה איתי כאן",
     chatSub: "כמה שאלות קצרות ואחזור אליכם בהקדם",
@@ -26,9 +26,9 @@ const data = {
   },
   en: {
     tag: "Let's Create Together",
-    title: "Let's start with a conversation.",
-    p1: "Looking for a conference moderator, a podcast interviewer, a panel host or a partner for your next project? I'd be happy to hear from you.",
-    p2: "Send me a message and we'll take it from there.",
+    title: "Your next event starts with one good conversation.",
+    p1: "Planning a conference, a business event, a talk or a session for your organization? I'd love to hear about it and tailor the content and format to your goals.",
+    p2: "",
     waLabel: "Message on WhatsApp",
     chat: "Start a chat with me",
     chatSub: "A few quick questions and I'll get back to you soon",
@@ -54,7 +54,7 @@ export function Contact() {
             </div>
             <h2 className="font-heading font-bold leading-[1.05] tracking-[-0.03em] text-3xl md:text-5xl lg:text-6xl" style={{ color: "#F5F0E8" }}>{d.title}</h2>
             <p className="mt-4 text-sm md:text-base leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(245,240,232,0.8)" }}>{d.p1}</p>
-            <p className="mt-2 text-sm md:text-base leading-relaxed max-w-xl mx-auto font-medium" style={{ color: "rgba(245,240,232,0.85)" }}>{d.p2}</p>
+            {d.p2 && <p className="mt-2 text-sm md:text-base leading-relaxed max-w-xl mx-auto font-medium" style={{ color: "rgba(245,240,232,0.85)" }}>{d.p2}</p>}
           </Reveal>
 
           <Reveal delay={100}>

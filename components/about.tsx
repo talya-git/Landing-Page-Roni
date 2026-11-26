@@ -8,20 +8,28 @@ const data = {
   he: {
     tag: "קצת עליי",
     title: "אנשים תמיד היו הסיפור שלי",
-    p1: 'במבט ראשון המסלול המקצועי שלי נראה מגוון. התחלתי בעולם המחול. המשכתי לניהול ולהובלת אנשים. וכיום אני מנכ״לית קבוצת נדל״ן, אשת תקשורת, מגישת רדיו, מראיינת ומנחת כנסים, פאנלים ואירועי תוכן.',
-    p2: "אבל אם יש חוט אחד שמחבר בין כל התחנות האלה, הוא אהבה אמיתית לאנשים.",
-    p3: "אני מאמינה ששיחה טובה יכולה לפתוח דלת, לייצר חיבור ולשנות נקודת מבט. זו הסיבה שאני בוחרת בכל פעם מחדש לעלות לבמה, להחזיק מיקרופון וליצור מרחב שבו אנשים מרגישים בנוח להיות מי שהם באמת.",
-    cta: "בואו נדבר",
+    paragraphs: [
+      "המסע המקצועי שלי התחיל על הבמה, כרקדנית פלמנקו וכיוצרת. משם המשכתי לעולמות הניהול, היזמות, התקשורת והובלת אנשים.",
+      "כיום אני מנכ״לית אורן כהן גרופ, אשת תקשורת, מגישת רדיו, מנחת כנסים ופאנלים, מרצה ויוצרת הפודקאסט ״טוויסט בעלילה״.",
+      "לכאורה, עולמות שונים. בפועל, כולם מחוברים באותו חוט: הסקרנות שלי כלפי אנשים, הסיפורים שמניעים אותם והיכולת להפוך מפגש אנושי לרגע משמעותי.",
+      "אני מביאה לכל במה ניסיון ניהולי ועסקי, תשוקה לעולם התוכן, אינטליגנציה רגשית ויכולת לקרוא את הקהל ואת הרגע.",
+      "כי בעיניי, השאלה אינה רק מה נאמר על הבמה, אלא מה אנשים לוקחים איתם כשהם יורדים ממנה.",
+    ],
+    cta: "בואו ניצור חוויה משמעותית יחד",
     name: "רוני לוגסי כהן",
     role: "אשת תקשורת",
   },
   en: {
     tag: "About Me",
     title: "People Have Always Been My Story",
-    p1: "My career has taken a few turns. I started out as a dancer, moved into management, and today I run a real estate group while working as a radio host, interviewer and moderator of conferences, panels and events.",
-    p2: "What ties it all together is that I love people.",
-    p3: "A good conversation can open doors and change the way people see things. That's why I keep coming back to the stage and the microphone, and why I work hard to make the people I talk with feel comfortable being themselves.",
-    cta: "Let's Talk",
+    paragraphs: [
+      "My career began on stage, as a flamenco dancer and creator. From there I moved into management, entrepreneurship, media and leading people.",
+      "Today I'm CEO of Oren Cohen Group, a media personality, radio host, conference and panel moderator, speaker and creator of the podcast \"Twist BaAlila\" (Plot Twist).",
+      "They look like different worlds, but one thread runs through all of them: my curiosity about people, the stories that drive them, and turning a human encounter into a moment that matters.",
+      "I bring management and business experience to every stage, along with a passion for content, emotional intelligence and the ability to read the audience and the moment.",
+      "For me, the question isn't only what is said on stage, but what people take with them when they walk off it.",
+    ],
+    cta: "Let's create something memorable together",
     name: "Roni Lugasi Cohen",
     role: "Media Personality",
   },
@@ -63,9 +71,9 @@ export function About() {
             <h2 className="font-heading font-bold leading-[1.1] tracking-[-0.03em] text-3xl md:text-5xl lg:text-6xl" style={{ color: "#1B4D3E" }}>{d.title}</h2>
             <div className="mt-2 h-1 w-16 rounded-full" style={{ backgroundColor: "#C2461A" }} />
             <div className="mt-5 md:mt-8 space-y-4 text-sm md:text-base leading-relaxed" style={{ color: "#5A5045" }}>
-              <p>{d.p1}</p>
-              <p>{d.p2}</p>
-              <p>{d.p3}</p>
+              {d.paragraphs.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
             </div>
             <a href="#contact" onClick={openChatBot} className="mt-8 inline-flex items-center gap-3 text-sm font-semibold transition-all duration-300 hover:gap-5" style={{ color: "#BF4417" }}>
               {d.cta}

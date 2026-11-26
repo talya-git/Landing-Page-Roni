@@ -50,6 +50,7 @@ const copy: Record<Lang, {
     askTopic: "במה אפשר לעזור?",
     topics: [
       { id: "conference", label: "הנחיית כנס או אירוע", reply: "מעולה. רוני מנחה כנסים עסקיים, אירועי חברה, השקות, טקסים ואירועי נשים, ומתאימה את ההנחיה לקהל ולאופי האירוע." },
+      { id: "lecture", label: "הרצאה או סדנה", reply: "רוני מעבירה הרצאות וסדנאות לארגונים ולקבוצות, ואפשר להתאים את התוכן ואת האורך לצורכי הארגון." },
       { id: "panel", label: "הנחיית פאנל", reply: "רוני מנחה פאנלים בכנסים ובאירועי תרבות, ומכינה מראש את השאלות יחד עם המשתתפים כדי שהשיחה תהיה חיה ומעניינת." },
       { id: "podcast", label: "פודקאסט או ראיון", reply: "רוני מראיינת לפודקאסטים, לסדרות תוכן ולראיונות אישיים, לחברות, לארגונים ולאנשים פרטיים." },
       { id: "radio", label: "התארחות בתוכנית הרדיו", reply: "תוכנית הרדיו השבועית של רוני מארחת אנשי עסקים, יזמים, אנשי ציבור ויוצרים. נשמח לשמוע עליך." },
@@ -85,6 +86,7 @@ const copy: Record<Lang, {
     askTopic: "How can I help?",
     topics: [
       { id: "conference", label: "Conference or event moderation", reply: "Great. Roni moderates business conferences, corporate events, launches, ceremonies and women's events, and adapts each one to the audience." },
+      { id: "lecture", label: "Talk or workshop", reply: "Roni gives talks and workshops for organizations and groups, and the content and length can be tailored to your needs." },
       { id: "panel", label: "Panel moderation", reply: "Roni moderates panels at conferences and cultural events, and prepares the questions with the speakers ahead of time so the discussion stays lively." },
       { id: "podcast", label: "Podcast or interview", reply: "Roni hosts podcasts, interview series and personal interviews for companies, organizations and individuals." },
       { id: "radio", label: "Guest on the radio show", reply: "Roni's weekly radio show features business leaders, entrepreneurs, public figures and creators. We'd love to hear about you." },

@@ -1,32 +1,31 @@
 "use client"
 
 import { Reveal } from "@/components/reveal"
-import { Mic2, Headphones, Radio, Users, Film, Handshake } from "lucide-react"
+import { Mic2, Headphones, Users, MessagesSquare, Presentation } from "lucide-react"
+import { openChatBot } from "@/lib/chat-bot-events"
 import { useLang } from "@/lib/lang-context"
 
 const data = {
   he: {
     tag: "תחומי הפעילות",
-    title: "מה אני עושה",
+    title: "מה נוכל ליצור יחד?",
     services: [
-      { icon: Mic2, title: "הנחיית כנסים ואירועים", body: "הנחיית כנסים עסקיים, אירועי חברות, אירועי נשים, השקות, טקסים ואירועי תוכן תוך יצירת חיבור אמיתי בין הקהל, התוכן והבמה." },
-      { icon: Headphones, title: "פודקאסטים וראיונות עומק", body: "ראיונות אישיים, סדרות תוכן ופודקאסטים המאפשרים לאנשים ולארגונים לספר את הסיפור שלהם באופן אותנטי ומשמעותי." },
-      { icon: Radio, title: "תוכנית הרדיו", body: "אירוח אנשי עסקים, יזמים, אנשי ציבור, יוצרים ואנשים עם עשייה מעוררת השראה בתוכנית הרדיו." },
-      { icon: Users, title: "הנחיית פאנלים ושבתות תרבות", body: "ניהול שיח איכותי, דינמי ומעמיק המותאם לאופי הקהל, המשתתפים והאירוע." },
-      { icon: Film, title: "הפקות תוכן", body: "פיתוח והובלת פורמטים של תוכן, ראיונות, סדרות ופלטפורמות תוכן עבור חברות, ארגונים ומותגים." },
-      { icon: Handshake, title: "שיתופי פעולה", body: "יצירת שיתופי פעולה עם גופים, חברות וארגונים המעוניינים לייצר תוכן איכותי ובעל השפעה." },
+      { icon: Mic2, title: "הנחיית כנסים ואירועים עסקיים", body: "הנחיה מקצועית של כנסים, ועידות, אירועי חברות, השקות וטקסים, בהתאמה למטרות הארגון, לקהל ולמסרים המרכזיים.", cta: "להזמנת הנחיית כנס", href: "" },
+      { icon: Presentation, title: "הרצאות מעוררות מחשבה", body: "הרצאות המשלבות סיפורים אישיים, תובנות עסקיות, נקודות מבט מפתיעות וכלים מעשיים מעולמות הניהול, המנהיגות וההתפתחות האישית.", cta: "להיכרות עם ההרצאות", href: "#lectures" },
+      { icon: Users, title: "סדנאות חווייתיות לארגונים", body: "מפגשים המשלבים תוכן, התנסות, שיח וכלים יישומיים, ומאפשרים למשתתפים לצאת עם תובנות חדשות ועם יכולת לפעול אחרת.", cta: "להתאמת סדנה לארגון", href: "" },
+      { icon: MessagesSquare, title: "הנחיית פאנלים ושבתות תרבות", body: "הובלת שיח אינטליגנטי, מעמיק ודינמי, המחבר בין נקודות מבט שונות ומעניק לקהל ערך באמצעות שאלות מדויקות ותחקיר מקדים.", cta: "להזמנת הנחיית פאנל", href: "" },
+      { icon: Headphones, title: "פודקאסטים, ראיונות ותוכן לארגונים", body: "פיתוח והובלת ראיונות עומק, פודקאסטים וסדרות תוכן המחברים בין הסיפור הארגוני לבין האנשים שהארגון מבקש להגיע אליהם.", cta: "ליצירת תוכן משותף", href: "" },
     ],
   },
   en: {
-    tag: "Areas of Activity",
-    title: "What I Do",
+    tag: "Services",
+    title: "What can we create together?",
     services: [
-      { icon: Mic2, title: "Conference & Event Moderation", body: "Business conferences, corporate events, women's events, launches and ceremonies. I make sure the audience stays connected to what's happening on stage." },
-      { icon: Headphones, title: "Podcasts & In-Depth Interviews", body: "Personal interviews, series and podcasts that help people and organizations tell their story in their own words." },
-      { icon: Radio, title: "Radio Show", body: "A weekly radio show with business leaders, entrepreneurs, public figures and creators." },
-      { icon: Users, title: "Panel & Cultural Event Moderation", body: "Lively, in-depth discussions adapted to each audience, panel and event." },
-      { icon: Film, title: "Content Productions", body: "Developing and hosting interview formats and series for companies, organizations and brands." },
-      { icon: Handshake, title: "Collaborations", body: "Working with companies and organizations that want to produce strong content." },
+      { icon: Mic2, title: "Conference & business event hosting", body: "Professional hosting of conferences, summits, company events, launches and ceremonies, tailored to the organization's goals, audience and key messages.", cta: "Book a conference host", href: "" },
+      { icon: Presentation, title: "Thought-provoking talks", body: "Talks that combine personal stories, business insights, surprising perspectives and practical tools from management, leadership and personal growth.", cta: "See the talks", href: "#lectures" },
+      { icon: Users, title: "Experiential workshops for organizations", body: "Sessions that combine content, hands-on practice, discussion and practical tools, so participants leave with new insights and new ways to act.", cta: "Tailor a workshop", href: "" },
+      { icon: MessagesSquare, title: "Panel & cultural event moderation", body: "Smart, in-depth and lively discussions that bring different viewpoints together, driven by sharp questions and thorough preparation.", cta: "Book a panel moderator", href: "" },
+      { icon: Headphones, title: "Podcasts, interviews & content for organizations", body: "Developing and hosting in-depth interviews, podcasts and series that connect an organization's story with the people it wants to reach.", cta: "Create content together", href: "" },
     ],
   },
 }
@@ -48,9 +47,9 @@ export function Services() {
           <h2 className="font-heading font-bold leading-[1.1] tracking-[-0.03em] text-3xl md:text-5xl lg:text-6xl" style={{ color: "#F5F0E8" }}>{d.title}</h2>
         </Reveal>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-wrap justify-center gap-4">
           {d.services.map((s, i) => (
-            <Reveal key={s.title} delay={i * 80}>
+            <Reveal key={s.title} delay={i * 80} className="w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.7rem)]">
               <article
                 className="group relative flex h-full flex-col overflow-hidden rounded-2xl p-6 md:p-8 transition-all duration-400 hover:-translate-y-2"
                 style={{ backgroundColor: "rgba(245,240,232,0.05)", border: "1px solid rgba(245,240,232,0.1)" }}
@@ -71,6 +70,15 @@ export function Services() {
                 </div>
                 <h3 className="mt-4 md:mt-6 font-heading text-lg md:text-2xl font-bold" style={{ color: "#F5F0E8" }}>{s.title}</h3>
                 <p className="mt-2 md:mt-3 flex-1 text-sm md:text-base leading-relaxed" style={{ color: "rgba(245,240,232,0.8)" }}>{s.body}</p>
+                <a
+                  href={s.href || "#contact"}
+                  onClick={s.href ? undefined : openChatBot}
+                  className="mt-5 inline-flex items-center gap-2 self-start text-sm font-semibold underline decoration-[#F59E6B] decoration-2 underline-offset-[6px]"
+                  style={{ color: "#F5F0E8" }}
+                >
+                  {s.cta}
+                  <span aria-hidden="true" style={{ color: "#F59E6B" }}>{lang === "he" ? "←" : "→"}</span>
+                </a>
               </article>
             </Reveal>
           ))}
