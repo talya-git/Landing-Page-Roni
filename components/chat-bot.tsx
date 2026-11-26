@@ -4,13 +4,14 @@ import { useEffect, useRef, useState } from "react"
 import { MessageCircle, X, Send } from "lucide-react"
 import { useLang } from "@/lib/lang-context"
 import { OPEN_CHATBOT_EVENT } from "@/lib/chat-bot-events"
+import { LEADS_ENDPOINT, rememberSource, sendLead } from "@/lib/leads"
 
 const WA_NUMBER = "972507770071"
 
 type Lang = "he" | "en"
 type Topic = { id: string; label: string; reply: string }
 type Msg = { from: "bot" | "user"; text: string }
-type Step = "topic" | "date" | "details" | "name" | "done"
+type Step = "topic" | "date" | "details" | "name" | "phone" | "done"
 
 const copy: Record<Lang, {
   open: string
@@ -24,7 +25,11 @@ const copy: Record<Lang, {
   skip: string
   askDetails: string
   askName: string
+  askPhone: (name: string) => string
+  badPhone: string
   done: (name: string) => string
+  doneSaved: (name: string) => string
+  sendSaved: string
   send: string
   restart: string
   placeholder: string
@@ -33,6 +38,7 @@ const copy: Record<Lang, {
   waDate: string
   waDetails: string
   waName: string
+  waPhone: string
   none: string
 }> = {
   he: {
@@ -54,6 +60,10 @@ const copy: Record<Lang, {
     skip: "עוד לא יודעים",
     askDetails: "ספרו לי בכמה מילים על האירוע או הפרויקט: מה הנושא, מי הקהל וכמה אנשים בערך.",
     askName: "ואיך קוראים לך? (ואם רלוונטי, שם החברה או הארגון)",
+    askPhone: (name) => `נעים מאוד ${name}! ומה מספר הטלפון שלך, כדי שרוני תוכל לחזור אליך?`,
+    badPhone: "נראה שחסרות ספרות. אפשר לכתוב שוב את מספר הטלפון?",
+    doneSaved: (name) => `תודה ${name}! הפרטים הגיעו לרוני והיא תחזור אליכם בהקדם. רוצים לזרז? אפשר לשלוח לה את הפנייה גם בוואטסאפ.`,
+    sendSaved: "לשלוח גם בוואטסאפ",
     done: (name) => `תודה ${name}! קיבלתי את כל הפרטים. לחצו על הכפתור למטה כדי לשלוח את הפנייה לרוני בוואטסאפ, והיא תחזור אליכם בהקדם.`,
     send: "שליחה לרוני בוואטסאפ",
     restart: "פנייה חדשה",
@@ -63,6 +73,7 @@ const copy: Record<Lang, {
     waDate: "תאריך",
     waDetails: "פרטים",
     waName: "שם",
+    waPhone: "טלפון",
     none: "עוד לא נקבע",
   },
   en: {
@@ -84,6 +95,10 @@ const copy: Record<Lang, {
     skip: "Not sure yet",
     askDetails: "Tell me a bit about the event or project: the topic, the audience and roughly how many people.",
     askName: "And what's your name? (plus your company or organization, if relevant)",
+    askPhone: (name) => `Nice to meet you, ${name}! What's your phone number, so Roni can get back to you?`,
+    badPhone: "Looks like some digits are missing. Could you type your phone number again?",
+    doneSaved: (name) => `Thanks ${name}! Roni has your details and will get back to you soon. In a hurry? You can also send her your request on WhatsApp.`,
+    sendSaved: "Also send on WhatsApp",
     done: (name) => `Thanks ${name}! I have everything I need. Tap the button below to send your request to Roni on WhatsApp and she'll get back to you soon.`,
     send: "Send to Roni on WhatsApp",
     restart: "New request",
@@ -93,6 +108,7 @@ const copy: Record<Lang, {
     waDate: "Date",
     waDetails: "Details",
     waName: "Name",
+    waPhone: "Phone",
     none: "Not set yet",
   },
 }
@@ -108,14 +124,14 @@ export function ChatBot() {
   const [step, setStep] = useState<Step>("topic")
   const [typing, setTyping] = useState(false)
   const [input, setInput] = useState("")
-  const [data, setData] = useState({ topic: "", date: "", details: "", name: "" })
+  const [data, setData] = useState({ topic: "", date: "", details: "", name: "", phone: "" })
   const endRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const reset = () => {
     setMsgs([{ from: "bot", text: c.hello }, { from: "bot", text: c.askTopic }])
     setStep("topic")
-    setData({ topic: "", date: "", details: "", name: "" })
+    setData({ topic: "", date: "", details: "", name: "", phone: "" })
     setInput("")
   }
 
@@ -125,6 +141,8 @@ export function ChatBot() {
     setSeen(true)
     try { sessionStorage.setItem("chatbot-seen", "1") } catch {}
   }
+
+  useEffect(() => { rememberSource() }, [])
 
   // Any "contact" button on the page opens the bot
   useEffect(() => {
@@ -172,6 +190,8 @@ export function ChatBot() {
     botSay([t.reply, c.askDate], "date")
   }
 
+  const firstName = (full: string) => full.trim().split(/[ ,]/)[0]
+
   const submit = (raw?: string) => {
     const text = (raw ?? input).trim()
     if (!text || typing) return
@@ -185,7 +205,18 @@ export function ChatBot() {
       botSay([c.askName], "name")
     } else if (step === "name") {
       setData((d) => ({ ...d, name: text }))
-      botSay([c.done(text.split(/[ ,]/)[0])], "done")
+      botSay([c.askPhone(firstName(text))], "phone")
+    } else if (step === "phone") {
+      const digits = text.replace(/\D/g, "")
+      if (digits.length < 9 || digits.length > 15) {
+        botSay([c.badPhone], "phone")
+        return
+      }
+      const lead = { ...data, phone: text, lang }
+      setData(lead)
+      const first = firstName(data.name)
+      botSay([LEADS_ENDPOINT ? c.doneSaved(first) : c.done(first)], "done")
+      void sendLead(lead)
     }
   }
 
@@ -196,10 +227,11 @@ export function ChatBot() {
     `${c.waDate}: ${data.date || c.none}`,
     `${c.waDetails}: ${data.details}`,
     `${c.waName}: ${data.name}`,
+    `${c.waPhone}: ${data.phone}`,
   ].join("\n")
   const waHref = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`
 
-  const showInput = step === "date" || step === "details" || step === "name"
+  const showInput = step === "date" || step === "details" || step === "name" || step === "phone"
 
   return (
     <>
@@ -215,7 +247,7 @@ export function ChatBot() {
         )}
         {open ? <X className="relative h-6 w-6" /> : <MessageCircle className="relative h-7 w-7" />}
         {!open && !seen && (
-          <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-bold text-white" style={{ backgroundColor: "#D4521A" }}>1</span>
+          <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-bold text-white" style={{ backgroundColor: "#C2461A" }}>1</span>
         )}
       </button>
 
@@ -226,29 +258,28 @@ export function ChatBot() {
           className="fixed bottom-20 right-4 z-40 w-[min(19rem,calc(100vw-6.5rem))] lg:bottom-28 lg:right-8 lg:w-72"
           style={{ animation: "fade-up 0.5s ease both" }}
         >
-          <div
-            role="button"
-            tabIndex={0}
-            onClick={() => setOpen(true)}
-            onKeyDown={(e) => { if (e.key === "Enter") setOpen(true) }}
-            className="relative cursor-pointer rounded-2xl p-4 shadow-2xl transition-transform hover:-translate-y-0.5"
-            style={{ backgroundColor: "#FFFFFF", border: "1px solid #E8E2D6", boxShadow: "0 16px 48px rgba(27,77,62,0.28)" }}
-          >
+          <div className="relative">
             <button
-              onClick={(e) => { e.stopPropagation(); setTeaser(false); setSeen(true); try { sessionStorage.setItem("chatbot-seen", "1") } catch {} }}
-              aria-label="close"
-              className="absolute top-2 end-2 rounded-full p-1 opacity-50 hover:opacity-100"
+              onClick={() => setOpen(true)}
+              className="block w-full rounded-2xl p-4 text-start shadow-2xl transition-transform hover:-translate-y-0.5"
+              style={{ backgroundColor: "#FFFFFF", border: "1px solid #E8E2D6", boxShadow: "0 16px 48px rgba(27,77,62,0.28)" }}
+            >
+              <span className="flex items-start gap-3">
+                <img src="/media/roni-about.jpg" alt="" className="h-10 w-10 shrink-0 rounded-full object-cover" style={{ border: "2px solid #D4521A" }} />
+                <span className="block pe-4">
+                  <span className="block text-xs font-semibold" style={{ color: "#1B4D3E" }}>{c.title}</span>
+                  <span className="mt-1 block text-sm leading-snug" style={{ color: "#2A2620" }}>{c.teaser}</span>
+                </span>
+              </span>
+            </button>
+            <button
+              onClick={() => { setTeaser(false); setSeen(true); try { sessionStorage.setItem("chatbot-seen", "1") } catch {} }}
+              aria-label={lang === "he" ? "סגירה" : "Close"}
+              className="absolute top-2 end-2 rounded-full p-1 opacity-60 hover:opacity-100"
               style={{ color: "#2A2620" }}
             >
               <X className="h-3.5 w-3.5" />
             </button>
-            <div className="flex items-start gap-3">
-              <img src="/media/roni-about.jpg" alt="" className="h-10 w-10 shrink-0 rounded-full object-cover" style={{ border: "2px solid #D4521A" }} />
-              <div className="pe-4">
-                <p className="text-xs font-semibold" style={{ color: "#1B4D3E" }}>{c.title}</p>
-                <p className="mt-1 text-sm leading-snug" style={{ color: "#2A2620" }}>{c.teaser}</p>
-              </div>
-            </div>
           </div>
         </div>
       )}
@@ -280,7 +311,7 @@ export function ChatBot() {
                   className="max-w-[85%] whitespace-pre-line rounded-2xl px-3.5 py-2 text-sm leading-relaxed"
                   style={
                     m.from === "user"
-                      ? { backgroundColor: "#D4521A", color: "#FFFFFF" }
+                      ? { backgroundColor: "#C2461A", color: "#FFFFFF" }
                       : { backgroundColor: "#FFFFFF", color: "#2A2620", border: "1px solid #E8E2D6" }
                   }
                 >
@@ -306,7 +337,7 @@ export function ChatBot() {
                     key={t.id}
                     onClick={() => pickTopic(t)}
                     className="rounded-full px-3 py-1.5 text-xs font-medium transition-colors hover:bg-[#D4521A] hover:text-white"
-                    style={{ border: "1px solid #D4521A", color: "#D4521A", backgroundColor: "transparent" }}
+                    style={{ border: "1px solid #D4521A", color: "#BF4417", backgroundColor: "transparent" }}
                   >
                     {t.label}
                   </button>
@@ -319,7 +350,7 @@ export function ChatBot() {
                 <button
                   onClick={() => submit(c.skip)}
                   className="rounded-full px-3 py-1.5 text-xs font-medium transition-colors hover:bg-[#D4521A] hover:text-white"
-                  style={{ border: "1px solid #D4521A", color: "#D4521A" }}
+                  style={{ border: "1px solid #D4521A", color: "#BF4417" }}
                 >
                   {c.skip}
                 </button>
@@ -333,11 +364,11 @@ export function ChatBot() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 rounded-full py-2.5 text-sm font-semibold text-white"
-                  style={{ backgroundColor: "#25D366" }}
+                  style={{ backgroundColor: "#0F7A3F" }}
                 >
-                  {c.send}
+                  {LEADS_ENDPOINT ? c.sendSaved : c.send}
                 </a>
-                <button onClick={reset} className="text-xs underline opacity-60 hover:opacity-100" style={{ color: "#1B4D3E" }}>
+                <button onClick={reset} className="text-xs underline opacity-80 hover:opacity-100" style={{ color: "#1B4D3E" }}>
                   {c.restart}
                 </button>
               </div>
@@ -356,7 +387,11 @@ export function ChatBot() {
                 ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder={c.placeholder}
+                placeholder={step === "phone" ? "050-0000000" : c.placeholder}
+                aria-label={c.placeholder}
+                inputMode={step === "phone" ? "tel" : "text"}
+                type={step === "phone" ? "tel" : "text"}
+                dir={step === "phone" ? "ltr" : undefined}
                 className="flex-1 bg-transparent px-2 py-1.5 text-sm outline-none"
                 style={{ color: "#2A2620" }}
               />
@@ -365,7 +400,7 @@ export function ChatBot() {
                 disabled={!input.trim() || typing}
                 aria-label="send"
                 className="flex h-9 w-9 items-center justify-center rounded-full text-white transition-opacity disabled:opacity-40"
-                style={{ backgroundColor: "#D4521A" }}
+                style={{ backgroundColor: "#C2461A" }}
               >
                 <Send className={`h-4 w-4 ${lang === "he" ? "rotate-180" : ""}`} />
               </button>

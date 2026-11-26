@@ -60,10 +60,10 @@ function StatCard({ value, suffix, label, Icon, run, delay }: { value: number; s
         opacity: run ? undefined : 0,
       }}
     >
-      <div className="mb-4 flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-2xl" style={{ backgroundColor: "rgba(212,82,26,0.15)", color: "#D4521A" }}>
+      <div className="mb-4 flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-2xl" style={{ backgroundColor: "rgba(212,82,26,0.15)", color: "#F59E6B" }}>
         <Icon className="h-8 w-8 md:h-10 md:w-10" strokeWidth={1.5} />
       </div>
-      <p className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight tabular-nums" style={{ color: "#D4521A" }}>
+      <p className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight tabular-nums" style={{ color: "#F59E6B" }}>
         {display}{suffix}
       </p>
       <p className="mt-2 text-xs md:text-sm leading-snug max-w-[12rem]" style={{ color: "rgba(245,240,232,0.75)" }}>{label}</p>
@@ -93,10 +93,10 @@ export function Stats() {
     <section id="numbers" className="relative py-14 md:py-20 lg:py-28 overflow-hidden" style={{ backgroundColor: "#1B4D3E" }}>
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="text-center mb-10 md:mb-14">
-          <span className="inline-flex items-center justify-center gap-3 text-xs md:text-sm font-semibold uppercase tracking-[0.3em]" style={{ color: "#D4521A" }}>
-            <span className="h-px w-6" style={{ backgroundColor: "#D4521A" }} />
+          <span className="inline-flex items-center justify-center gap-3 text-xs md:text-sm font-semibold uppercase tracking-[0.3em]" style={{ color: "#F59E6B" }}>
+            <span className="h-px w-6" style={{ backgroundColor: "#C2461A" }} />
             {h.tag}
-            <span className="h-px w-6" style={{ backgroundColor: "#D4521A" }} />
+            <span className="h-px w-6" style={{ backgroundColor: "#C2461A" }} />
           </span>
           <h2 className="mt-3 font-heading text-2xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-[-0.03em]" style={{ color: "#F5F0E8" }}>
             {h.title}

@@ -11,10 +11,10 @@ export function VideoSection() {
     <section className="relative py-14 md:py-20 lg:py-28" style={{ borderBottom: "1px solid #DDD8CE", backgroundColor: "#F5F0E8" }}>
       <div className="mx-auto max-w-4xl px-5 md:px-8">
         <Reveal className="text-center">
-          <span className="inline-flex items-center gap-3 text-xs md:text-sm font-semibold uppercase tracking-[0.3em]" style={{ color: "#D4521A" }}>
-            <span className="h-px w-6" style={{ backgroundColor: "#D4521A" }} />
+          <span className="inline-flex items-center gap-3 text-xs md:text-sm font-semibold uppercase tracking-[0.3em]" style={{ color: "#F59E6B" }}>
+            <span className="h-px w-6" style={{ backgroundColor: "#C2461A" }} />
             היכרות אישית
-            <span className="h-px w-6" style={{ backgroundColor: "#D4521A" }} />
+            <span className="h-px w-6" style={{ backgroundColor: "#C2461A" }} />
           </span>
           <h2 className="mt-3 font-heading text-2xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-[-0.03em]" style={{ color: "#1B4D3E" }}>
             כמה מילים ממני אליכם

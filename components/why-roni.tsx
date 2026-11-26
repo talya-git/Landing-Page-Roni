@@ -37,21 +37,21 @@ export function WhyRoni() {
       <div className="relative mx-auto max-w-7xl px-5 md:px-16">
         <Reveal>
           <div className="mb-4 flex items-center gap-4">
-            <div className="h-px w-12" style={{ backgroundColor: "#D4521A" }} />
-            <span className="text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "#D4521A" }}>{d.tag}</span>
+            <div className="h-px w-12" style={{ backgroundColor: "#C2461A" }} />
+            <span className="text-xs font-semibold uppercase tracking-[0.4em]" style={{ color: "#F59E6B" }}>{d.tag}</span>
           </div>
           <h2 className="font-heading font-bold leading-[1.1] tracking-[-0.03em] text-2xl md:text-4xl lg:text-5xl max-w-2xl" style={{ color: "#F5F0E8" }}>{d.title}</h2>
-          <p className="mt-3 text-sm md:text-base max-w-xl" style={{ color: "rgba(245,240,232,0.55)" }}>{d.sub}</p>
+          <p className="mt-3 text-sm md:text-base max-w-xl" style={{ color: "rgba(245,240,232,0.8)" }}>{d.sub}</p>
         </Reveal>
 
         <div className="mt-10 md:mt-16 grid gap-px sm:grid-cols-2 md:grid-cols-3" style={{ backgroundColor: "rgba(245,240,232,0.08)" }}>
           {d.points.map((p, i) => (
             <Reveal key={p.num} delay={i * 100}>
               <div className="group relative flex flex-col p-6 md:p-10 transition-all duration-500 hover:bg-white/5" style={{ backgroundColor: "rgba(27,77,62,0.01)" }}>
-                <span className="font-heading text-5xl md:text-6xl font-black leading-none opacity-40 transition-opacity duration-500 group-hover:opacity-60" style={{ color: "#D4521A" }}>{p.num}</span>
-                <div className="mt-4 md:mt-6 h-0.5 w-10 transition-all duration-500 group-hover:w-16" style={{ backgroundColor: "#D4521A" }} />
+                <span aria-hidden="true" className="font-heading text-5xl md:text-6xl font-black leading-none opacity-90 transition-opacity duration-500 group-hover:opacity-100" style={{ color: "#F59E6B" }}>{p.num}</span>
+                <div className="mt-4 md:mt-6 h-0.5 w-10 transition-all duration-500 group-hover:w-16" style={{ backgroundColor: "#C2461A" }} />
                 <h3 className="mt-4 md:mt-5 font-heading text-xl md:text-2xl font-bold" style={{ color: "#F5F0E8" }}>{p.title}</h3>
-                <p className="mt-2 md:mt-3 text-sm leading-relaxed flex-1" style={{ color: "rgba(245,240,232,0.6)" }}>{p.body}</p>
+                <p className="mt-2 md:mt-3 text-sm leading-relaxed flex-1" style={{ color: "rgba(245,240,232,0.8)" }}>{p.body}</p>
               </div>
             </Reveal>
           ))}

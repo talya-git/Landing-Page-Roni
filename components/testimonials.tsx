@@ -43,10 +43,10 @@ export function Testimonials() {
 
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="text-center mb-10 md:mb-14">
-          <span className="inline-flex items-center justify-center gap-3 text-xs md:text-sm font-semibold uppercase tracking-[0.3em]" style={{ color: "#D4521A" }}>
-            <span className="h-px w-6" style={{ backgroundColor: "#D4521A" }} />
+          <span className="inline-flex items-center justify-center gap-3 text-xs md:text-sm font-semibold uppercase tracking-[0.3em]" style={{ color: "#BF4417" }}>
+            <span className="h-px w-6" style={{ backgroundColor: "#C2461A" }} />
             {d.tag}
-            <span className="h-px w-6" style={{ backgroundColor: "#D4521A" }} />
+            <span className="h-px w-6" style={{ backgroundColor: "#C2461A" }} />
           </span>
           <h2 className="mt-3 font-heading text-2xl md:text-4xl font-bold leading-tight tracking-[-0.03em]" style={{ color: "#1B4D3E" }}>
             {d.title}
@@ -75,7 +75,7 @@ export function Testimonials() {
                 <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl md:rounded-t-3xl" style={{ background: "linear-gradient(to left, #1B4D3E, #D4521A)" }} />
                 <div className={`pointer-events-none absolute bottom-4 ${isHe ? 'left-4' : 'right-4'} h-6 w-6 opacity-20`} style={{ borderBottom: "2px solid #D4521A", [isHe ? 'borderLeft' : 'borderRight']: "2px solid #D4521A" }} />
 
-                <div className="font-heading text-[3rem] md:text-[4rem] font-black select-none opacity-25 leading-none mb-2" style={{ color: "#D4521A" }}>&ldquo;</div>
+                <div className="font-heading text-[3rem] md:text-[4rem] font-black select-none opacity-25 leading-none mb-2" style={{ color: "#BF4417" }}>&ldquo;</div>
 
                 <p className="flex-1 text-sm md:text-base leading-relaxed" style={{ color: "#4A4035" }}>{item.text}</p>
 
@@ -98,6 +98,8 @@ export function Testimonials() {
             <div className="overflow-hidden rounded-2xl w-full md:w-1/2" style={{ boxShadow: "0 4px 24px rgba(27,77,62,0.1)", border: "1px solid rgba(212,82,26,0.15)" }}>
               <iframe
                 src="https://www.youtube.com/embed/979I99GGg0Q"
+                title={lang === "he" ? "סרטון המלצה" : "Testimonial video"}
+                loading="lazy"
                 className="w-full"
                 style={{ aspectRatio: "9/16", display: "block" }}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -105,7 +107,7 @@ export function Testimonials() {
               />
             </div>
             <div className="overflow-hidden rounded-2xl w-full md:w-1/2" style={{ boxShadow: "0 4px 24px rgba(27,77,62,0.1)", border: "1px solid rgba(212,82,26,0.15)", backgroundColor: "#EDE8DF" }}>
-              <video className="w-full" controls playsInline style={{ display: "block" }}>
+              <video className="w-full" controls playsInline preload="metadata" style={{ display: "block" }}>
                 <source src="/media/testimonial-2.mp4" type="video/mp4" />
               </video>
             </div>

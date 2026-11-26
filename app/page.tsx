@@ -12,6 +12,8 @@ import { Logos } from "@/components/logos"
 import { Gallery } from "@/components/gallery"
 import { Testimonials } from "@/components/testimonials"
 import { Contact } from "@/components/contact"
+import { HowItWorks } from "@/components/how-it-works"
+import { Faq } from "@/components/faq"
 import { SiteFooter } from "@/components/site-footer"
 import { ChatBot } from "@/components/chat-bot"
 import { LangProvider, useLang } from "@/lib/lang-context"
@@ -25,6 +27,13 @@ function PageContent() {
   return (
     <main className="relative overflow-x-hidden">
       <div className="pointer-events-none fixed inset-0 z-[55] bg-grain opacity-[0.03] mix-blend-soft-light" />
+      <a
+        href="#numbers"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:right-3 focus:z-[70] focus:rounded-full focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold"
+        style={{ backgroundColor: "#F5F0E8", color: "#1B4D3E" }}
+      >
+        {lang === "he" ? "דילוג לתוכן הראשי" : "Skip to main content"}
+      </a>
       <ScrollProgress />
       <SiteHeader />
       <Hero />
@@ -36,6 +45,8 @@ function PageContent() {
       <Testimonials />
       <Logos />
       <Gallery />
+      <HowItWorks />
+      <Faq />
       <Contact />
       <SiteFooter />
       <ChatBot />
@@ -45,7 +56,7 @@ function PageContent() {
         href="#contact"
         onClick={openChatBot}
         className="fixed inset-x-4 bottom-4 z-40 flex items-center justify-center gap-2 rounded-full py-3.5 text-sm font-semibold shadow-2xl lg:hidden"
-        style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 8px 32px rgba(212,82,26,0.45)" }}
+        style={{ backgroundColor: "#C2461A", color: "#FFFFFF", boxShadow: "0 8px 32px rgba(212,82,26,0.45)" }}
       >
         <MessageCircle className="h-4 w-4" />
         {lang === "he" ? "לפנייה בצ'אט" : "Chat with me"}
