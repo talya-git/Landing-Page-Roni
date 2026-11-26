@@ -98,7 +98,7 @@ export function Lectures() {
 
         <Reveal delay={300} className="mt-10 text-center">
           <button
-            onClick={() => openChatBot()}
+            onClick={() => openChatBot(undefined, "lecture")}
             className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-base font-semibold transition-transform duration-300 hover:scale-105"
             style={{ backgroundColor: "#C2461A", color: "#FFFFFF", boxShadow: "0 8px 24px rgba(194,70,26,0.3)" }}
           >
