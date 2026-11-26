@@ -83,7 +83,6 @@ const images: Record<string, { src: string; alt: string }[]> = {
     { src: "/media/gallery/pod-3.jpg", alt: "פודקאסט 3" },
     { src: "/media/gallery/pod-4.jpg", alt: "פודקאסט 4" },
     { src: "/media/gallery/pod-5.jpg", alt: "פודקאסט 5" },
-    { src: "/media/gallery/pod-6.jpg", alt: "פודקאסט 6" },
     { src: "/media/gallery/pod-7.jpg", alt: "רוני לוגסי כהן בצילומי פודקאסט" },
     { src: "/media/gallery/pod-8.jpg", alt: "רוני לוגסי כהן בצילומי פודקאסט" },
     { src: "/media/gallery/pod-9.jpg", alt: "רוני לוגסי כהן בצילומי פודקאסט" },
