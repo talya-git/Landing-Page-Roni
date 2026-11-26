@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { MessageCircle, X, Send } from "lucide-react"
 import { useLang } from "@/lib/lang-context"
-import { OPEN_CHATBOT_EVENT } from "@/lib/chat-bot-events"
+import { OPEN_CHATBOT_EVENT, type ChatTopicId } from "@/lib/chat-bot-events"
 import { LEADS_ENDPOINT, rememberSource, sendLead } from "@/lib/leads"
 
 const WA_NUMBER = "972507770071"
@@ -127,6 +127,7 @@ export function ChatBot() {
   const [typing, setTyping] = useState(false)
   const [input, setInput] = useState("")
   const [data, setData] = useState({ topic: "", date: "", details: "", name: "", phone: "" })
+  const [pendingTopic, setPendingTopic] = useState<ChatTopicId | null>(null)
   const endRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -148,7 +149,11 @@ export function ChatBot() {
 
   // Any "contact" button on the page opens the bot
   useEffect(() => {
-    const handler = () => setOpen(true)
+    const handler = (e: Event) => {
+      const topic = (e as CustomEvent<{ topic?: ChatTopicId }>).detail?.topic
+      if (topic) setPendingTopic(topic)
+      setOpen(true)
+    }
     window.addEventListener(OPEN_CHATBOT_EVENT, handler)
     return () => window.removeEventListener(OPEN_CHATBOT_EVENT, handler)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -191,6 +196,20 @@ export function ChatBot() {
     setData((d) => ({ ...d, topic: t.label }))
     botSay([t.reply, c.askDate], "date")
   }
+
+  // Opened from a specific service button: skip the topic question and go straight to the date.
+  // A conversation already in progress is left as it is.
+  useEffect(() => {
+    if (!pendingTopic) return
+    setPendingTopic(null)
+    const t = c.topics.find((x) => x.id === pendingTopic)
+    if (!t || (step !== "topic" && step !== "done")) return
+    setMsgs([{ from: "bot", text: c.hello }, { from: "user", text: t.label }])
+    setData({ topic: t.label, date: "", details: "", name: "", phone: "" })
+    setInput("")
+    botSay([t.reply, c.askDate], "date")
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pendingTopic])
 
   const firstName = (full: string) => full.trim().split(/[ ,]/)[0]
 
