@@ -74,6 +74,9 @@ const images: Record<string, { src: string; alt: string }[]> = {
     { src: "/media/gallery/conf-5.jpg", alt: "כנס 5" },
     { src: "/media/gallery/conf-6.jpg", alt: "כנס 6" },
     { src: "/media/gallery/conf-7.jpg", alt: "כנס 7" },
+    { src: "/media/gallery/conf-8.jpg", alt: "רוני לוגסי כהן בהרצאה" },
+    { src: "/media/gallery/conf-9.jpg", alt: "רוני לוגסי כהן בהרצאה" },
+    { src: "/media/gallery/conf-10.jpg", alt: "רוני לוגסי כהן בהרצאה" },
   ],
   podcasts: [
     { src: "/media/gallery/pod-1.jpg", alt: "פודקאסט 1" },
