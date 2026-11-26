@@ -78,7 +78,7 @@ export function Contact() {
               {[
                 { icon: Phone, label: lang === "he" ? "טלפון" : "Phone", value: "050-777-0071", href: "tel:+972507770071" },
                 { icon: WhatsAppIcon, label: "WhatsApp", value: d.waLabel, href: "https://wa.me/972507770071" },
-                { icon: Mail, label: lang === "he" ? "דואר אלקטרוני" : "Email", value: "roni@orencohengroup.com", href: "mailto:roni@orencohengroup.com" },
+                { icon: Mail, label: lang === "he" ? "דואר אלקטרוני" : "Email", value: "ritmo.roni@gmail.com", href: "mailto:ritmo.roni@gmail.com" },
               ].map((c) => (
                 <a
                   key={c.label}
