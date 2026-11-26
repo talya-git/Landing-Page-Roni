@@ -13,6 +13,7 @@ import { Gallery } from "@/components/gallery"
 import { Testimonials } from "@/components/testimonials"
 import { Contact } from "@/components/contact"
 import { HowItWorks } from "@/components/how-it-works"
+import { Lectures } from "@/components/lectures"
 import { Faq } from "@/components/faq"
 import { SiteFooter } from "@/components/site-footer"
 import { ChatBot } from "@/components/chat-bot"
@@ -40,6 +41,7 @@ function PageContent() {
       <Stats />
       <Services />
       <VideoSection />
+      <Lectures />
       <About />
       <WhyRoni />
       <Testimonials />

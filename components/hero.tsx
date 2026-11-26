@@ -3,39 +3,27 @@
 import { useLang } from "@/lib/lang-context"
 import { openChatBot } from "@/lib/chat-bot-events"
 
-function WhatsAppIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
-      <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
-    </svg>
-  )
-}
-
 const t = {
   he: {
-    subtitle: "אשת תקשורת · מנחת כנסים · מראיינת · מגישת רדיו ופודקאסטים · יוצרת תוכן",
-    h1a: "שיחות שמחברות",
-    h1b: "בין אנשים.",
-    h1c: "במות שמייצרות השפעה",
-    p1: "כבר יותר מ־25 שנה אני עומדת מול אנשים: על במות, באולפני רדיו, בטלוויזיה, בפודקאסטים ובכנסים. בכל פעם מחדש אני מגלה שהרגעים המשמעותיים ביותר מתחילים בשיחה אחת טובה.",
-    mission: "זו השליחות שלי.",
-    p2: "ליצור שיחות שמחברות בין אנשים, מייצרות ערך ונשארות הרבה אחרי שהאירוע מסתיים.",
-    cta: "לפנייה בצ'אט",
-    wa: "שליחת הודעה בוואטסאפ",
     name: "רוני לוגסי כהן",
+    subtitle: "אשת תקשורת | מנחת כנסים | מרצה ומראיינת",
+    h1a: "יש במות שמעבירות מסר.",
+    h1b: "ויש במות שמשאירות חותם.",
+    p1: "הנחיית כנסים, פאנלים, הרצאות, ראיונות ואירועי תוכן המחברים בין אנשים, רעיונות והשפעה.",
+    p2: "יותר מ־25 שנות ניסיון על הבמה, בעולמות הניהול והתקשורת, בשילוב הבנה עסקית, רגישות אנושית ויכולת להפוך תוכן לחוויה משמעותית.",
+    cta: "בואו נדבר על האירוע הבא שלכם",
+    secondary: "הכירו אותי על הבמה",
     role: "אשת תקשורת",
   },
   en: {
-    subtitle: "Media Personality · Conference Moderator · Interviewer · Radio & Podcast Host · Content Creator",
-    h1a: "Conversations That",
-    h1b: "Connect People.",
-    h1c: "On Stage and On Air",
-    p1: "For more than 25 years I've worked in front of audiences: on stage, in radio studios, on TV, on podcasts and at conferences. Again and again I've seen that the best moments start with a good conversation.",
-    mission: "That's what I do.",
-    p2: "I lead conversations that bring people together and that they keep thinking about after the event is over.",
-    cta: "Chat with me",
-    wa: "Message on WhatsApp",
     name: "Roni Lugasi Cohen",
+    subtitle: "Media Personality | Conference Moderator | Speaker & Interviewer",
+    h1a: "Some stages deliver a message.",
+    h1b: "Others leave a mark.",
+    p1: "Hosting conferences, panels, talks, interviews and content events that bring people, ideas and impact together.",
+    p2: "More than 25 years on stage and in management and media, combining business insight, a feel for people and the ability to turn content into an experience.",
+    cta: "Let's talk about your next event",
+    secondary: "See me on stage",
     role: "Media Personality",
   },
 }
@@ -58,32 +46,30 @@ export function Hero() {
             <img src="/media/logo-main.png" alt="רוני לוגסי" className="h-20 w-auto object-contain drop-shadow-2xl md:h-28 mx-auto lg:mx-0" />
           </div>
 
-          <div style={{ animation: "fade-up 0.7s ease 0.1s both" }} className={`mb-4 md:mb-6 flex items-center justify-center ${isHe ? 'lg:justify-start' : 'lg:justify-start'} gap-3`}>
+          <p className="font-heading text-lg md:text-2xl font-bold" style={{ color: "#F5F0E8", animation: "fade-up 0.7s ease 0.05s both" }}>{tx.name}</p>
+          <div style={{ animation: "fade-up 0.7s ease 0.1s both" }} className="mt-2 mb-5 md:mb-8 flex items-center justify-center lg:justify-start gap-3">
             <div className="h-px w-8 md:w-12" style={{ backgroundColor: "#C2461A" }} />
-            <span className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] md:tracking-[0.3em]" style={{ color: "rgba(245,240,232,0.8)" }}>
+            <span className="text-xs md:text-sm font-semibold tracking-[0.08em]" style={{ color: "rgba(245,240,232,0.85)" }}>
               {tx.subtitle}
             </span>
-            <div className="h-px w-8 md:w-12" style={{ backgroundColor: "#C2461A" }} />
+            <div className="h-px w-8 md:w-12 lg:hidden" style={{ backgroundColor: "#C2461A" }} />
           </div>
 
           <h1 style={{ animation: "fade-up 0.9s ease 0.15s both" }}>
-            <span className="block font-heading font-bold leading-[1.05] tracking-[-0.02em] text-4xl md:text-6xl lg:text-7xl" style={{ color: "#F5F0E8" }}>{tx.h1a}</span>
-            <span className="block font-heading font-bold leading-[1.05] tracking-[-0.02em] text-4xl md:text-6xl lg:text-7xl" style={{ color: "#F59E6B" }}>{tx.h1b}</span>
-            <span className="block font-heading font-light leading-[1.1] tracking-[-0.01em] mt-1 text-2xl md:text-4xl lg:text-5xl" style={{ color: "rgba(245,240,232,0.8)" }}>{tx.h1c}</span>
+            <span className="block font-heading font-bold leading-[1.1] tracking-[-0.02em] text-3xl md:text-5xl lg:text-[3.25rem]" style={{ color: "#F5F0E8" }}>{tx.h1a}</span>
+            <span className="mt-1 block font-heading font-bold leading-[1.1] tracking-[-0.02em] text-3xl md:text-5xl lg:text-[3.25rem]" style={{ color: "#F59E6B" }}>{tx.h1b}</span>
           </h1>
 
-          <p className="mt-5 md:mt-8 max-w-xl text-sm md:text-base leading-relaxed" style={{ color: "rgba(245,240,232,0.8)", animation: "fade-up 0.9s ease 0.3s both" }}>{tx.p1}</p>
-          <p className="mt-2 font-heading text-base md:text-lg font-semibold" style={{ color: "#F59E6B", animation: "fade-up 0.9s ease 0.35s both" }}>{tx.mission}</p>
-          <p className="mt-2 max-w-xl text-sm md:text-base leading-relaxed" style={{ color: "rgba(245,240,232,0.8)", animation: "fade-up 0.9s ease 0.4s both" }}>{tx.p2}</p>
+          <p className="mt-5 md:mt-8 max-w-xl text-base md:text-lg font-medium leading-relaxed" style={{ color: "#F5F0E8", animation: "fade-up 0.9s ease 0.3s both" }}>{tx.p1}</p>
+          <p className="mt-3 max-w-xl text-sm md:text-base leading-relaxed" style={{ color: "rgba(245,240,232,0.8)", animation: "fade-up 0.9s ease 0.4s both" }}>{tx.p2}</p>
 
-          <div className={`mt-6 md:mt-10 flex flex-wrap justify-center ${isHe ? 'lg:justify-start' : 'lg:justify-start'} gap-3`} style={{ animation: "fade-up 0.9s ease 0.45s both" }}>
-            <a href="#contact" onClick={openChatBot} className="group hidden lg:inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105" style={{ backgroundColor: "#C2461A", color: "#FFFFFF", boxShadow: "0 8px 40px rgba(212,82,26,0.45)" }}>
+          <div className="mt-6 md:mt-10 flex flex-wrap justify-center lg:justify-start gap-3" style={{ animation: "fade-up 0.9s ease 0.45s both" }}>
+            <a href="#contact" onClick={openChatBot} className="group inline-flex items-center gap-3 rounded-full px-7 py-3.5 md:px-8 md:py-4 text-sm md:text-base font-semibold transition-all duration-300 hover:scale-105" style={{ backgroundColor: "#C2461A", color: "#FFFFFF", boxShadow: "0 8px 40px rgba(212,82,26,0.45)" }}>
               {tx.cta}
-              <span className="transition-transform duration-300 group-hover:translate-x-[-4px]">←</span>
+              <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-[-4px]">{isHe ? "←" : "→"}</span>
             </a>
-            <a href="https://wa.me/972507770071" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3 md:px-8 md:py-4 text-sm md:text-base font-medium transition-all duration-300 hover:bg-white/10" style={{ border: "1px solid rgba(245,240,232,0.25)", color: "#F5F0E8" }}>
-              <WhatsAppIcon className="h-4 w-4 md:h-5 md:w-5" />
-              {tx.wa}
+            <a href="#gallery" className="inline-flex items-center gap-2 rounded-full px-6 py-3 md:px-8 md:py-4 text-sm md:text-base font-medium transition-all duration-300 hover:bg-white/10" style={{ border: "1px solid rgba(245,240,232,0.35)", color: "#F5F0E8" }}>
+              {tx.secondary}
             </a>
           </div>
 
@@ -99,7 +85,7 @@ export function Hero() {
               <div className="absolute inset-x-0 bottom-0 h-1/3" style={{ background: "linear-gradient(to top, rgba(27,77,62,0.6), transparent)" }} />
               <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 rounded-2xl px-4 py-2 md:px-5 md:py-3" style={{ backgroundColor: "rgba(245,240,232,0.95)", backdropFilter: "blur(8px)" }}>
                 <p className="font-heading text-xs md:text-sm font-bold" style={{ color: "#1B4D3E" }}>{tx.name}</p>
-                <p className="text-[10px] md:text-xs mt-0.5" style={{ color: "#F59E6B" }}>{tx.role}</p>
+                <p className="text-[10px] md:text-xs mt-0.5" style={{ color: "#BF4417" }}>{tx.role}</p>
               </div>
             </div>
           </div>

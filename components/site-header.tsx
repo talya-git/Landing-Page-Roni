@@ -7,8 +7,8 @@ import { openChatBot } from "@/lib/chat-bot-events"
 
 const links = {
   he: [
-    { href: "#numbers", label: "במספרים" },
     { href: "#services", label: "תחומי פעילות" },
+    { href: "#lectures", label: "הרצאות" },
     { href: "#about", label: "קצת עליי" },
     { href: "#why", label: "למה רוני?" },
     { href: "#testimonials", label: "המלצות" },
@@ -17,8 +17,8 @@ const links = {
     { href: "#contact", label: "צרו קשר" },
   ],
   en: [
-    { href: "#numbers", label: "By the Numbers" },
     { href: "#services", label: "Services" },
+    { href: "#lectures", label: "Talks" },
     { href: "#about", label: "About" },
     { href: "#why", label: "Why Roni?" },
     { href: "#testimonials", label: "Testimonials" },

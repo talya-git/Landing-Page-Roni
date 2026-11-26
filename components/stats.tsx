@@ -2,29 +2,27 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Reveal } from "@/components/reveal"
-import { Mic2, Radio, MessageSquare, Users, Headphones } from "lucide-react"
+import { Mic2, Radio, MessageSquare, Headphones } from "lucide-react"
 import { useLang } from "@/lib/lang-context"
 
 const statsData = {
   he: [
-    { value: 25, suffix: "+", label: "שנות ניסיון בעמידה מול קהל ובהובלת אנשים", Icon: Mic2 },
-    { value: 9, suffix: "", label: "שנים של תוכנית רדיו שבועית", Icon: Radio },
-    { value: 500, suffix: "+", label: "ראיונות עם אנשי עסקים, יזמים ומובילי דעת קהל", Icon: MessageSquare },
-    { value: 100, suffix: "+", label: "כנסים, פאנלים, שבתות תרבות ואירועי תוכן", Icon: Headphones },
-    { value: 50000, suffix: "+", label: "מאזינים, צופים ומשתתפים לאורך השנים", Icon: Users },
+    { value: 25, suffix: "+", label: "שנות ניסיון מול קהל", Icon: Mic2 },
+    { value: 500, suffix: "+", label: "ראיונות", Icon: MessageSquare },
+    { value: 100, suffix: "+", label: "כנסים ופאנלים", Icon: Headphones },
+    { value: 7, suffix: "", label: "שנים של שידורי רדיו שבועיים", Icon: Radio },
   ],
   en: [
-    { value: 25, suffix: "+", label: "Years of experience on stage and leading people", Icon: Mic2 },
-    { value: 9, suffix: "", label: "Years of weekly radio show", Icon: Radio },
-    { value: 500, suffix: "+", label: "Interviews with business leaders, entrepreneurs & opinion makers", Icon: MessageSquare },
-    { value: 100, suffix: "+", label: "Conferences, panels, cultural events & content events", Icon: Headphones },
-    { value: 50000, suffix: "+", label: "Listeners, viewers and participants over the years", Icon: Users },
+    { value: 25, suffix: "+", label: "Years in front of audiences", Icon: Mic2 },
+    { value: 500, suffix: "+", label: "Interviews", Icon: MessageSquare },
+    { value: 100, suffix: "+", label: "Conferences and panels", Icon: Headphones },
+    { value: 7, suffix: "", label: "Years of weekly radio broadcasts", Icon: Radio },
   ],
 }
 
 const headings = {
-  he: { tag: "רוני במספרים", title: "25 שנים של עשייה" },
-  en: { tag: "Roni by the Numbers", title: "25 Years in Numbers" },
+  he: { tag: "רוני במספרים", title: "ניסיון שמביא ערך לבמה" },
+  en: { tag: "Roni by the Numbers", title: "Experience that adds value on stage" },
 }
 
 function useCountUp(target: number, run: boolean, duration = 1800) {
@@ -103,7 +101,7 @@ export function Stats() {
           </h2>
         </Reveal>
 
-        <div ref={ref} className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        <div ref={ref} className="grid grid-cols-2 gap-4 lg:grid-cols-4">
           {stats.map((s, i) => (
             <StatCard key={s.label} value={s.value} suffix={s.suffix} label={s.label} Icon={s.Icon} run={run} delay={i * 100} />
           ))}
