@@ -65,7 +65,7 @@ const structuredData = {
       image: `${siteUrl}/media/og-image.jpg`,
       jobTitle: 'אשת תקשורת, מנחת כנסים ופאנלים, מראיינת ומגישת רדיו',
       telephone: '+972-50-777-0071',
-      email: 'roni@orencohengroup.com',
+      email: 'ritmo.roni@gmail.com',
       knowsLanguage: ['he', 'en'],
     },
     {
@@ -74,7 +74,7 @@ const structuredData = {
       url: siteUrl,
       image: `${siteUrl}/media/og-image.jpg`,
       telephone: '+972-50-777-0071',
-      email: 'roni@orencohengroup.com',
+      email: 'ritmo.roni@gmail.com',
       areaServed: { '@type': 'Country', name: 'Israel' },
       founder: { '@id': `${siteUrl}/#roni` },
       serviceType: ['הנחיית כנסים ואירועים', 'הנחיית פאנלים', 'ראיונות ופודקאסטים', 'הפקת תוכן לארגונים'],

@@ -42,7 +42,7 @@ export default function AccessibilityPage() {
           טלפון: <a className="underline" href="tel:+972507770071">050-777-0071</a>
         </li>
         <li>
-          דואר אלקטרוני: <a className="underline" href="mailto:roni@orencohengroup.com">roni@orencohengroup.com</a>
+          דואר אלקטרוני: <a className="underline" href="mailto:ritmo.roni@gmail.com">ritmo.roni@gmail.com</a>
         </li>
       </ul>
       <p>כדי שנוכל לטפל בפנייה, נשמח אם תציינו את הבעיה, את העמוד שבו נתקלתם בה ואת הדפדפן או המכשיר שבו השתמשתם.</p>

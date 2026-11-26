@@ -65,7 +65,7 @@ function PageContent() {
       {/* Floating contact buttons: email, phone, WhatsApp */}
       <div className="fixed bottom-20 left-4 z-40 flex flex-col items-center gap-3 lg:bottom-8 lg:left-8">
         <a
-          href="mailto:roni@orencohengroup.com"
+          href="mailto:ritmo.roni@gmail.com"
           className="flex h-12 w-12 items-center justify-center rounded-full shadow-xl transition-transform duration-300 hover:scale-110"
           style={{ backgroundColor: "#F5F0E8", color: "#1B4D3E", border: "2px solid #1B4D3E", boxShadow: "0 6px 24px rgba(27,77,62,0.3)" }}
           aria-label={lang === "he" ? "שליחת מייל לרוני" : "Email Roni"}

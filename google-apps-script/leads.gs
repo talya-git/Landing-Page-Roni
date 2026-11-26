@@ -12,7 +12,7 @@
  */
 
 // לאן לשלוח התראה על כל פנייה חדשה (אפשר כמה כתובות, מופרדות בפסיק)
-const NOTIFY_EMAIL = "roni@orencohengroup.com"
+const NOTIFY_EMAIL = "ritmo.roni@gmail.com"
 const SHEET_NAME = "פניות מהאתר"
 // The Google Sheet the inquiries go to (the ID from its address)
 const SPREADSHEET_ID = "1Jycauu2DwG8GfpW5DDUzjJZq7WDhpNS-fYyzxS7_O_g"
