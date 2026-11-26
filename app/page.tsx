@@ -15,6 +15,8 @@ import { Contact } from "@/components/contact"
 import { SiteFooter } from "@/components/site-footer"
 import { ChatBot } from "@/components/chat-bot"
 import { LangProvider, useLang } from "@/lib/lang-context"
+import { openChatBot } from "@/lib/chat-bot-events"
+import { MessageCircle } from "lucide-react"
 import { LangWrapper } from "@/components/lang-wrapper"
 
 function PageContent() {
@@ -41,10 +43,12 @@ function PageContent() {
       {/* Mobile sticky CTA */}
       <a
         href="#contact"
-        className="fixed inset-x-4 bottom-4 z-40 flex items-center justify-center rounded-full py-3.5 text-sm font-semibold shadow-2xl lg:hidden"
+        onClick={openChatBot}
+        className="fixed inset-x-4 bottom-4 z-40 flex items-center justify-center gap-2 rounded-full py-3.5 text-sm font-semibold shadow-2xl lg:hidden"
         style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 8px 32px rgba(212,82,26,0.45)" }}
       >
-        {lang === "he" ? "לתיאום שיחה" : "Book a Call"}
+        <MessageCircle className="h-4 w-4" />
+        {lang === "he" ? "לפנייה בצ'אט" : "Chat with me"}
       </a>
 
       {/* WhatsApp floating button */}

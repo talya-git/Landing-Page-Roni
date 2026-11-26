@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { MessageCircle, X, Send } from "lucide-react"
 import { useLang } from "@/lib/lang-context"
+import { OPEN_CHATBOT_EVENT } from "@/lib/chat-bot-events"
 
 const WA_NUMBER = "972507770071"
 
@@ -13,6 +14,7 @@ type Step = "topic" | "date" | "details" | "name" | "done"
 
 const copy: Record<Lang, {
   open: string
+  teaser: string
   title: string
   subtitle: string
   hello: string
@@ -34,7 +36,8 @@ const copy: Record<Lang, {
   none: string
 }> = {
   he: {
-    open: "יש לך שאלה? כתבו לי",
+    open: "לפנייה בצ'אט",
+    teaser: "היי 👋 מתכננים כנס, הרצאה או אירוע? כתבו לי כאן ואעזור לכם להתחיל.",
     title: "רוני לוגסי כהן",
     subtitle: "בדרך כלל עונה תוך כמה שעות",
     hello: "היי, כאן העוזרת הדיגיטלית של רוני 👋",
@@ -63,7 +66,8 @@ const copy: Record<Lang, {
     none: "עוד לא נקבע",
   },
   en: {
-    open: "Questions? Message me",
+    open: "Chat with me",
+    teaser: "Hi 👋 Planning a conference, talk or event? Message me here and I'll help you get started.",
     title: "Roni Lugasi Cohen",
     subtitle: "Usually replies within a few hours",
     hello: "Hi, I'm Roni's digital assistant 👋",
@@ -97,7 +101,9 @@ export function ChatBot() {
   const { lang } = useLang()
   const c = copy[lang]
 
-  const [open, setOpen] = useState(false)
+  const [open, setOpenState] = useState(false)
+  const [teaser, setTeaser] = useState(false)
+  const [seen, setSeen] = useState(false) // opened or dismissed at least once
   const [msgs, setMsgs] = useState<Msg[]>([])
   const [step, setStep] = useState<Step>("topic")
   const [typing, setTyping] = useState(false)
@@ -112,6 +118,30 @@ export function ChatBot() {
     setData({ topic: "", date: "", details: "", name: "" })
     setInput("")
   }
+
+  const setOpen = (v: boolean | ((o: boolean) => boolean)) => {
+    setOpenState(v)
+    setTeaser(false)
+    setSeen(true)
+    try { sessionStorage.setItem("chatbot-seen", "1") } catch {}
+  }
+
+  // Any "contact" button on the page opens the bot
+  useEffect(() => {
+    const handler = () => setOpen(true)
+    window.addEventListener(OPEN_CHATBOT_EVENT, handler)
+    return () => window.removeEventListener(OPEN_CHATBOT_EVENT, handler)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // Pop up a greeting a few seconds after the visitor arrives (once per visit)
+  useEffect(() => {
+    let already = false
+    try { already = sessionStorage.getItem("chatbot-seen") === "1" } catch {}
+    if (already) { setSeen(true); return }
+    const timer = setTimeout(() => setTeaser(true), 6000)
+    return () => clearTimeout(timer)
+  }, [])
 
   // Start (or restart) the conversation when opened or when the language changes
   useEffect(() => {
@@ -173,22 +203,53 @@ export function ChatBot() {
 
   return (
     <>
-      {/* Launcher */}
+      {/* Launcher (desktop; on mobile the bottom bar opens the bot) */}
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label={c.open}
-        className="fixed bottom-20 right-4 z-40 flex h-14 w-14 items-center justify-center rounded-full shadow-2xl transition-transform duration-300 hover:scale-110 lg:bottom-8 lg:right-8"
+        className="fixed bottom-8 right-8 z-40 hidden h-16 w-16 items-center justify-center rounded-full shadow-2xl transition-transform duration-300 hover:scale-110 lg:flex"
         style={{ backgroundColor: "#1B4D3E", color: "#F5F0E8", boxShadow: "0 8px 32px rgba(27,77,62,0.45)", border: "2px solid #D4521A" }}
       >
-        {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
+        {!open && !seen && (
+          <span className="absolute inset-0 animate-ping rounded-full" style={{ backgroundColor: "rgba(212,82,26,0.35)" }} />
+        )}
+        {open ? <X className="relative h-6 w-6" /> : <MessageCircle className="relative h-7 w-7" />}
+        {!open && !seen && (
+          <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-bold text-white" style={{ backgroundColor: "#D4521A" }}>1</span>
+        )}
       </button>
 
-      {!open && (
+      {/* Greeting popup */}
+      {teaser && !open && (
         <div
-          className="fixed bottom-[8.6rem] right-4 z-40 hidden rounded-full px-4 py-2 text-xs font-medium shadow-lg sm:block lg:bottom-[5.6rem] lg:right-8"
-          style={{ backgroundColor: "#F5F0E8", color: "#1B4D3E", border: "1px solid #DDD8CE", animation: "fade-up 0.6s ease 1.5s both" }}
+          dir={lang === "he" ? "rtl" : "ltr"}
+          className="fixed bottom-20 right-4 z-40 w-[min(19rem,calc(100vw-6.5rem))] lg:bottom-28 lg:right-8 lg:w-72"
+          style={{ animation: "fade-up 0.5s ease both" }}
         >
-          {c.open}
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => setOpen(true)}
+            onKeyDown={(e) => { if (e.key === "Enter") setOpen(true) }}
+            className="relative cursor-pointer rounded-2xl p-4 shadow-2xl transition-transform hover:-translate-y-0.5"
+            style={{ backgroundColor: "#FFFFFF", border: "1px solid #E8E2D6", boxShadow: "0 16px 48px rgba(27,77,62,0.28)" }}
+          >
+            <button
+              onClick={(e) => { e.stopPropagation(); setTeaser(false); setSeen(true); try { sessionStorage.setItem("chatbot-seen", "1") } catch {} }}
+              aria-label="close"
+              className="absolute top-2 end-2 rounded-full p-1 opacity-50 hover:opacity-100"
+              style={{ color: "#2A2620" }}
+            >
+              <X className="h-3.5 w-3.5" />
+            </button>
+            <div className="flex items-start gap-3">
+              <img src="/media/roni-about.jpg" alt="" className="h-10 w-10 shrink-0 rounded-full object-cover" style={{ border: "2px solid #D4521A" }} />
+              <div className="pe-4">
+                <p className="text-xs font-semibold" style={{ color: "#1B4D3E" }}>{c.title}</p>
+                <p className="mt-1 text-sm leading-snug" style={{ color: "#2A2620" }}>{c.teaser}</p>
+              </div>
+            </div>
+          </div>
         </div>
       )}
 
@@ -196,7 +257,7 @@ export function ChatBot() {
       {open && (
         <div
           dir={lang === "he" ? "rtl" : "ltr"}
-          className="fixed inset-x-3 bottom-36 z-50 flex max-h-[70vh] flex-col overflow-hidden rounded-2xl shadow-2xl sm:inset-x-auto sm:right-4 sm:w-[380px] lg:bottom-28 lg:right-8"
+          className="fixed inset-x-3 bottom-20 z-50 flex max-h-[75vh] flex-col overflow-hidden rounded-2xl shadow-2xl sm:inset-x-auto sm:right-4 sm:w-[380px] lg:bottom-28 lg:right-8"
           style={{ backgroundColor: "#F5F0E8", border: "1px solid #DDD8CE", boxShadow: "0 24px 80px rgba(27,77,62,0.3)", animation: "fade-up 0.35s ease both" }}
         >
           {/* Header */}

@@ -2,6 +2,7 @@
 
 import { Reveal } from "@/components/reveal"
 import { useLang } from "@/lib/lang-context"
+import { openChatBot } from "@/lib/chat-bot-events"
 
 const data = {
   he: {
@@ -66,7 +67,7 @@ export function About() {
               <p>{d.p2}</p>
               <p>{d.p3}</p>
             </div>
-            <a href="#contact" className="mt-8 inline-flex items-center gap-3 text-sm font-semibold transition-all duration-300 hover:gap-5" style={{ color: "#D4521A" }}>
+            <a href="#contact" onClick={openChatBot} className="mt-8 inline-flex items-center gap-3 text-sm font-semibold transition-all duration-300 hover:gap-5" style={{ color: "#D4521A" }}>
               {d.cta}
               <span className="flex h-8 w-8 md:h-9 md:w-9 items-center justify-center rounded-full text-white text-base" style={{ backgroundColor: "#D4521A" }}>←</span>
             </a>

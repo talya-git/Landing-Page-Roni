@@ -1,7 +1,8 @@
 "use client"
 
 import { Reveal } from "@/components/reveal"
-import { Phone, Mail } from "lucide-react"
+import { Phone, Mail, MessageCircle } from "lucide-react"
+import { openChatBot } from "@/lib/chat-bot-events"
 import { useLang } from "@/lib/lang-context"
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -19,6 +20,9 @@ const data = {
     p1: "אם אתם מחפשים מנחה לכנס, מראיינת לפודקאסט, מנחת פאנל, יוצרת תוכן או שותפה לפרויקט משמעותי, אשמח להכיר.",
     p2: "בואו ניצור יחד את הרגע הבא שלכם.",
     waLabel: "שליחת הודעה בוואטסאפ",
+    chat: "התחילו שיחה איתי כאן",
+    chatSub: "כמה שאלות קצרות ואחזור אליכם בהקדם",
+    orLabel: "או בדרכים הרגילות",
   },
   en: {
     tag: "Let's Create Together",
@@ -26,6 +30,9 @@ const data = {
     p1: "Looking for a conference moderator, a podcast interviewer, a panel host or a partner for your next project? I'd be happy to hear from you.",
     p2: "Send me a message and we'll take it from there.",
     waLabel: "Message on WhatsApp",
+    chat: "Start a chat with me",
+    chatSub: "A few quick questions and I'll get back to you soon",
+    orLabel: "Or reach me directly",
   },
 }
 
@@ -49,6 +56,22 @@ export function Contact() {
             <p className="mt-4 text-sm md:text-base leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(245,240,232,0.6)" }}>{d.p1}</p>
             <p className="mt-2 text-sm md:text-base leading-relaxed max-w-xl mx-auto font-medium" style={{ color: "rgba(245,240,232,0.85)" }}>{d.p2}</p>
           </Reveal>
+
+          <Reveal delay={100}>
+            <div className="flex flex-col items-center gap-2">
+              <button
+                onClick={() => openChatBot()}
+                className="inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-transform duration-300 hover:scale-105 md:text-lg"
+                style={{ backgroundColor: "#D4521A", color: "#FFFFFF", boxShadow: "0 8px 32px rgba(212,82,26,0.4)" }}
+              >
+                <MessageCircle className="h-5 w-5" />
+                {d.chat}
+              </button>
+              <p className="text-xs md:text-sm" style={{ color: "rgba(245,240,232,0.6)" }}>{d.chatSub}</p>
+            </div>
+          </Reveal>
+
+          <p className="-mb-4 text-center text-xs tracking-[0.2em]" style={{ color: "rgba(245,240,232,0.45)" }}>{d.orLabel}</p>
 
           <Reveal delay={150}>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4 max-w-5xl mx-auto w-full">
